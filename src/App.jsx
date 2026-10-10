@@ -18,55 +18,44 @@ import './index.css';
 export default function App() {
   const [currentPage, setCurrentPage] = useState('home');
 
+  const renderPage = () => {
+    switch (currentPage) {
+      case 'home':
+        return <Page1_Home setPage={setCurrentPage} />;
+      case 'login':
+        return <Page2_LoginPortal setPage={setCurrentPage} />;
+      case 'support':
+        return <Page3_SupportQueue setPage={setCurrentPage} />;
+      case 'bank':
+      case 'ledger':
+        return <Page4_BankLedger setPage={setCurrentPage} />;
+      case 'project':
+      case 'projects':
+        return <Page5_ProjectBoard setPage={setCurrentPage} />;
+      case 'warehouse':
+        return <Page6_WarehouseStock setPage={setCurrentPage} />;
+      case 'invoice':
+      case 'billing':
+        return <Page7_InvoiceBilling setPage={setCurrentPage} />;
+      case 'terminal':
+        return <Page8_SystemTerminal setPage={setCurrentPage} />;
+      case 'product':
+      case 'catalog':
+        return <Page9_ProductGrid setPage={setCurrentPage} />;
+      case 'staff':
+        return <Page10_StaffDirectory setPage={setCurrentPage} />;
+      case 'pricing':
+        return <Page11_PricingMatrix setPage={setCurrentPage} />;
+      case 'checkout':
+        return <Page12_Checkout setPage={setCurrentPage} />;
+      default:
+        return <Page1_Home setPage={setCurrentPage} />;
+    }
+  };
+
   return (
     <div className="app-main-container">
-      {currentPage === 'home' && (
-        <Page1_Home setPage={setCurrentPage} />
-      )}
-
-      {currentPage === 'login' && (
-        <Page2_LoginPortal setPage={setCurrentPage} />
-      )}
-
-      {currentPage === 'support' && (
-        <Page3_SupportQueue setPage={setCurrentPage} />
-      )}
-
-      {currentPage === 'bank' && (
-        <Page4_BankLedger setPage={setCurrentPage} />
-      )}
-
-      {currentPage === 'project' && (
-        <Page5_ProjectBoard setPage={setCurrentPage} />
-      )}
-
-      {currentPage === 'warehouse' && (
-        <Page6_WarehouseStock setPage={setCurrentPage} />
-      )}
-
-      {currentPage === 'invoice' && (
-        <Page7_InvoiceBilling setPage={setCurrentPage} />
-      )}
-
-      {currentPage === 'terminal' && (
-        <Page8_SystemTerminal setPage={setCurrentPage} />
-      )}
-
-      {currentPage === 'product' && (
-        <Page9_ProductGrid setPage={setCurrentPage} />
-      )}
-
-      {currentPage === 'staff' && (
-        <Page10_StaffDirectory setPage={setCurrentPage} />
-      )}
-
-      {currentPage === 'pricing' && (
-        <Page11_PricingMatrix setPage={setCurrentPage} />
-      )}
-
-      {currentPage === 'checkout' && (
-        <Page12_Checkout setPage={setCurrentPage} />
-      )}
+      {renderPage()}
     </div>
   );
 }
