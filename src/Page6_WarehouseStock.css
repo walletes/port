@@ -7,6 +7,7 @@
   font-family: monospace, system-ui;
   min-height: 100vh;
   padding: 25px;
+  box-sizing: border-box;
 }
 
 .stock-header {
@@ -24,6 +25,10 @@
   color: #E0E0E0;
   padding: 6px 12px;
   cursor: pointer;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.15s ease;
 }
 
 .exit-terminal-btn:hover {
@@ -60,6 +65,8 @@
   border: 1px solid #404040;
   color: #E0E0E0;
   font-size: 0.95rem;
+  box-sizing: border-box;
+  font-family: inherit;
 }
 
 .stock-search-input:focus {
@@ -83,6 +90,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  box-sizing: border-box;
 }
 
 /* Bright Yellow Highlight Rule for Warnings */
@@ -99,6 +107,11 @@
 
 .sku-tag {
   color: #FFD166;
+  font-weight: 700;
+}
+
+.bay-location strong {
+  color: #E0E0E0;
 }
 
 .item-label-text {
@@ -106,6 +119,7 @@
   font-weight: 700;
   letter-spacing: -0.5px;
   color: #E0E0E0;
+  margin: 0;
 }
 
 .stock-counter-row {
@@ -149,12 +163,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.15s ease;
 }
 
-.qty-adjust-btn:hover {
+.qty-adjust-btn:hover:not(:disabled) {
   background-color: #FFD166;
   color: #1A1A1A;
   border-color: #FFD166;
+}
+
+.qty-adjust-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
 }
 
 .low-stock-notice {
@@ -162,4 +182,12 @@
   color: #FFD166;
   border-top: 1px dashed #404040;
   padding-top: 8px;
+  margin: 0;
+}
+
+.empty-stock-message {
+  text-align: center;
+  opacity: 0.6;
+  margin-top: 20px;
+  font-size: 0.9rem;
 }
