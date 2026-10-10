@@ -424,3 +424,20 @@ input:disabled {
   .form-select:focus {
   border-color: #8C3A23;
   }
+/* Dynamic Conditional Inputs Styling */
+.dynamic-field-group {
+display: flex;
+flex-direction: column;
+gap: 16px;
+background-color: #F8F1EE;
+padding: 14px;
+border-radius: 8px;
+border: 1px dashed #8C3A23;
+}
+
+.dynamic-field-box {
+background-color: #F8F1EE;
+padding: 12px;
+border-radius: 8px;
+border: 1px dashed #8C3A23;
+}

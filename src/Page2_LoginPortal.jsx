@@ -25,6 +25,13 @@ export default function Page2_LoginPortal({ setPage }) {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [acceptedTerms, setAcceptedTerms] = useState(false);
 
+  // Conditional Registration Fields State
+  const [bio, setBio] = useState('');
+  const [githubUrl, setGithubUrl] = useState('');
+  const [techStack, setTechStack] = useState('');
+  const [companyName, setCompanyName] = useState('');
+  const [teamSize, setTeamSize] = useState('1-10 Employees');
+
   // Dynamic Password Strength Calculator
   const getPasswordStrength = (pass) => {
     if (!pass) return { label: 'Empty', color: '#CBD5E1', width: '0%' };
@@ -58,6 +65,10 @@ export default function Page2_LoginPortal({ setPage }) {
     if (authMode === 'register') {
       if (!fullName.trim() || !username.trim()) {
         setErrorMsg('Please complete your Full Name and Username.');
+        return;
+      }
+      if (accountType === 'Enterprise' && !companyName.trim()) {
+        setErrorMsg('Please enter your Company Name.');
         return;
       }
       if (password !== confirmPassword) {
@@ -150,13 +161,17 @@ export default function Page2_LoginPortal({ setPage }) {
               <p>
                 {authMode === 'login' 
                   ? `Successfully signed in as ${email}.`
-                  : `Your account for ${fullName} (${username}) is now active.`}
+                  : `Your ${accountType} account for ${fullName} (${username}) is now active.`}
               </p>
               
               <div className="workspace-session-summary">
                 <div className="session-detail-row">
                   <span>Session Status:</span>
                   <span className="badge-highlight">Active & Verified</span>
+                </div>
+                <div className="session-detail-row">
+                  <span>Account Tier:</span>
+                  <span className="badge-highlight">{accountType} Profile</span>
                 </div>
               </div>
 
@@ -170,6 +185,10 @@ export default function Page2_LoginPortal({ setPage }) {
                   setFullName(''); 
                   setUsername('');
                   setPhoneNumber('');
+                  setBio('');
+                  setGithubUrl('');
+                  setTechStack('');
+                  setCompanyName('');
                 }}
               >
                 Sign Out
@@ -216,6 +235,74 @@ export default function Page2_LoginPortal({ setPage }) {
                       <option value="Enterprise">Enterprise Team</option>
                     </select>
                   </div>
+
+                  {/* Dynamic Conditional Fields based on Account Category Choice */}
+                  {accountType === 'Personal' && (
+                    <div className="form-group dynamic-field-box">
+                      <label>Profile Bio / Note</label>
+                      <input
+                        type="text"
+                        value={bio}
+                        onChange={(e) => setBio(e.target.value)}
+                        placeholder="Frontend engineer building web apps"
+                        disabled={isLoading}
+                      />
+                    </div>
+                  )}
+
+                  {accountType === 'Developer' && (
+                    <div className="dynamic-field-group">
+                      <div className="form-group">
+                        <label>GitHub or Portfolio URL</label>
+                        <input
+                          type="url"
+                          value={githubUrl}
+                          onChange={(e) => setGithubUrl(e.target.value)}
+                          placeholder="https://github.com/username"
+                          disabled={isLoading}
+                        />
+                      </div>
+                      <div className="form-group">
+                        <label>Primary Tech Stack</label>
+                        <input
+                          type="text"
+                          value={techStack}
+                          onChange={(e) => setTechStack(e.target.value)}
+                          placeholder="React, TypeScript, Node.js"
+                          disabled={isLoading}
+                        />
+                      </div>
+                    </div>
+                  )}
+
+                  {accountType === 'Enterprise' && (
+                    <div className="dynamic-field-group">
+                      <div className="form-group">
+                        <label>Company / Organization Name</label>
+                        <input
+                          type="text"
+                          value={companyName}
+                          onChange={(e) => setCompanyName(e.target.value)}
+                          placeholder="Acme Systems Ltd"
+                          required
+                          disabled={isLoading}
+                        />
+                      </div>
+                      <div className="form-group">
+                        <label>Expected Team Size</label>
+                        <select
+                          value={teamSize}
+                          onChange={(e) => setTeamSize(e.target.value)}
+                          disabled={isLoading}
+                          className="form-select"
+                        >
+                          <option value="1-10 Employees">1-10 Employees</option>
+                          <option value="11-50 Employees">11-50 Employees</option>
+                          <option value="50+ Employees">50+ Employees</option>
+                        </select>
+                      </div>
+                    </div>
+                  )}
 
                   <div className="form-group">
                     <label>Phone Number (Optional)</label>
@@ -294,7 +381,20 @@ export default function Page2_LoginPortal({ setPage }) {
                     required
                     disabled={isLoading}
                   />
-                </div>
+                {confirmPassword && (
+                  <small
+                  className="field-tip"
+                  style={{
+                  color: confirmPassword === password ? '#16A34A' : '#EF4444',
+                  fontWeight: '700',
+                  marginTop: '4px',
+                  display: 'block'
+                  }}
+                  >
+                  {confirmPassword === password ? '✓ Passwords match' : '✕ Passwords do not match'}
+                  </small>
+                  )}
+                  </div>
               )}
 
               <div className="form-options-row">
@@ -348,9 +448,9 @@ export default function Page2_LoginPortal({ setPage }) {
         <div className="telemetry-sidebar-card green-card">
           <h3>User Experience & Security Highlights</h3>
           <ul className="spec-list">
+            <li><strong>Conditional Forms:</strong> Registration fields dynamically adapt to user-selected profile types.</li>
             <li><strong>Seamless Navigation:</strong> Instant switching between Sign In and Registration workflows.</li>
             <li><strong>Password Protection:</strong> Real-time meter assessing password strength dynamically.</li>
-            <li><strong>Smooth Validation:</strong> Immediate feedback on input errors before submission.</li>
             <li><strong>Security Protection:</strong> Safeguards protect against automated sign-in abuse.</li>
           </ul>
           <div className="compliance-stamp">
