@@ -81,7 +81,7 @@ export default function Page1_Home({ setPage }) {
 
         <div className="home-intro-box">
           <p className="home-paragraph">
-            I am a self-taught developer who focuses on building clean, fast, and functional software layout systems. Instead of just showing a static resume, I built this portfolio as a live ecosystem containing{' '}
+            A developer who focuses on building clean, fast, and functional software layout systems. Instead of just showing a static resume, I built this portfolio as a live ecosystem containing{' '}
             <em>11 distinct, real-world business applications</em> that I designed from scratch.
           </p>
 
