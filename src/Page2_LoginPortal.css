@@ -408,3 +408,19 @@ input:disabled {
   display: block;
   margin-top: 4px;
 }
+.form-select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #CBD5E1;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #1E293B;
+  background-color: #FFFFFF;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  }
+
+  .form-select:focus {
+  border-color: #8C3A23;
+  }

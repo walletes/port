@@ -19,17 +19,28 @@ export default function Page2_LoginPortal({ setPage }) {
 
   // Register Specific State
   const [fullName, setFullName] = useState('');
+  const [username, setUsername] = useState('');
+  const [accountType, setAccountType] = useState('Personal');
+  const [phoneNumber, setPhoneNumber] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [acceptedTerms, setAcceptedTerms] = useState(false);
 
-  // Password Strength Calculator
+  // Dynamic Password Strength Calculator
   const getPasswordStrength = (pass) => {
-    if (!pass) return { label: '', color: '#CBD5E1', width: '0%' };
-    if (pass.length < 6) return { label: 'Too short', color: '#EF4444', width: '33%' };
-    if (pass.length >= 6 && /[A-Z]/.test(pass) && /[0-9]/.test(pass)) {
+    if (!pass) return { label: 'Empty', color: '#CBD5E1', width: '0%' };
+    if (pass.length < 6) return { label: 'Weak', color: '#EF4444', width: '33%' };
+    
+    const hasLetters = /[a-zA-Z]/.test(pass);
+    const hasNumbers = /[0-9]/.test(pass);
+    const hasSpecial = /[^a-zA-Z0-9]/.test(pass);
+
+    if (hasLetters && hasNumbers && hasSpecial && pass.length >= 8) {
       return { label: 'Strong', color: '#16A34A', width: '100%' };
     }
-    return { label: 'Medium', color: '#F59E0B', width: '66%' };
+    if ((hasLetters && hasNumbers) || (hasNumbers && hasSpecial) || (hasLetters && hasSpecial)) {
+      return { label: 'Medium', color: '#F59E0B', width: '66%' };
+    }
+    return { label: 'Weak', color: '#EF4444', width: '33%' };
   };
 
   const passwordStrength = getPasswordStrength(password);
@@ -45,8 +56,8 @@ export default function Page2_LoginPortal({ setPage }) {
     if (isLockedOut) return;
 
     if (authMode === 'register') {
-      if (!fullName.trim()) {
-        setErrorMsg('Please enter your full name.');
+      if (!fullName.trim() || !username.trim()) {
+        setErrorMsg('Please complete your Full Name and Username.');
         return;
       }
       if (password !== confirmPassword) {
@@ -139,7 +150,7 @@ export default function Page2_LoginPortal({ setPage }) {
               <p>
                 {authMode === 'login' 
                   ? `Successfully signed in as ${email}.`
-                  : `Your account for ${fullName} (${email}) is now active.`}
+                  : `Your account for ${fullName} (${username}) is now active.`}
               </p>
               
               <div className="workspace-session-summary">
@@ -151,7 +162,15 @@ export default function Page2_LoginPortal({ setPage }) {
 
               <button 
                 className="submit-btn reset-btn" 
-                onClick={() => { setSuccess(false); setEmail(''); setPassword(''); setConfirmPassword(''); setFullName(''); }}
+                onClick={() => { 
+                  setSuccess(false); 
+                  setEmail(''); 
+                  setPassword('12345.0900'); 
+                  setConfirmPassword(''); 
+                  setFullName(''); 
+                  setUsername('');
+                  setPhoneNumber('');
+                }}
               >
                 Sign Out
               </button>
@@ -159,17 +178,56 @@ export default function Page2_LoginPortal({ setPage }) {
           ) : (
             <form onSubmit={handleSubmit} className="login-form">
               {authMode === 'register' && (
-                <div className="form-group">
-                  <label>Full Name</label>
-                  <input
-                    type="text"
-                    value={fullName}
-                    onChange={(e) => setFullName(e.target.value)}
-                    placeholder="Prince Osinachi"
-                    required
-                    disabled={isLoading}
-                  />
-                </div>
+                <>
+                  <div className="form-group">
+                    <label>Full Name</label>
+                    <input
+                      type="text"
+                      value={fullName}
+                      onChange={(e) => setFullName(e.target.value)}
+                      placeholder="Prince Osinachi"
+                      required
+                      disabled={isLoading}
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label>Username / Handle</label>
+                    <input
+                      type="text"
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
+                      placeholder="@prince_dev"
+                      required
+                      disabled={isLoading}
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label>Account Category</label>
+                    <select
+                      value={accountType}
+                      onChange={(e) => setAccountType(e.target.value)}
+                      disabled={isLoading}
+                      className="form-select"
+                    >
+                      <option value="Personal">Personal Account</option>
+                      <option value="Developer">Developer / Engineering</option>
+                      <option value="Enterprise">Enterprise Team</option>
+                    </select>
+                  </div>
+
+                  <div className="form-group">
+                    <label>Phone Number (Optional)</label>
+                    <input
+                      type="tel"
+                      value={phoneNumber}
+                      onChange={(e) => setPhoneNumber(e.target.value)}
+                      placeholder="+234 800 000 0000"
+                      disabled={isLoading}
+                    />
+                  </div>
+                </>
               )}
 
               <div className="form-group">
@@ -212,9 +270,12 @@ export default function Page2_LoginPortal({ setPage }) {
                   </button>
                 </div>
                 
-                {authMode === 'register' && password && (
+                {password && (
                   <div className="password-meter-wrapper">
-                    <div className="password-meter-bar" style={{ width: passwordStrength.width, backgroundColor: passwordStrength.color }}></div>
+                    <div 
+                      className="password-meter-bar" 
+                      style={{ width: passwordStrength.width, backgroundColor: passwordStrength.color }}
+                    ></div>
                     <small className="meter-label" style={{ color: passwordStrength.color }}>
                       Strength: {passwordStrength.label}
                     </small>
@@ -288,7 +349,7 @@ export default function Page2_LoginPortal({ setPage }) {
           <h3>User Experience & Security Highlights</h3>
           <ul className="spec-list">
             <li><strong>Seamless Navigation:</strong> Instant switching between Sign In and Registration workflows.</li>
-            <li><strong>Password Protection:</strong> Real-time meter assessing password strength before registration.</li>
+            <li><strong>Password Protection:</strong> Real-time meter assessing password strength dynamically.</li>
             <li><strong>Smooth Validation:</strong> Immediate feedback on input errors before submission.</li>
             <li><strong>Security Protection:</strong> Safeguards protect against automated sign-in abuse.</li>
           </ul>
