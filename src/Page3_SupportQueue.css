@@ -1,0 +1,132 @@
+/* Strict 3-Colour Rule for Helpdesk Subsystem */
+/* 1. Background: Soft Gray (#F8FAFC) | 2. Text: Midnight Blue (#0F172A) | 3. Accent: Safety Orange (#EA580C) */
+
+.support-wrapper {
+  background-color: #F8FAFC;
+  color: #0F172A;
+  font-family: system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.support-header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+  border-bottom: 2px solid #0F172A;
+  padding-bottom: 16px;
+}
+
+.nav-exit-btn {
+  align-self: flex-start;
+  background: none;
+  border: 1px solid #0F172A;
+  color: #0F172A;
+  padding: 6px 12px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.support-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.support-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #EA580C;
+  letter-spacing: 1.5px;
+  margin-top: 4px;
+}
+
+/* Let the browser auto-calculate scaling card tracks natively */
+.support-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.ticket-card {
+  background-color: #FFFFFF;
+  border: 2px solid #0F172A;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* If closed, let the browser shift opacity natively */
+.ticket-card.closed {
+  opacity: 0.55;
+  border-style: dashed;
+}
+
+.ticket-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ticket-id {
+  font-family: monospace;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.priority-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border: 1px solid #0F172A;
+}
+
+.priority-tag.high {
+  background-color: #EA580C;
+  color: #FFFFFF;
+}
+
+.ticket-meta {
+  font-size: 0.85rem;
+  border-bottom: 1px solid #E2E8F0;
+  padding-bottom: 6px;
+}
+
+.ticket-body {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.ticket-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+  padding-top: 12px;
+  border-top: 1px dashed #E2E8F0;
+}
+
+.status-indicator {
+  font-size: 0.9rem;
+}
+
+.resolve-toggle-btn {
+  background-color: #FFFFFF;
+  border: 1px solid #0F172A;
+  color: #0F172A;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.resolve-toggle-btn:hover {
+  background-color: #EA580C;
+  color: #FFFFFF;
+  border-color: #EA580C;
+}

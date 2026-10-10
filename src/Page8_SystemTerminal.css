@@ -1,0 +1,119 @@
+/* Strict 3-Colour Rule for Infrastructure Terminal */
+/* 1. Background: Pitch Black (#000000) | 2. Text: Neon Green (#00FF00) | 3. Accent: Amber Yellow (#FFB703) */
+
+.terminal-wrapper {
+  background-color: #000000;
+  color: #00FF00;
+  font-family: 'Courier New', Courier, monospace;
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.terminal-control-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  border-bottom: 1px solid #00FF00;
+  padding-bottom: 15px;
+}
+
+.terminal-exit-btn {
+  background: none;
+  border: 1px solid #00FF00;
+  color: #00FF00;
+  padding: 6px 14px;
+  font-family: monospace;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.terminal-exit-btn:hover {
+  background-color: #00FF00;
+  color: #000000;
+}
+
+.filter-button-cluster {
+  display: flex;
+  gap: 10px;
+}
+
+.filter-button-cluster button {
+  background: none;
+  border: 1px solid #00FF00;
+  color: #00FF00;
+  padding: 4px 10px;
+  font-family: monospace;
+  cursor: pointer;
+}
+
+.filter-button-cluster button.active,
+.filter-button-cluster button:hover {
+  background-color: #00FF00;
+  color: #000000;
+}
+
+/* Browser-driven fixed scroll display container viewport window */
+.terminal-body-monitor {
+  flex: 1;
+  background-color: #000000;
+  border: 1px solid #333333;
+  padding: 15px;
+  overflow-y: auto;
+  max-height: calc(100vh - 120px);
+}
+
+.system-boot-banner {
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+}
+
+.log-row-item {
+  font-size: 0.85rem; /* Small high-density console line rendering scale */
+  line-height: 1.5;
+  margin-bottom: 8px;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.log-time {
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+
+.log-badge-status {
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.log-message-body {
+  word-break: break-all;
+}
+
+/* Color Override Matrix mapping to specific status inputs */
+.log-row-item.info {
+  color: #00FF00; /* Core Green text state */
+}
+
+.log-row-item.warn {
+  color: #FFB703; /* Warning Amber indicator */
+}
+
+.log-row-item.crit {
+  color: #00FF00;
+  border-left: 2px solid #FFB703;
+  padding-left: 4px;
+}
+
+/* Suppressed line handling configuration */
+.log-message-body del {
+  text-decoration: line-through;
+  opacity: 0.4;
+}

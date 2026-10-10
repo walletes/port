@@ -1,0 +1,82 @@
+# Dependencies
+node_modules/
+.pnp/
+.pnp.*
+bower_components/
+
+# Production builds
+dist/
+dist-ssr/
+build/
+out/
+.next/
+.nuxt/
+.output/
+coverage/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+!.env.sample
+*.local
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+*.log
+
+# Editor and IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*~
+.project
+.classpath
+.settings/
+
+# Operating system files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+Desktop.ini
+
+# Testing and coverage
+.nyc_output/
+playwright-report/
+test-results/
+vitest-report/
+
+# Cache and temporary files
+.cache/
+.parcel-cache/
+.turbo/
+.eslintcache
+.stylelintcache
+*.tmp
+*.temp
+tmp/
+temp/
+
+# TypeScript
+*.tsbuildinfo
+
+# Local deployment and hosting
+.vercel/
+.netlify/
+.firebase/
+
+# Generated assets
+*.min.js
+*.min.css
+
+# Package manager files
+# Keep package-lock.json, yarn.lock, and pnpm-lock.yaml tracked for reproducible installs.

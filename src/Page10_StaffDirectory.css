@@ -1,0 +1,207 @@
+/* Strict 3-Colour Rule for Corporate Subsystem */
+/* 1. Background: Steel Slate (#334155) | 2. Text: Pure White (#FFFFFF) | 3. Accent: Bright Teal (#2DD4BF) */
+
+.staff-wrapper {
+  background-color: #334155;
+  color: #FFFFFF;
+  font-family: system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  padding: 25px;
+}
+
+.staff-control-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 15px;
+  margin-bottom: 40px;
+}
+
+.staff-exit-btn {
+  background: none;
+  border: 1px solid #FFFFFF;
+  color: #FFFFFF;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.staff-exit-btn:hover {
+  background-color: #FFFFFF;
+  color: #334155;
+}
+
+.staff-badge {
+  font-size: 0.75rem;
+  color: #2DD4BF;
+  font-family: monospace;
+  letter-spacing: 1px;
+}
+
+.staff-controls {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.staff-title {
+  font-size: 2.2rem;
+  font-weight: 900;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+}
+
+.dept-filter-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.dept-filter-row button {
+  background: none;
+  border: 1px solid #FFFFFF;
+  color: #FFFFFF;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.dept-filter-row button.active-filter,
+.dept-filter-row button:hover {
+  background-color: #2DD4BF;
+  color: #334155;
+  border-color: #2DD4BF;
+}
+
+/* Browser-driven roster alignment scaling metrics */
+.staff-list-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+@media (min-width: 600px) {
+  .staff-list-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+}
+
+.staff-card {
+  background-color: #1E293B;
+  border: 2px solid #FFFFFF;
+  padding: 20px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.staff-card:hover {
+  border-color: #2DD4BF;
+}
+
+.staff-card.deprecated {
+  opacity: 0.4;
+  border-style: dotted;
+}
+
+.card-top-identity {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.staff-id-tag {
+  font-family: monospace;
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+/* Teal Highlight Accent Configuration */
+.dept-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #2DD4BF;
+  border: 1px solid #2DD4BF;
+  padding: 1px 6px;
+}
+
+.staff-name-heading {
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.staff-name-heading del {
+  text-decoration: line-through;
+}
+
+.staff-title-sub {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.staff-email-txt {
+  font-size: 0.8rem;
+  font-family: monospace;
+  opacity: 0.6;
+  margin-top: auto;
+}
+
+/* Modal Layout Rules managed by Browser Overlay Viewports */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-container {
+  background-color: #1E293B;
+  border: 2px solid #2DD4BF;
+  padding: 30px;
+  width: 100%;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modal-header-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 8px;
+}
+
+.modal-data-table {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 0.95rem;
+}
+
+.modal-teal-highlight {
+  color: #2DD4BF;
+  font-weight: 700;
+}
+
+.modal-close-btn {
+  background-color: #2DD4BF;
+  color: #334155;
+  border: none;
+  padding: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}

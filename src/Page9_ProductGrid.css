@@ -1,0 +1,173 @@
+/* Strict 3-Colour Rule for Retail Catalog Subsystem */
+/* 1. Background: Soft Cream (#FDFBF7) | 2. Text: Espresso Brown (#2B1E17) | 3. Accent: Coral Pink (#F26457) */
+
+.catalog-wrapper {
+  background-color: #FDFBF7;
+  color: #2B1E17;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  min-height: 100vh;
+  padding: 30px 20px;
+}
+
+.catalog-top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #2B1E17;
+  padding-bottom: 15px;
+  margin-bottom: 40px;
+}
+
+.catalog-exit-btn {
+  background: none;
+  border: 1px solid #2B1E17;
+  color: #2B1E17;
+  padding: 6px 14px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.cart-counter-pill {
+  font-size: 0.85rem;
+  border: 1px solid #2B1E17;
+  padding: 6px 14px;
+  background-color: #2B1E17;
+  color: #FDFBF7;
+}
+
+.catalog-controls {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.catalog-headline {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+}
+
+.filter-tab-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.filter-tab-row button {
+  background: none;
+  border: 1px solid #2B1E17;
+  color: #2B1E17;
+  padding: 6px 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.filter-tab-row button.active-tab,
+.filter-tab-row button:hover {
+  background-color: #2B1E17;
+  color: #FDFBF7;
+}
+
+/* Browser driven automatic catalog tile responsive wrapping layouts */
+.catalog-grid-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+@media (min-width: 600px) {
+  .catalog-grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
+.catalog-card {
+  background-color: #FDFBF7;
+  border: 1px solid #2B1E17;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-image-placeholder {
+  background-color: rgba(43, 30, 23, 0.04);
+  height: 200px;
+  padding: 15px;
+  display: flex;
+  align-items: flex-start;
+  border-bottom: 1px solid #2B1E17;
+}
+
+.category-meta-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border: 1px solid #2B1E17;
+  padding: 2px 6px;
+  background-color: #FDFBF7;
+}
+
+.card-details-box {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.goods-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.goods-sizes {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.price-action-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 15px;
+}
+
+.price-display-block {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.current-price {
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+/* Coral Pink Slashed Discount Price Tag Override */
+.slashed-price del {
+  font-size: 0.9rem;
+  color: #F26457;
+  text-decoration: line-through;
+}
+
+.add-to-bag-btn {
+  background: none;
+  border: 1px solid #2B1E17;
+  color: #2B1E17;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.add-to-bag-btn:hover {
+  background-color: #F26457;
+  color: #FDFBF7;
+  border-color: #F26457;
+}

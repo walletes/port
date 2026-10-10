@@ -1,0 +1,165 @@
+/* Strict 3-Colour Rule for Logistics Subsystem */
+/* 1. Background: Dark Charcoal (#1A1A1A) | 2. Text: Light Gray (#E0E0E0) | 3. Accent: Bright Yellow (#FFD166) */
+
+.stock-wrapper {
+  background-color: #1A1A1A;
+  color: #E0E0E0;
+  font-family: monospace, system-ui;
+  min-height: 100vh;
+  padding: 25px;
+}
+
+.stock-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dashed #333333;
+  padding-bottom: 15px;
+  margin-bottom: 35px;
+}
+
+.exit-terminal-btn {
+  background: none;
+  border: 1px solid #E0E0E0;
+  color: #E0E0E0;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.exit-terminal-btn:hover {
+  background-color: #FFD166;
+  color: #1A1A1A;
+  border-color: #FFD166;
+}
+
+.terminal-badge {
+  font-size: 0.75rem;
+  color: #FFD166;
+  letter-spacing: 1px;
+}
+
+.manifest-controls {
+  margin-bottom: 35px;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.stock-title {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #E0E0E0;
+  margin-bottom: 15px;
+}
+
+.stock-search-input {
+  width: 100%;
+  padding: 12px;
+  background-color: #262626;
+  border: 1px solid #404040;
+  color: #E0E0E0;
+  font-size: 0.95rem;
+}
+
+.stock-search-input:focus {
+  outline: none;
+  border-color: #FFD166;
+}
+
+.manifest-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.manifest-card {
+  background-color: #222222;
+  border: 1px solid #333333;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Bright Yellow Highlight Rule for Warnings */
+.manifest-card.low-stock-alert {
+  border-color: #FFD166;
+}
+
+.card-identity-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.sku-tag {
+  color: #FFD166;
+}
+
+.item-label-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #E0E0E0;
+}
+
+.stock-counter-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.counter-display {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.count-number {
+  font-size: 2.2rem; /* Large scale display factor */
+  font-weight: 800;
+  color: #E0E0E0;
+}
+
+.count-unit {
+  font-size: 0.85rem;
+  opacity: 0.6;
+}
+
+.counter-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.qty-adjust-btn {
+  background-color: #262626;
+  border: 1px solid #404040;
+  color: #E0E0E0;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qty-adjust-btn:hover {
+  background-color: #FFD166;
+  color: #1A1A1A;
+  border-color: #FFD166;
+}
+
+.low-stock-notice {
+  font-size: 0.8rem;
+  color: #FFD166;
+  border-top: 1px dashed #404040;
+  padding-top: 8px;
+}

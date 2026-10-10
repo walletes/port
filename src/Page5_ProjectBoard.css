@@ -1,0 +1,164 @@
+/* Strict 3-Colour Rule for Task Manager Subsystem */
+/* 1. Background: Off-White (#FAF9F6) | 2. Text: Matte Black (#111111) | 3. Accent: Crimson Red (#D90429) */
+
+.board-wrapper {
+  background-color: #FAF9F6;
+  color: #111111;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  min-height: 100vh;
+  padding: 25px;
+}
+
+.board-header {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 40px;
+  border-bottom: 3px solid #111111;
+  padding-bottom: 20px;
+}
+
+.workspace-exit-btn {
+  align-self: flex-start;
+  background: none;
+  border: 1px solid #111111;
+  color: #111111;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.board-title {
+  font-size: 2.4rem;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.board-indicator {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #D90429;
+  letter-spacing: 1.5px;
+  margin-top: 5px;
+}
+
+/* Browser-calculated dynamic horizontal columns flex matrix */
+.kanban-board-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* For wider displays, let the browser scale layout items side-by-side automatically */
+@media (min-width: 768px) {
+  .kanban-board-layout {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.kanban-column {
+  flex: 1;
+  width: 100%;
+  background-color: #F0EDE6;
+  border: 2px solid #111111;
+  padding: 20px;
+}
+
+.column-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #111111;
+  padding-bottom: 8px;
+}
+
+.card-count {
+  font-size: 0.9rem;
+  opacity: 0.6;
+}
+
+.column-card-track {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.task-card {
+  background-color: #FAF9F6;
+  border: 1px solid #111111;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.task-card.done {
+  opacity: 0.65;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-id {
+  font-family: monospace;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.due-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border: 1px solid #111111;
+}
+
+/* Crimson Red Alert Highlight Rule */
+.due-tag.urgent-alert {
+  background-color: #D90429;
+  color: #FAF9F6;
+  border-color: #D90429;
+}
+
+.task-title-text {
+  font-size: 1rem;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+/* Cross-over text decoration formatting */
+.completed-strike {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+  padding-top: 10px;
+  border-top: 1px dashed #111111;
+}
+
+.assignee-text {
+  font-size: 0.75rem;
+}
+
+.stage-cycle-btn {
+  background: none;
+  border: 1px solid #111111;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.stage-cycle-btn:hover {
+  background-color: #111111;
+  color: #FAF9F6;
+}

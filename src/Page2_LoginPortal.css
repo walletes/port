@@ -1,0 +1,128 @@
+/* Strict 3-Colour Rule for Entry Portal */
+/* 1. Background: Pure White (#FFFFFF) | 2. Text: Dark Slate (#1E293B) | 3. Accent: Emerald Green (#10B981) */
+
+.login-wrapper {
+  background-color: #FFFFFF;
+  color: #1E293B;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  min-height: 100vh;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.back-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: none;
+  border: 1px solid #1E293B;
+  color: #1E293B;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  border: 2px solid #1E293B;
+  padding: 30px;
+  background-color: #FFFFFF;
+}
+
+.login-title {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 4px;
+}
+
+.login-meta {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #10B981;
+  margin-bottom: 25px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.form-group input[type="email"],
+.input-row input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #1E293B;
+  font-size: 0.95rem;
+  color: #1E293B;
+  background-color: #FFFFFF;
+}
+
+.input-row {
+  display: flex;
+  gap: 10px;
+}
+
+.toggle-btn {
+  background: none;
+  border: 1px solid #1E293B;
+  padding: 0 12px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.field-tip {
+  font-size: 0.75rem;
+  color: #64748B;
+}
+
+.error-text {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #1E293B;
+}
+
+.striked-error {
+  text-decoration: line-through;
+  color: #64748B;
+}
+
+.submit-btn {
+  background-color: #10B981;
+  color: #FFFFFF;
+  border: none;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.alert {
+  padding: 20px;
+  border: 2px solid #10B981;
+}
+
+.alert h3 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}

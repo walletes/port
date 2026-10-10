@@ -1,0 +1,221 @@
+/* Strict 3-Colour Rule for Pricing Matrix Subsystem */
+/* 1. Background: Dark Charcoal (#111827) | 2. Text: Ice White (#F9FAFB) | 3. Accent: Neon Cyan (#06B6D4) */
+
+.pricing-wrapper {
+  background-color: #111827;
+  color: #F9FAFB;
+  font-family: system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  padding: 30px 20px;
+}
+
+.pricing-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #1F2937;
+  padding-bottom: 15px;
+  margin-bottom: 40px;
+}
+
+.pricing-exit-btn {
+  background: none;
+  border: 1px solid #F9FAFB;
+  color: #F9FAFB;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.pricing-exit-btn:hover {
+  background-color: #06B6D4;
+  color: #111827;
+  border-color: #06B6D4;
+}
+
+.pricing-system-tag {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: #06B6D4;
+  letter-spacing: 1px;
+}
+
+.pricing-control-center {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.pricing-main-title {
+  font-size: 2.2rem;
+  font-weight: 900;
+  letter-spacing: -1px;
+  margin-bottom: 10px;
+}
+
+.pricing-intro-note {
+  font-size: 1.05rem;
+  opacity: 0.7;
+  margin-bottom: 30px;
+}
+
+/* State Switcher Layout Blocks managed by Browser Flex */
+.toggle-container-block {
+  display: inline-flex;
+  border: 1px solid #374151;
+  background-color: #1F2937;
+  padding: 4px;
+}
+
+.toggle-option {
+  background: none;
+  border: none;
+  color: #F9FAFB;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.toggle-option em {
+  font-size: 0.75rem;
+  color: #06B6D4;
+}
+
+/* Neon Cyan Selection Highlights */
+.toggle-option.selected {
+  background-color: #06B6D4;
+  color: #111827;
+}
+
+.toggle-option.selected em {
+  color: #111827;
+}
+
+/* Matrix layout distribution engines */
+.pricing-matrix-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .pricing-matrix-layout {
+    flex-direction: row;
+    align-items: stretch;
+  }
+}
+
+.pricing-plan-card {
+  flex: 1;
+  background-color: #1F2937;
+  border: 1px solid #374151;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Premium Cyan Focus Override Rules */
+.pricing-plan-card.premium-focus {
+  border: 2px solid #06B6D4;
+}
+
+.plan-name-heading {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.plan-volume-limits {
+  font-size: 0.85rem;
+  opacity: 0.6;
+  margin-top: 4px;
+}
+
+.plan-cost-display {
+  display: flex;
+  align-items: baseline;
+}
+
+.currency-symbol {
+  font-size: 1.5rem;
+  font-weight: 600;
+  align-self: flex-start;
+  margin-top: 4px;
+}
+
+.price-num-label {
+  font-size: 3.5rem; /* Massive scale factor for prices */
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+.time-scale-label {
+  font-size: 0.9rem;
+  opacity: 0.6;
+  margin-left: 4px;
+}
+
+.checklist-header {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+  opacity: 0.8;
+}
+
+.feature-checklist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.feature-item {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  display: flex;
+  gap: 8px;
+}
+
+.check-bullet {
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.positive-check { color: #F9FAFB; }
+.negative-check { color: #4B5563; }
+.negative-check del { text-decoration: line-through; }
+
+.plan-action-trigger-btn {
+  margin-top: auto;
+  background-color: transparent;
+  border: 1px solid #F9FAFB;
+  color: #F9FAFB;
+  padding: 12px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.premium-focus .plan-action-trigger-btn {
+  background-color: #06B6D4;
+  color: #111827;
+  border-color: #06B6D4;
+}
+
+.plan-action-trigger-btn:hover {
+  background-color: #F9FAFB;
+  color: #111827;
+}
+
+.premium-focus .plan-action-trigger-btn:hover {
+  background-color: transparent;
+  color: #06B6D4;
+  border-color: #06B6D4;
+}
