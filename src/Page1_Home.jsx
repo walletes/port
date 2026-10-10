@@ -1,61 +1,90 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Page1_Home.css';
 
 export default function Page1_Home({ setPage }) {
+  // --- Typewriter Effect for Subtitle ---
+  const [typedText, setTypedText] = useState('');
+  const fullSubtitle = "FULL-STACK DEVELOPER • SYSTEMS & UI ENGINEER";
+
+  useEffect(() => {
+    let index = 0;
+    const timer = setInterval(() => {
+      setTypedText(fullSubtitle.slice(0, index + 1));
+      index++;
+      if (index === fullSubtitle.length) clearInterval(timer);
+    }, 40);
+    return () => clearInterval(timer);
+  }, []);
+
+  // --- Filtering & Search State ---
+  const [activeCategory, setActiveCategory] = useState('ALL');
+  const [searchQuery, setSearchQuery] = useState('');
+
+  // Explicit mapping of your 11 applications
   const applications = [
     {
       page: 'login',
       title: '👉 Global Entry Portal',
       skills: 'Proves: Form validation, error handling, session management.',
       className: 'double-width',
+      category: 'Security & Ops',
     },
     {
       page: 'support',
       title: '👉 Support Helpdesk',
       skills: 'Proves: Complex data lists, ticket priority filtering.',
+      category: 'Security & Ops',
     },
     {
       page: 'bank',
       title: '👉 Bank Ledger',
       skills: 'Proves: Financial tables, currency math.',
+      category: 'Fintech & Billing',
     },
     {
       page: 'project',
       title: '👉 Team Task Board',
       skills: 'Proves: Drag-and-drop mechanics, workflow sorting.',
       className: 'double-width',
+      category: 'Data & Systems',
     },
     {
       page: 'warehouse',
       title: '👉 Warehouse Manifest',
       skills: 'Proves: Inventory counters, list filters.',
+      category: 'Security & Ops',
     },
     {
       page: 'invoice',
       title: '👉 Invoice Generator',
       skills: 'Proves: Dynamic row expansion, math formula processing.',
+      category: 'Fintech & Billing',
     },
     {
       page: 'terminal',
       title: '👉 Live Server Log Monitor',
       skills: 'Proves: Stream rendering, auto-scrolling log arrays.',
       className: 'double-width',
+      category: 'Data & Systems',
     },
     {
       page: 'product',
       title: '👉 Product Grid Catalog',
       skills: 'Proves: Multi-select arrays, filter queries.',
+      category: 'Data & Systems',
     },
     {
       page: 'staff',
       title: '👉 Company Directory',
       skills: 'Proves: Search indices, profile modals.',
+      category: 'Security & Ops',
     },
     {
       page: 'pricing',
       title: '👉 Subscription Matrix',
       skills: 'Proves: High-performance tabular layouts, feature states.',
       className: 'double-width',
+      category: 'Fintech & Billing',
     },
     {
       page: 'checkout',
@@ -63,6 +92,7 @@ export default function Page1_Home({ setPage }) {
       skills: 'Proves: Async pipeline delays, card masking regex arrays, custom state loading UI.',
       className: 'full-span-highlight',
       accent: true,
+      category: 'Fintech & Billing',
     },
   ];
 
@@ -73,11 +103,23 @@ export default function Page1_Home({ setPage }) {
     }
   };
 
+  // Filter based on selected category tag and search term
+  const filteredApps = applications.filter((app) => {
+    const matchesCategory = activeCategory === 'ALL' || app.category === activeCategory;
+    const matchesSearch =
+      app.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      app.skills.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
+
   return (
     <div className="home-wrapper">
       <header className="hero-card">
         <h1 className="home-title">Prince Osinachi</h1>
-        <p className="home-subtitle">FULL-STACK DEVELOPER</p>
+        <p className="home-subtitle">
+          {typedText}
+          <span className="typewriter-cursor">|</span>
+        </p>
 
         <div className="home-intro-box">
           <p className="home-paragraph">
@@ -99,10 +141,38 @@ export default function Page1_Home({ setPage }) {
         </div>
       </header>
 
-      <h2 className="directory-header">System Directory Index</h2>
+      {/* Directory Filter & Search Control Bar */}
+      <div className="directory-controls">
+        <div className="directory-header-group">
+          <h2 className="directory-header">System Directory Index</h2>
+          <span className="app-count-badge">{filteredApps.length} / 11 Loaded</span>
+        </div>
+
+        <div className="filter-and-search-row">
+          <div className="category-tabs">
+            {['ALL', 'Fintech & Billing', 'Security & Ops', 'Data & Systems'].map((cat) => (
+              <button
+                key={cat}
+                className={`tab-btn ${activeCategory === cat ? 'active' : ''}`}
+                onClick={() => setActiveCategory(cat)}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+
+          <input
+            type="text"
+            className="search-input"
+            placeholder="Search systems or technical skills..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+        </div>
+      </div>
 
       <main className="bento-grid">
-        {applications.map((application) => (
+        {filteredApps.map((application) => (
           <div
             key={application.page}
             className={`bento-card ${application.className || ''}`.trim()}
@@ -111,11 +181,14 @@ export default function Page1_Home({ setPage }) {
             onClick={() => setPage(application.page)}
             onKeyDown={(event) => handleCardKeyDown(event, application.page)}
           >
-            <span
-              className={`item-link ${application.accent ? 'accent-purple-text' : ''}`.trim()}
-            >
-              {application.title}
-            </span>
+            <div className="card-header-row">
+              <span
+                className={`item-link ${application.accent ? 'accent-purple-text' : ''}`.trim()}
+              >
+                {application.title}
+              </span>
+              <span className="category-tag">{application.category}</span>
+            </div>
 
             <span className="item-skills">
               {application.skills}

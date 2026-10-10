@@ -12,11 +12,15 @@
 }
 
 .hero-card {
-  border: 1px solid #2a2a2a;
-  background-color: #161616;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #121212;
   padding: 30px;
-  margin-bottom: 40px;
-  border-radius: 8px;
+  margin-bottom: 32px;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
 .home-title {
@@ -27,48 +31,154 @@
   margin-bottom: 0;
   line-height: 1.1;
   overflow-wrap: break-word;
+  color: #121212;
 }
 
 .home-subtitle {
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 3px;
-  color: #0066FF;
-  margin-top: 5px;
+  color: #0044cc;
+  margin-top: 8px;
   margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  min-height: 1.2em;
+}
+
+/* Typewriter Cursor Effect */
+.typewriter-cursor {
+  display: inline-block;
+  margin-left: 4px;
+  color: #0044cc;
+  font-weight: 900;
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 .home-intro-box {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  border-top: 1px solid #2a2a2a;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
   padding-top: 20px;
 }
 
 .home-paragraph {
   font-size: 1.05rem;
   line-height: 1.6;
-  opacity: 0.9;
+  color: #1f1f1f;
   margin: 0;
 }
 
 .home-paragraph em {
   font-style: italic;
-  color: #0066FF;
+  color: #0044cc;
 }
 
 .crossed-out {
   text-decoration: line-through;
-  opacity: 0.4;
+  opacity: 0.6;
+  color: #555555;
+}
+
+/* Directory Controls Section Header & Controls Bar */
+.directory-controls {
+  margin-bottom: 24px;
+}
+
+.directory-header-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
 }
 
 .directory-header {
   font-size: 1.6rem;
   font-weight: 800;
-  margin-top: 0;
-  margin-bottom: 25px;
+  margin: 0;
   letter-spacing: -0.5px;
+}
+
+.app-count-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background-color: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  color: #0066FF;
+  padding: 4px 10px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+/* Filters & Search Input Layout Bar */
+.filter-and-search-row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .filter-and-search-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.category-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tab-btn {
+  background-color: #161616;
+  border: 1px solid #2a2a2a;
+  color: #a0a0a0;
+  padding: 8px 14px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+  color: #F5F5F5;
+  border-color: #444;
+}
+
+.tab-btn.active {
+  background-color: #0066FF;
+  color: #FFFFFF;
+  border-color: #0066FF;
+}
+
+.search-input {
+  background-color: #161616;
+  border: 1px solid #2a2a2a;
+  color: #F5F5F5;
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  outline: none;
+  min-width: 240px;
+  transition: border-color 0.2s ease;
+}
+
+.search-input::placeholder {
+  color: #666;
+}
+
+.search-input:focus {
+  border-color: #0066FF;
 }
 
 /* Browser-Calculated Bento Grid Container */
@@ -89,6 +199,11 @@
   .double-width {
     grid-column: span 2;
   }
+
+  .full-span-highlight {     
+    grid-column: span 3;     
+    border-style: dashed;   
+  }
 }
 
 .bento-card {
@@ -101,11 +216,32 @@
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   transition:
     border-color 0.2s ease,
     background-color 0.2s ease,
     transform 0.2s ease;
+}
+
+.card-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.category-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #888;
+  background-color: #1f1f1f;
+  padding: 3px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  border: 1px solid #2a2a2a;
+  text-transform: uppercase;
 }
 
 /* Highlight Accent on Hover */
@@ -113,6 +249,11 @@
   border-color: #0066FF;
   background-color: #1a1a1a;
   transform: translateY(-2px);
+}
+
+.bento-card:hover .category-tag {
+  border-color: #0066FF;
+  color: #0066FF;
 }
 
 /* Keyboard Accessibility */
@@ -126,9 +267,12 @@
   font-size: 1.25rem;
   font-weight: 700;
   color: #F5F5F5;
-  margin-bottom: 8px;
   letter-spacing: -0.5px;
   overflow-wrap: anywhere;
+}
+
+.accent-purple-text {   
+  color: #A855F7 !important; 
 }
 
 .bento-card:hover .item-link,
@@ -141,6 +285,7 @@
   font-size: 0.85rem;
   color: #a0a0a0;
   line-height: 1.4;
+  margin-top: auto;
 }
 
 /* Tablet and Mobile Adjustments */
@@ -151,7 +296,7 @@
 
   .hero-card {
     padding: 24px 20px;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
   }
 
   .home-title {
@@ -169,6 +314,10 @@
   .directory-header {
     font-size: 1.4rem;
   }
+
+  .search-input {
+    width: 100%;
+  }
 }
 
 /* Respect Reduced-Motion Preferences */
@@ -180,10 +329,8 @@
   .bento-card:hover {
     transform: none;
   }
+
+  .typewriter-cursor {
+    animation: none;
+  }
 }
-@media (min-width: 768px) {  
- .full-span-highlight {     
- grid-column: span 3;     
- border-style: dashed;   } } 
- .accent-purple-text {   
- color: #A855F7 !important; }
