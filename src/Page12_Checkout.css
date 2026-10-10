@@ -62,17 +62,52 @@
 
 .gateway-core-sheet {
   width: 100%;
-  max-width: 440px;
+  max-width: 480px;
   min-width: 0;
   background-color: #1E293B;
   border: 1px solid #334155;
   padding: 30px;
 }
 
+/* Payment Method Tabs */
+.payment-method-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #334155;
+  padding-bottom: 15px;
+}
+
+.method-tab-btn {
+  flex: 1;
+  background: none;
+  border: 1px solid #334155;
+  color: #FFFFFF;
+  padding: 8px 10px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.method-tab-btn.active,
+.method-tab-btn:hover {
+  background-color: #A855F7;
+  border-color: #A855F7;
+  color: #FFFFFF;
+}
+
+/* Order Summary Box & Itemization */
 .order-summary-box {
   border-bottom: 2px solid #334155;
   padding-bottom: 20px;
   margin-bottom: 25px;
+}
+
+.summary-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .summary-title {
@@ -82,12 +117,25 @@
   opacity: 0.6;
 }
 
+.toggle-itemization-btn {
+  background: none;
+  border: none;
+  color: #A855F7;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.toggle-itemization-btn:hover {
+  text-decoration: underline;
+}
+
 .summary-total {
   font-size: 2.2rem;
   font-weight: 900;
   letter-spacing: -1px;
   margin-top: 5px;
-  margin-bottom: 0;
+  margin-bottom: 10px;
   overflow-wrap: anywhere;
 }
 
@@ -98,6 +146,94 @@
   letter-spacing: normal;
 }
 
+.order-itemization-drawer {
+  background-color: #0F172A;
+  border: 1px solid #334155;
+  padding: 12px;
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.85rem;
+}
+
+.item-line {
+  display: flex;
+  justify-content: space-between;
+  opacity: 0.8;
+}
+
+.item-line.total-line {
+  border-top: 1px dashed #334155;
+  padding-top: 6px;
+  font-weight: 700;
+  opacity: 1;
+  color: #A855F7;
+}
+
+/* Virtual Card Preview */
+.virtual-card-preview {
+  background: linear-gradient(135deg, #334155 0%, #0F172A 100%);
+  border: 1px solid #A855F7;
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 5px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chip-icon {
+  width: 32px;
+  height: 24px;
+  background: linear-gradient(135deg, #A855F7 0%, #FFFFFF 100%);
+  border-radius: 4px;
+}
+
+.brand-logo {
+  font-family: monospace;
+  font-weight: 900;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  color: #A855F7;
+}
+
+.card-number-display {
+  font-family: monospace;
+  font-size: 1.25rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin: 6px 0;
+}
+
+.card-bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.label-tiny {
+  display: block;
+  font-size: 0.6rem;
+  opacity: 0.6;
+  letter-spacing: 0.5px;
+}
+
+.card-holder-block,
+.card-exp-block {
+  font-size: 0.85rem;
+  font-family: monospace;
+  font-weight: 600;
+}
+
+/* Gateway Forms & Inputs */
 .gateway-card-form {
   display: flex;
   flex-direction: column;
@@ -158,6 +294,7 @@
   font-weight: 700;
   line-height: 1.5;
   overflow-wrap: anywhere;
+  color: #A855F7;
 }
 
 .struck-error-txt {
@@ -165,6 +302,81 @@
   opacity: 0.5;
 }
 
+/* Crypto & Wire Boxes */
+.crypto-payment-box,
+.wire-payment-box {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.crypto-instruct,
+.wire-instruct {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.wallet-address-card {
+  background-color: #0F172A;
+  border: 1px solid #334155;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.wallet-address-card code {
+  font-family: monospace;
+  font-size: 0.8rem;
+  overflow-wrap: anywhere;
+  color: #A855F7;
+}
+
+.copy-addr-btn {
+  background: none;
+  border: 1px solid #334155;
+  color: #FFFFFF;
+  padding: 6px 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.copy-addr-btn:hover {
+  background-color: #A855F7;
+  border-color: #A855F7;
+}
+
+.network-pill-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.network-tag {
+  font-size: 0.7rem;
+  font-family: monospace;
+  background-color: rgba(168, 85, 247, 0.15);
+  color: #A855F7;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  padding: 2px 8px;
+}
+
+.wire-details-table {
+  background-color: #0F172A;
+  border: 1px solid #334155;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.85rem;
+}
+
+/* Submit Triggers */
 .gateway-submit-trigger {
   width: 100%;
   background-color: #A855F7;
@@ -198,14 +410,30 @@
   cursor: not-allowed;
 }
 
+/* Success Alert & Summary */
 .payment-alert {
   box-sizing: border-box;
   width: 100%;
-  max-width: 440px;
+  max-width: 480px;
   border: 2px solid #A855F7;
   padding: 30px;
   background-color: #1E293B;
   text-align: center;
+}
+
+.success-badge-icon {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(168, 85, 247, 0.2);
+  color: #A855F7;
+  border: 2px solid #A855F7;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin: 0 auto 16px auto;
 }
 
 .state-title {
@@ -223,6 +451,18 @@
   overflow-wrap: anywhere;
 }
 
+.success-summary-card {
+  background-color: #0F172A;
+  border: 1px solid #334155;
+  padding: 15px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.9rem;
+  margin-bottom: 25px;
+}
+
 .gateway-reset-btn {
   background: none;
   border: 1px solid #FFFFFF;
@@ -238,6 +478,38 @@
 .gateway-reset-btn:hover {
   background-color: #A855F7;
   border-color: #A855F7;
+}
+
+/* Custom Notification Toast */
+.custom-notification-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: #1E293B;
+  color: #FFFFFF;
+  border: 1px solid #A855F7;
+  padding: 12px 20px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  animation: slideInUp 0.25s ease-out;
+}
+
+.custom-notification-toast span {
+  color: #A855F7;
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 /* Tablet and Mobile Layout */
@@ -294,7 +566,8 @@
 @media (prefers-reduced-motion: reduce) {
   .gateway-exit-btn,
   .gateway-submit-trigger,
-  .gateway-reset-btn {
+  .gateway-reset-btn,
+  .method-tab-btn {
     transition: none;
   }
 }
