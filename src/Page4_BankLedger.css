@@ -7,6 +7,9 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   min-height: 100vh;
   padding: 30px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .ledger-header {
@@ -15,7 +18,7 @@
   align-items: center;
   border-bottom: 1px solid #1E293B;
   padding-bottom: 15px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .exit-system-btn {
@@ -26,6 +29,8 @@
   font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.15s ease;
 }
 
 .exit-system-btn:hover {
@@ -40,42 +45,256 @@
   letter-spacing: 1px;
 }
 
-/* Big Typography Area */
+/* Financial Summary Cards Grid */
 .balance-summary-section {
-  margin-bottom: 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.summary-card {
+  background-color: #112240;
+  border: 1px solid #1E293B;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.main-balance {
+  border-color: #10B981;
 }
 
 .summary-label {
-  font-size: 0.8rem;
-  letter-spacing: 2px;
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
   opacity: 0.7;
-  margin-bottom: 5px;
 }
 
 .balance-display {
-  font-size: 3.5rem; /* Massive visual layout scale */
+  font-size: 2.4rem;
   font-weight: 800;
   letter-spacing: -1px;
+  margin: 0;
+  color: #F4F6F9;
+}
+
+.flow-display {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.credit-text {
+  color: #10B981;
+}
+
+.debit-text {
+  color: #F4F6F9;
+}
+
+/* Actions Bar & Controls */
+.ledger-actions-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+  background-color: #112240;
+  border: 1px solid #1E293B;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .ledger-actions-bar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.ledger-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-grow: 1;
+}
+
+@media (min-width: 768px) {
+  .ledger-controls {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.search-input {
+  background-color: #0A192F;
+  border: 1px solid #1E293B;
+  border-radius: 6px;
+  padding: 10px 14px;
+  color: #F4F6F9;
+  font-size: 0.9rem;
+  outline: none;
+  min-width: 240px;
+}
+
+.search-input:focus {
+  border-color: #10B981;
+}
+
+.filter-tabs {
+  display: flex;
+  gap: 6px;
+}
+
+.tab-btn {
+  background-color: #0A192F;
+  border: 1px solid #1E293B;
+  color: #94A3B8;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.tab-btn.active {
+  background-color: #10B981;
+  color: #0A192F;
+  border-color: #10B981;
+  font-weight: 700;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.add-tx-btn {
+  background-color: #10B981;
+  border: 1px solid #10B981;
+  color: #0A192F;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.add-tx-btn:hover {
+  opacity: 0.9;
+}
+
+.export-btn {
+  background-color: transparent;
+  border: 1px solid #1E293B;
+  color: #F4F6F9;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+
+.export-btn:hover {
+  border-color: #10B981;
+}
+
+/* Add Transaction Form Drawer */
+.add-transaction-form {
+  background-color: #112240;
+  border: 1px solid #10B981;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.add-transaction-form h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #10B981;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.form-group input,
+.form-group select {
+  background-color: #0A192F;
+  border: 1px solid #1E293B;
+  border-radius: 6px;
+  padding: 10px;
+  color: #F4F6F9;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #10B981;
+}
+
+.submit-entry-btn {
+  background-color: #10B981;
+  border: none;
+  color: #0A192F;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+  align-self: flex-start;
+  font-size: 0.9rem;
+}
+
+/* Table Section */
+.ledger-table-section {
+  background-color: #112240;
+  border: 1px solid #1E293B;
+  border-radius: 8px;
+  padding: 20px;
 }
 
 .table-heading {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 700;
+  margin-top: 0;
   margin-bottom: 20px;
 }
 
-/* Browser-driven horizontal scrolling layout container for narrow screens */
 .table-scroll-container {
   width: 100%;
   overflow-x: auto;
-  border: 1px solid #1E293B;
 }
 
 .ledger-table {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.95rem;
-  min-width: 600px; /* Forces safety row width layout rendering */
+  min-width: 600px;
 }
 
 .ledger-table th,
@@ -86,10 +305,11 @@
 }
 
 .ledger-table th {
-  background-color: #112240;
-  font-size: 0.8rem;
+  background-color: #0A192F;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 1px;
+  color: #94A3B8;
 }
 
 .font-mono {
@@ -104,12 +324,10 @@
   font-weight: 700;
 }
 
-/* Green Highlight Rule for Deposits */
 .volume-cell.credit {
   color: #10B981;
 }
 
-/* Standard White styling for debits */
 .volume-cell.debit {
   color: #F4F6F9;
 }
@@ -120,4 +338,118 @@
 
 .ledger-table tr.debit:hover {
   background-color: rgba(244, 246, 249, 0.03);
+}
+
+.empty-table-cell {
+  text-align: center;
+  padding: 30px;
+  color: #94A3B8;
+  font-style: italic;
+}
+/* Elite Upgrades CSS Additions */
+.header-meta-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.sync-badge {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: #10B981;
+  letter-spacing: 1px;
+}
+
+.currency-selector {
+  display: flex;
+  background-color: #112240;
+  border: 1px solid #1E293B;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.curr-btn {
+  background: transparent;
+  border: none;
+  color: #94A3B8;
+  padding: 6px 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.curr-btn.active {
+  background-color: #10B981;
+  color: #0A192F;
+}
+
+.cashflow-ratio-bar {
+  width: 100%;
+  height: 6px;
+  background-color: #0A192F;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.ratio-fill {
+  height: 100%;
+  background-color: #10B981;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.ratio-caption {
+  font-size: 0.7rem;
+  color: #94A3B8;
+  margin-top: 4px;
+  display: block;
+}
+
+.bulk-delete-btn {
+  background-color: #EF4444;
+  border: none;
+  color: #F4F6F9;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.table-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.entry-count-badge {
+  font-size: 0.75rem;
+  color: #94A3B8;
+  background-color: #0A192F;
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid #1E293B;
+}
+
+.checkbox-col {
+  width: 30px;
+  text-align: center;
+}
+
+.selected-row {
+  background-color: rgba(16, 185, 129, 0.08) !important;
+}
+
+.status-pill {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #10B981;
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(16, 185, 129, 0.3);
 }
