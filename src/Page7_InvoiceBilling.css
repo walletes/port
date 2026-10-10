@@ -7,6 +7,7 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   min-height: 100vh;
   padding: 30px 20px;
+  box-sizing: border-box;
 }
 
 .invoice-controls-header {
@@ -27,6 +28,12 @@
   font-size: 0.85rem;
   font-weight: 700;
   cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.invoice-exit-btn:hover {
+  background-color: #000000;
+  color: #FFFFFF;
 }
 
 .invoice-badge {
@@ -42,47 +49,56 @@
   border: 1px solid #000000;
   padding: 30px;
   background-color: #FFFFFF;
+  box-sizing: border-box;
 }
 
 .invoice-meta-row {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .invoice-brand-title {
   font-size: 2.2rem;
   font-weight: 900;
   letter-spacing: -1px;
+  margin: 0;
 }
 
 .invoice-serial-text {
   font-family: monospace;
   font-size: 0.9rem;
   opacity: 0.7;
+  margin: 4px 0 0 0;
 }
 
 .invoice-item-form {
   display: flex;
   gap: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   flex-wrap: wrap;
 }
 
 .invoice-item-form input {
-  padding: 8px;
+  padding: 8px 10px;
   border: 1px solid #000000;
   font-size: 0.9rem;
+  font-family: inherit;
+  outline: none;
+}
+
+.invoice-item-form input:focus {
+  border-color: #6B21A8;
 }
 
 .invoice-item-form input[type="text"] {
   flex: 2;
-  min-width: 200px;
+  min-width: 180px;
 }
 
 .invoice-item-form input[type="number"] {
   flex: 1;
-  min-width: 100px;
+  min-width: 90px;
 }
 
 .invoice-add-btn {
@@ -92,12 +108,17 @@
   padding: 8px 16px;
   font-weight: 700;
   cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.invoice-add-btn:hover {
+  opacity: 0.9;
 }
 
 .invoice-item-table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 40px;
+  margin-bottom: 35px;
 }
 
 .invoice-item-table th,
@@ -120,6 +141,7 @@
   padding: 2px 8px;
   font-size: 0.75rem;
   cursor: pointer;
+  transition: all 0.15s ease;
 }
 
 .invoice-del-btn:hover {
@@ -134,7 +156,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-bottom: 40px;
+  margin-bottom: 35px;
 }
 
 .summary-line {
@@ -170,3 +192,19 @@
 .font-mono { font-family: monospace; }
 .text-right { text-align: right; }
 .text-center { text-align: center; }
+
+@media print {
+  body {
+    background: #FFFFFF !important;
+  }
+  .invoice-controls-header {
+    display: none !important;
+  }
+  .invoice-wrapper {
+    padding: 0 !important;
+  }
+  .invoice-sheet {
+    border: none !important;
+    padding: 0 !important;
+  }
+}

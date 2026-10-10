@@ -10,6 +10,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  box-sizing: border-box;
 }
 
 .terminal-control-panel {
@@ -30,11 +31,53 @@
   font-family: monospace;
   font-weight: 700;
   cursor: pointer;
+  transition: all 0.15s ease;
 }
 
 .terminal-exit-btn:hover {
   background-color: #00FF00;
   color: #000000;
+}
+
+.terminal-top-toolbar {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.terminal-search-input {
+  padding: 6px 10px;
+  background-color: #000000;
+  border: 1px solid #00FF00;
+  color: #00FF00;
+  font-size: 0.8rem;
+  font-family: monospace;
+  outline: none;
+}
+
+.terminal-search-input:focus {
+  border-color: #FFB703;
+}
+
+.stream-btn.streaming {
+  border-color: #00FF00;
+  color: #00FF00;
+}
+
+.stream-btn.paused {
+  border-color: #FFB703;
+  color: #FFB703;
+}
+
+.clear-btn {
+  border-color: #FFB703 !important;
+  color: #FFB703 !important;
+}
+
+.clear-btn:hover {
+  background-color: #FFB703 !important;
+  color: #000000 !important;
 }
 
 .filter-button-cluster {
@@ -64,7 +107,16 @@
   border: 1px solid #333333;
   padding: 15px;
   overflow-y: auto;
-  max-height: calc(100vh - 120px);
+  max-height: calc(100vh - 160px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.terminal-screen-output {
+  flex-grow: 1;
+  overflow-y: auto;
+  margin-bottom: 15px;
 }
 
 .system-boot-banner {
@@ -116,4 +168,46 @@
 .log-message-body del {
   text-decoration: line-through;
   opacity: 0.4;
+}
+
+/* Interactive CLI Command Form */
+.terminal-command-form {
+  display: flex;
+  gap: 8px;
+  padding: 10px 15px;
+  background-color: #050505;
+  border-top: 1px solid #333333;
+  align-items: center;
+  margin-top: auto;
+}
+
+.cli-prompt {
+  color: #00FF00;
+  font-family: monospace;
+  font-weight: bold;
+}
+
+.cli-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #00FF00;
+  font-family: monospace;
+  outline: none;
+  font-size: 0.9rem;
+}
+
+.cli-exec-btn {
+  background: none;
+  border: 1px solid #00FF00;
+  color: #00FF00;
+  padding: 4px 12px;
+  font-family: monospace;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cli-exec-btn:hover {
+  background-color: #00FF00;
+  color: #000000;
 }
