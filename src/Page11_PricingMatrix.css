@@ -7,6 +7,7 @@
   font-family: system-ui, -apple-system, sans-serif;
   min-height: 100vh;
   padding: 30px 20px;
+  box-sizing: border-box;
 }
 
 .pricing-header-bar {
@@ -15,7 +16,9 @@
   align-items: center;
   border-bottom: 1px solid #1F2937;
   padding-bottom: 15px;
-  margin-bottom: 40px;
+  margin-bottom: 35px;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 .pricing-exit-btn {
@@ -26,6 +29,7 @@
   font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
+  transition: all 0.15s ease;
 }
 
 .pricing-exit-btn:hover {
@@ -43,7 +47,10 @@
 
 .pricing-control-center {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .pricing-main-title {
@@ -56,7 +63,17 @@
 .pricing-intro-note {
   font-size: 1.05rem;
   opacity: 0.7;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
+}
+
+/* Global Controls: Toggles & Currency Switcher */
+.pricing-global-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
 }
 
 /* State Switcher Layout Blocks managed by Browser Flex */
@@ -80,6 +97,7 @@
 .toggle-option em {
   font-size: 0.75rem;
   color: #06B6D4;
+  font-style: normal;
 }
 
 /* Neon Cyan Selection Highlights */
@@ -92,18 +110,82 @@
   color: #111827;
 }
 
+.currency-selector-group {
+  display: inline-flex;
+  border: 1px solid #374151;
+  background-color: #1F2937;
+  padding: 4px;
+  gap: 4px;
+}
+
+.currency-btn {
+  background: none;
+  border: none;
+  color: #F9FAFB;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.currency-btn.active {
+  background-color: #06B6D4;
+  color: #111827;
+}
+
+/* Dynamic Node Estimator Slider */
+.node-estimator-box {
+  background-color: #1F2937;
+  border: 1px solid #374151;
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.estimator-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.estimator-header strong {
+  color: #06B6D4;
+}
+
+.estimator-hint {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: #06B6D4;
+  background: rgba(6, 182, 212, 0.1);
+  padding: 2px 8px;
+  border: 1px solid rgba(6, 182, 212, 0.3);
+}
+
+.node-slider-input {
+  width: 100%;
+  accent-color: #06B6D4;
+  cursor: pointer;
+}
+
 /* Matrix layout distribution engines */
 .pricing-matrix-layout {
   display: flex;
   flex-direction: column;
   gap: 30px;
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 768px) {
   .pricing-matrix-layout {
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     align-items: stretch;
   }
 }
@@ -112,10 +194,12 @@
   flex: 1;
   background-color: #1F2937;
   border: 1px solid #374151;
-  padding: 30px;
+  padding: 25px;
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 20px;
+  box-sizing: border-box;
+  position: relative;
 }
 
 /* Premium Cyan Focus Override Rules */
@@ -123,16 +207,52 @@
   border: 2px solid #06B6D4;
 }
 
+.pricing-plan-card.recommended-highlight {
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.15);
+}
+
+.plan-heading-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.plan-badge-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.plan-badge-tag {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 6px;
+  font-family: monospace;
+}
+
+.recommended-tag {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  background-color: #06B6D4;
+  color: #111827;
+  padding: 2px 6px;
+  font-family: monospace;
+}
+
 .plan-name-heading {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 800;
   letter-spacing: -0.5px;
+  margin: 0;
 }
 
 .plan-volume-limits {
   font-size: 0.85rem;
   opacity: 0.6;
-  margin-top: 4px;
+  margin: 0;
 }
 
 .plan-cost-display {
@@ -148,7 +268,7 @@
 }
 
 .price-num-label {
-  font-size: 3.5rem; /* Massive scale factor for prices */
+  font-size: 3rem; /* Massive scale factor for prices */
   font-weight: 900;
   line-height: 1;
   letter-spacing: -2px;
@@ -160,23 +280,30 @@
   margin-left: 4px;
 }
 
+.plan-feature-list {
+  flex-grow: 1;
+}
+
 .checklist-header {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   opacity: 0.8;
+  margin-top: 0;
 }
 
 .feature-checklist {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
 }
 
 .feature-item {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   line-height: 1.4;
   display: flex;
   gap: 8px;
@@ -191,14 +318,37 @@
 .negative-check { color: #4B5563; }
 .negative-check del { text-decoration: line-through; }
 
-.plan-action-trigger-btn {
+.plan-footer-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   margin-top: auto;
+  border-top: 1px dashed #374151;
+  padding-top: 15px;
+}
+
+.spec-inspect-btn {
+  background: none;
+  border: 1px solid #374151;
+  color: #F9FAFB;
+  padding: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.spec-inspect-btn:hover {
+  border-color: #06B6D4;
+  color: #06B6D4;
+}
+
+.plan-action-trigger-btn {
   background-color: transparent;
   border: 1px solid #F9FAFB;
   color: #F9FAFB;
   padding: 12px;
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -218,4 +368,121 @@
   background-color: transparent;
   color: #06B6D4;
   border-color: #06B6D4;
+}
+
+/* SLA Modal Drawer */
+.pricing-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(17, 24, 39, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  z-index: 100;
+}
+
+.pricing-modal-card {
+  background-color: #1F2937;
+  border: 2px solid #06B6D4;
+  max-width: 500px;
+  width: 100%;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+.modal-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #374151;
+  padding-bottom: 12px;
+}
+
+.modal-header-row h2 {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #06B6D4;
+}
+
+.close-modal-btn {
+  background: none;
+  border: none;
+  color: #F9FAFB;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.modal-body-specs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.9rem;
+}
+
+.modal-body-specs p {
+  margin: 0;
+}
+
+.modal-checklist-block {
+  margin-top: 10px;
+  border-top: 1px dashed #374151;
+  padding-top: 12px;
+}
+
+.modal-checklist-block h4 {
+  margin: 0 0 8px 0;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: #06B6D4;
+}
+
+.modal-checklist-block ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.85krem;
+  opacity: 0.9;
+}
+
+.modal-submit-btn {
+  width: 100%;
+}
+
+/* Custom Notification Toast */
+.custom-notification-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: #1F2937;
+  color: #F9FAFB;
+  border: 1px solid #06B6D4;
+  padding: 12px 20px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  animation: slideInUp 0.25s ease-out;
+}
+
+.custom-notification-toast span {
+  color: #06B6D4;
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
