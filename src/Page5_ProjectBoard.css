@@ -4,18 +4,35 @@
 .board-wrapper {
   background-color: #FAF9F6;
   color: #111111;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   min-height: 100vh;
   padding: 25px;
+  max-width: 1280px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .board-header {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   border-bottom: 3px solid #111111;
   padding-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .board-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+}
+
+.header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .workspace-exit-btn {
@@ -27,12 +44,19 @@
   font-size: 0.85rem;
   font-weight: 700;
   cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.workspace-exit-btn:hover {
+  background-color: #111111;
+  color: #FAF9F6;
 }
 
 .board-title {
   font-size: 2.4rem;
   font-weight: 900;
   letter-spacing: -1px;
+  margin: 0;
 }
 
 .board-indicator {
@@ -41,18 +65,165 @@
   color: #D90429;
   letter-spacing: 1.5px;
   margin-top: 5px;
+  margin-bottom: 0;
 }
 
-/* Browser-calculated dynamic horizontal columns flex matrix */
-.kanban-board-layout {
+.create-task-btn {
+  background-color: #D90429;
+  border: 2px solid #D90429;
+  color: #FAF9F6;
+  padding: 10px 18px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.create-task-btn:hover {
+  background-color: #111111;
+  border-color: #111111;
+}
+
+/* Search & Priority Filter Toolbar */
+.board-toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background-color: #F0EDE6;
+  border: 2px solid #111111;
+  padding: 16px;
+  margin-bottom: 25px;
+}
+
+@media (min-width: 768px) {
+  .board-toolbar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.board-search {
+  background-color: #FAF9F6;
+  border: 1px solid #111111;
+  padding: 10px 14px;
+  color: #111111;
+  font-size: 0.9rem;
+  outline: none;
+  flex-grow: 1;
+  max-width: 420px;
+}
+
+.board-search:focus {
+  border-color: #D90429;
+}
+
+.priority-filter-tabs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.filter-tab {
+  background-color: #FAF9F6;
+  border: 1px solid #111111;
+  color: #111111;
+  padding: 5px 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.filter-tab.active {
+  background-color: #D90429;
+  color: #FAF9F6;
+  border-color: #D90429;
+}
+
+.filter-tab:hover:not(.active) {
+  background-color: #111111;
+  color: #FAF9F6;
+}
+
+/* New Task Creation Form Drawer */
+.create-task-form {
+  background-color: #F0EDE6;
+  border: 2px solid #111111;
+  padding: 20px;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.create-task-form h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: #D90429;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.form-group input,
+.form-group select {
+  background-color: #FAF9F6;
+  border: 1px solid #111111;
+  padding: 10px;
+  font-size: 0.85rem;
+  color: #111111;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #D90429;
+}
+
+.submit-task-btn {
+  background-color: #111111;
+  border: none;
+  color: #FAF9F6;
+  padding: 12px 20px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+.submit-task-btn:hover {
+  background-color: #D90429;
+}
+
+/* Column & Matrix Layout */
+.kanban-board-grid {
   display: flex;
   flex-direction: column;
   gap: 25px;
 }
 
-/* For wider displays, let the browser scale layout items side-by-side automatically */
 @media (min-width: 768px) {
-  .kanban-board-layout {
+  .kanban-board-grid {
     flex-direction: row;
     align-items: flex-start;
   }
@@ -64,18 +235,27 @@
   background-color: #F0EDE6;
   border: 2px solid #111111;
   padding: 20px;
+  box-sizing: border-box;
+}
+
+.column-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #111111;
+  padding-bottom: 8px;
+  margin-bottom: 20px;
 }
 
 .column-title {
   font-size: 1.25rem;
   font-weight: 800;
-  margin-bottom: 20px;
-  border-bottom: 1px solid #111111;
-  padding-bottom: 8px;
+  margin: 0;
 }
 
-.card-count {
-  font-size: 0.9rem;
+.task-count-badge {
+  font-size: 0.85rem;
+  font-weight: 700;
   opacity: 0.6;
 }
 
@@ -83,8 +263,20 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
+  min-height: 200px;
 }
 
+.empty-column-slot {
+  text-align: center;
+  padding: 30px 15px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  opacity: 0.5;
+  border: 1px dashed #111111;
+  background-color: #FAF9F6;
+}
+
+/* Individual Task Cards */
 .task-card {
   background-color: #FAF9F6;
   border: 1px solid #111111;
@@ -98,10 +290,16 @@
   opacity: 0.65;
 }
 
-.card-header {
+.task-card-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.task-id-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .task-id {
@@ -110,33 +308,50 @@
   font-size: 0.85rem;
 }
 
-.due-tag {
+.category-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border: 1px solid #111111;
+  background-color: #F0EDE6;
+}
+
+.priority-pill {
   font-size: 0.7rem;
   font-weight: 700;
   padding: 2px 6px;
   border: 1px solid #111111;
 }
 
-/* Crimson Red Alert Highlight Rule */
-.due-tag.urgent-alert {
+.priority-pill.urgent {
   background-color: #D90429;
   color: #FAF9F6;
   border-color: #D90429;
+}
+
+.priority-pill.high {
+  background-color: #111111;
+  color: #FAF9F6;
+}
+
+.priority-pill.medium {
+  background-color: #FAF9F6;
+  color: #111111;
 }
 
 .task-title-text {
   font-size: 1rem;
   line-height: 1.4;
   font-weight: 500;
+  margin: 0;
 }
 
-/* Cross-over text decoration formatting */
 .completed-strike {
   text-decoration: line-through;
   opacity: 0.5;
 }
 
-.card-footer {
+.task-card-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -149,16 +364,39 @@
   font-size: 0.75rem;
 }
 
-.stage-cycle-btn {
+.task-action-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.advance-btn {
   background: none;
   border: 1px solid #111111;
   padding: 4px 8px;
   font-size: 0.75rem;
   font-weight: 700;
   cursor: pointer;
+  transition: all 0.15s ease;
 }
 
-.stage-cycle-btn:hover {
+.advance-btn:hover {
   background-color: #111111;
+  color: #FAF9F6;
+}
+
+.delete-task-btn {
+  background: none;
+  border: 1px solid #D90429;
+  color: #D90429;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.delete-task-btn:hover {
+  background-color: #D90429;
   color: #FAF9F6;
 }

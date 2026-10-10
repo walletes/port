@@ -5,26 +5,40 @@ export default function Page5_ProjectBoard({ setPage }) {
   const [tasks, setTasks] = useState([
     {
       id: "DEV-101",
-      title: "Refactor core API switch router blocks",
+      title: "Refactor core API routing middleware and error handling",
       stage: "todo",
-      worker: "Prince O.",
-      due: "Oct 12"
+      assignee: "Prince Osinachi",
+      priority: "High",
+      category: "Backend"
     },
     {
       id: "DEV-102",
-      title: "Review input form sanitation schema layouts",
+      title: "Review input form validation schemas for authentication flow",
       stage: "progress",
-      worker: "Kalu E.",
-      due: "URGENT"
+      assignee: "Kalu E.",
+      priority: "Urgent",
+      category: "Security"
     },
     {
       id: "DEV-103",
-      title: "Map flat data components into file layout system",
+      title: "Map modular data components into directory file layout",
       stage: "done",
-      worker: "Prince O.",
-      due: "Completed"
+      assignee: "Prince Osinachi",
+      priority: "Medium",
+      category: "Frontend"
     }
   ]);
+
+  // Controls State
+  const [searchQuery, setSearchQuery] = useState('');
+  const [priorityFilter, setPriorityFilter] = useState('All');
+  const [isCreating, setIsCreating] = useState(false);
+
+  // New Task Form State
+  const [newTitle, setNewTitle] = useState('');
+  const [newAssignee, setNewAssignee] = useState('Prince Osinachi');
+  const [newPriority, setNewPriority] = useState('Medium');
+  const [newCategory, setNewCategory] = useState('Frontend');
 
   const advanceTask = (id, currentStage) => {
     const stageOrder = ["todo", "progress", "done"];
@@ -36,48 +50,97 @@ export default function Page5_ProjectBoard({ setPage }) {
     ));
   };
 
+  const handleCreateTask = (e) => {
+    e.preventDefault();
+    if (!newTitle.trim()) return;
+
+    const newTask = {
+      id: `DEV-${Math.floor(100 + Math.random() * 900)}`,
+      title: newTitle,
+      stage: "todo",
+      assignee: newAssignee,
+      priority: newPriority,
+      category: newCategory
+    };
+
+    setTasks([newTask, ...tasks]);
+    setNewTitle('');
+    setIsCreating(false);
+  };
+
+  const handleDeleteTask = (id) => {
+    setTasks(tasks.filter(t => t.id !== id));
+  };
+
+  const filteredTasks = tasks.filter(t => {
+    const matchesPriority = priorityFilter === 'All' || t.priority === priorityFilter;
+    const matchesSearch =
+      t.id.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      t.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      t.assignee.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      t.category.toLowerCase().includes(searchQuery.toLowerCase());
+
+    return matchesPriority && matchesSearch;
+  });
+
   const renderColumn = (stageName, headingText) => {
-    const filtered = tasks.filter(t => t.stage === stageName);
+    const columnTasks = filteredTasks.filter(t => t.stage === stageName);
 
     return (
       <div className="kanban-column">
-        <h2 className="column-title">
-          {headingText} <span className="card-count">({filtered.length})</span>
-        </h2>
+        <div className="column-header">
+          <h2 className="column-title">{headingText}</h2>
+          <span className="task-count-badge">{columnTasks.length}</span>
+        </div>
 
         <div className="column-card-track">
-          {filtered.map(task => (
-            <div key={task.id} className={`task-card ${task.stage}`}>
-              <div className="card-header">
-                <span className="task-id">{task.id}</span>
+          {columnTasks.length === 0 ? (
+            <div className="empty-column-slot">No tasks in this stage</div>
+          ) : (
+            columnTasks.map(task => (
+              <div key={task.id} className={`task-card ${task.stage}`}>
+                <div className="task-card-top">
+                  <div className="task-id-group">
+                    <span className="task-id">{task.id}</span>
+                    <span className="category-tag">{task.category}</span>
+                  </div>
+                  <span className={`priority-pill ${task.priority.toLowerCase()}`}>
+                    {task.priority}
+                  </span>
+                </div>
 
-                <span className={`due-tag ${task.due === 'URGENT' ? 'urgent-alert' : ''}`}>
-                  {task.due}
-                </span>
+                <p className="task-title-text">
+                  {task.stage === 'done' ? (
+                    <span className="completed-strike">{task.title}</span>
+                  ) : (
+                    task.title
+                  )}
+                </p>
+
+                <div className="task-card-footer">
+                  <span className="assignee-text">
+                    Assignee: <strong>{task.assignee}</strong>
+                  </span>
+
+                  <div className="task-action-group">
+                    <button
+                      className="advance-btn"
+                      onClick={() => advanceTask(task.id, task.stage)}
+                    >
+                      {task.stage === 'done' ? 'Reopen' : 'Advance →'}
+                    </button>
+                    <button
+                      className="delete-task-btn"
+                      onClick={() => handleDeleteTask(task.id)}
+                      title="Delete Task"
+                    >
+                      ✕
+                    </button>
+                  </div>
+                </div>
               </div>
-
-              <p className="task-title-text">
-                {task.stage === 'done' ? (
-                  <span className="completed-strike">{task.title}</span>
-                ) : (
-                  task.title
-                )}
-              </p>
-
-              <div className="card-footer">
-                <span className="assignee-text">
-                  Assignee: <strong>{task.worker}</strong>
-                </span>
-
-                <button
-                  className="stage-cycle-btn"
-                  onClick={() => advanceTask(task.id, task.stage)}
-                >
-                  {task.stage === 'done' ? 'Reset Status' : 'Move Forward →'}
-                </button>
-              </div>
-            </div>
-          ))}
+            ))
+          )}
         </div>
       </div>
     );
@@ -90,20 +153,101 @@ export default function Page5_ProjectBoard({ setPage }) {
           className="workspace-exit-btn"
           onClick={() => setPage('home')}
         >
-          ← Exit Workspace
+          ← Back to Directory
         </button>
 
         <div className="board-meta">
           <h1 className="board-title">Sprint Pipeline Tracker</h1>
-          <p className="board-indicator">INTERNAL TECHNICAL WORKFLOW MANAGER</p>
+          <p className="board-subtitle">Engineering Workspace & Issue Tracking</p>
         </div>
+
+        <button
+          className="create-task-btn"
+          onClick={() => setIsCreating(!isCreating)}
+        >
+          {isCreating ? "✕ Cancel" : "+ New Task"}
+        </button>
       </header>
 
-      {/* The browser automatically builds the column alignment matrix based on width tracks */}
-      <main className="kanban-board-layout">
-        {renderColumn("todo", "Backlog Queue")}
-        {renderColumn("progress", "Active Execution")}
-        {renderColumn("done", "Verified Releases")}
+      {/* Search & Filter Toolbar */}
+      <div className="board-toolbar">
+        <input
+          type="text"
+          className="board-search"
+          placeholder="Filter tasks by ID, title, assignee, or category..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+
+        <div className="priority-filter-tabs">
+          <span>Priority:</span>
+          {['All', 'Urgent', 'High', 'Medium'].map(pri => (
+            <button
+              key={pri}
+              className={`filter-tab ${priorityFilter === pri ? 'active' : ''}`}
+              onClick={() => setPriorityFilter(pri)}
+            >
+              {pri}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* New Task Form Drawer */}
+      {isCreating && (
+        <form onSubmit={handleCreateTask} className="create-task-form">
+          <h3>Create New Sprint Ticket</h3>
+          <div className="form-grid">
+            <div className="form-group">
+              <label>Task Description / Title</label>
+              <input
+                type="text"
+                placeholder="e.g. Implement JWT refresh token rotation"
+                value={newTitle}
+                onChange={(e) => setNewTitle(e.target.value)}
+                required
+              />
+            </div>
+
+            <div className="form-group">
+              <label>Assignee</label>
+              <select value={newAssignee} onChange={(e) => setNewAssignee(e.target.value)}>
+                <option value="Prince Osinachi">Prince Osinachi</option>
+                <option value="Kalu E.">Kalu E.</option>
+                <option value="Dev Team">Dev Team</option>
+              </select>
+            </div>
+
+            <div className="form-group">
+              <label>Category</label>
+              <select value={newCategory} onChange={(e) => setNewCategory(e.target.value)}>
+                <option value="Frontend">Frontend</option>
+                <option value="Backend">Backend</option>
+                <option value="Security">Security</option>
+                <option value="DevOps">DevOps</option>
+              </select>
+            </div>
+
+            <div className="form-group">
+              <label>Priority Level</label>
+              <select value={newPriority} onChange={(e) => setNewPriority(e.target.value)}>
+                <option value="Urgent">Urgent</option>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" className="submit-task-btn">
+            Add to Backlog
+          </button>
+        </form>
+      )}
+
+      {/* Kanban Board Grid */}
+      <main className="kanban-board-grid">
+        {renderColumn("todo", "Backlog / To Do")}
+        {renderColumn("progress", "In Progress")}
+        {renderColumn("done", "Completed & Tested")}
       </main>
     </div>
   );
