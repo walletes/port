@@ -26,15 +26,27 @@ export default function Page11_PricingMatrix({ setPage }) {
   return (
     <div className="pricing-wrapper">
       <header className="pricing-header-bar">
-        <button className="pricing-exit-btn" onClick={() => setPage('home')}>← Corporate Portal</button>
-        <span className="pricing-system-tag">SUBSCRIPTION ENGINE MODULE</span>
+        <button
+          className="pricing-exit-btn"
+          onClick={() => setPage('home')}
+        >
+          ← Corporate Portal
+        </button>
+
+        <span className="pricing-system-tag">
+          SUBSCRIPTION ENGINE MODULE
+        </span>
       </header>
 
       <section className="pricing-control-center">
-        <h1 className="pricing-main-title">Flexible Platform Billing Plans</h1>
-        <p className="pricing-intro-note">Select the infrastructure tier required for your scale operations.</p>
+        <h1 className="pricing-main-title">
+          Flexible Platform Billing Plans
+        </h1>
 
-        {/* State Toggle Selector Box */}
+        <p className="pricing-intro-note">
+          Select the infrastructure tier required for your scale operations.
+        </p>
+
         <div className="toggle-container-block">
           <button
             className={`toggle-option ${billingCycle === 'MONTHLY' ? 'selected' : ''}`}
@@ -42,6 +54,7 @@ export default function Page11_PricingMatrix({ setPage }) {
           >
             Monthly Terms
           </button>
+
           <button
             className={`toggle-option ${billingCycle === 'YEARLY' ? 'selected' : ''}`}
             onClick={() => setBillingCycle('YEARLY')}
@@ -51,45 +64,75 @@ export default function Page11_PricingMatrix({ setPage }) {
         </div>
       </section>
 
-      {/* The browser natively maps grid matrices across display viewpoints */}
       <main className="pricing-matrix-layout">
         {tiers.map((tier, idx) => {
-          const currentPrice = billingCycle === 'MONTHLY' ? tier.monthlyPrice : tier.yearlyPrice;
+          const currentPrice = billingCycle === 'MONTHLY'
+            ? tier.monthlyPrice
+            : tier.yearlyPrice;
+
           const isPremium = tier.monthlyPrice > 0;
 
           return (
-            <div key={idx} className={`pricing-plan-card ${isPremium ? 'premium-focus' : ''}`}>
+            <div
+              key={idx}
+              className={`pricing-plan-card ${isPremium ? 'premium-focus' : ''}`}
+            >
+              <div className="plan-heading-section">
+                <h2 className="plan-name-heading">
+                  {tier.name}
+                </h2>
 
-              <h2 className="plan-name-heading">{tier.name}</h2>
-              <p className="plan-volume-limits"><em>{tier.limits}</em></p>
+                <p className="plan-volume-limits">
+                  <em>{tier.limits}</em>
+                </p>
+              </div>
+
+              <div className="plan-cost-display">
+                <span className="currency-symbol">$</span>
+
+                <span className="price-num-label">
+                  {currentPrice}
+                </span>
+
+                <span className="time-scale-label">
+                  / month
+                </span>
+              </div>
+
+              <div className="plan-feature-list">
+                <h3 className="checklist-header">
+                  Included Subsystems:
+                </h3>
+
+                <ul className="feature-checklist">
+                  {tier.features.map((feat, fIdx) => (
+                    <li
+                      key={fIdx}
+                      className="feature-item positive-check"
+                    >
+                      <span className="check-bullet">✓</span>
+                      {feat}
+                    </li>
+                  ))}
+
+                  {tier.excluded.map((excl, eIdx) => (
+                    <li
+                      key={eIdx}
+                      className="feature-item negative-check"
+                    >
+                      <span className="check-bullet">✕</span>
+                      <del>{excl}</del>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <button className="plan-action-trigger-btn">
+                {isPremium
+                  ? 'Provision Cluster License'
+                  : 'Initialize Developer Tier'}
+              </button>
             </div>
-
-            <div className="plan-cost-display">
-              <span className="currency-symbol">\$</span>
-              <span className="price-num-label">{currentPrice}</span>
-              <span className="time-scale-label">/ month</span>
-            </div>
-
-            <div className="plan-feature-list">
-              <h3 className="checklist-header">Included Subsystems:</h3>
-              <ul className="feature-checklist">
-                {tier.features.map((feat, fIdx) => (
-                  <li key={fIdx} className="feature-item positive-check">
-                    <span className="check-bullet">✓</span> {feat}
-                  </li>
-                ))}
-                {tier.excluded.map((excl, eIdx) => (
-                  <li key={eIdx} className="feature-item negative-check">
-                    <span className="check-bullet">✕</span> <del>{excl}</del>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <button className="plan-action-trigger-btn">
-              {isPremium ? 'Provision Cluster License' : 'Initialize Developer Tier'}
-            </button>
-          </div>
           );
         })}
       </main>

@@ -12,7 +12,9 @@ export default function Page6_WarehouseStock({ setPage }) {
 
   const adjustStock = (sku, value) => {
     setItems(items.map(item =>
-      item.sku === sku ? { ...item, quantity: Math.max(0, item.quantity + value) } : item
+      item.sku === sku
+        ? { ...item, quantity: Math.max(0, item.quantity + value) }
+        : item
     ));
   };
 
@@ -24,12 +26,23 @@ export default function Page6_WarehouseStock({ setPage }) {
   return (
     <div className="stock-wrapper">
       <header className="stock-header">
-        <button className="exit-terminal-btn" onClick={() => setPage('home')}>← Close Operations</button>
-        <span className="terminal-badge">MANIFEST SUBSYSTEM // LIVE STOCK</span>
+        <button
+          className="exit-terminal-btn"
+          onClick={() => setPage('home')}
+        >
+          ← Close Operations
+        </button>
+
+        <span className="terminal-badge">
+          MANIFEST SUBSYSTEM // LIVE STOCK
+        </span>
       </header>
 
       <section className="manifest-controls">
-        <h1 className="stock-title">Warehouse Inventory Console</h1>
+        <h1 className="stock-title">
+          Warehouse Inventory Console
+        </h1>
+
         <input
           type="text"
           placeholder="Filter manifest by SKU identifier or item label..."
@@ -42,35 +55,74 @@ export default function Page6_WarehouseStock({ setPage }) {
       <main className="manifest-list">
         {filteredItems.map(item => {
           const isLowStock = item.quantity <= item.limit;
+
           return (
-            <div key={item.sku} className={`manifest-card ${isLowStock ? 'low-stock-alert' : ''}`}>
+            <div
+              key={item.sku}
+              className={`manifest-card ${isLowStock ? 'low-stock-alert' : ''}`}
+            >
+              <div className="manifest-card-header">
+                <span className="sku-tag">
+                  {item.sku}
+                </span>
 
-              <span className="sku-tag">{item.sku}</span>
-              <span className="bay-location">Location: Shelf <strong>{item.bay}</strong></span>
-            </div>
-
-            <h2 className="item-label-text">{item.label}</h2>
-
-            <div className="stock-counter-row">
-              <div className="counter-display">
-                <span className="count-number">{item.quantity}</span>
-                <span className="count-unit">Units on hand</span>
+                <span className="bay-location">
+                  Location: Shelf <strong>{item.bay}</strong>
+                </span>
               </div>
 
-              <div className="counter-actions">
-                <button className="qty-adjust-btn" onClick={() => adjustStock(item.sku, -1)}>−</button>
-                <button className="qty-adjust-btn" onClick={() => adjustStock(item.sku, 1)}>+</button>
-              </div>
-            </div>
+              <h2 className="item-label-text">
+                {item.label}
+              </h2>
 
-            {isLowStock && (
-              <p className="low-stock-notice">
-                <em>⚠️ Alert Status: Restock parameter triggered. Count dropped under target limit ({item.limit}).</em>
-              </p>
-            )}
-          </div>
+              <div className="stock-counter-row">
+                <div className="counter-display">
+                  <span className="count-number">
+                    {item.quantity}
+                  </span>
+
+                  <span className="count-unit">
+                    Units on hand
+                  </span>
+                </div>
+
+                <div className="counter-actions">
+                  <button
+                    className="qty-adjust-btn"
+                    onClick={() => adjustStock(item.sku, -1)}
+                    disabled={item.quantity === 0}
+                    aria-label={`Decrease stock for ${item.label}`}
+                  >
+                    −
+                  </button>
+
+                  <button
+                    className="qty-adjust-btn"
+                    onClick={() => adjustStock(item.sku, 1)}
+                    aria-label={`Increase stock for ${item.label}`}
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+
+              {isLowStock && (
+                <p className="low-stock-notice">
+                  <em>
+                    ⚠️ Alert Status: Restock parameter triggered.
+                    Count dropped under target limit ({item.limit}).
+                  </em>
+                </p>
+              )}
+            </div>
           );
         })}
+
+        {filteredItems.length === 0 && (
+          <p className="empty-stock-message">
+            No inventory items match your search.
+          </p>
+        )}
       </main>
     </div>
   );
