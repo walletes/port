@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import Page1_Home from './Page1_Home';
 import Page2_LoginPortal from './Page2_LoginPortal';
 import Page3_SupportQueue from './Page3_SupportQueue';
@@ -10,6 +11,8 @@ import Page8_SystemTerminal from './Page8_SystemTerminal';
 import Page9_ProductGrid from './Page9_ProductGrid';
 import Page10_StaffDirectory from './Page10_StaffDirectory';
 import Page11_PricingMatrix from './Page11_PricingMatrix';
+import Page12_Checkout from './Page12_Checkout';
+
 import './index.css';
 
 export default function App() {
@@ -17,17 +20,53 @@ export default function App() {
 
   return (
     <div className="app-main-container">
-      {currentPage === 'home' && <Page1_Home setPage={setCurrentPage} />}
-      {currentPage === 'login' && <Page2_LoginPortal setPage={setCurrentPage} />}
-      {currentPage === 'support' && <Page3_SupportQueue setPage={setCurrentPage} />}
-      {currentPage === 'bank' && <Page4_BankLedger setPage={setCurrentPage} />}
-      {currentPage === 'project' && <Page5_ProjectBoard setPage={setCurrentPage} />}
-      {currentPage === 'warehouse' && <Page6_WarehouseStock setPage={setCurrentPage} />}
-      {currentPage === 'invoice' && <Page7_InvoiceBilling setPage={setCurrentPage} />}
-      {currentPage === 'terminal' && <Page8_SystemTerminal setPage={setCurrentPage} />}
-      {currentPage === 'product' && <Page9_ProductGrid setPage={setCurrentPage} />}
-      {currentPage === 'staff' && <Page10_StaffDirectory setPage={setCurrentPage} />}
-      {currentPage === 'pricing' && <Page11_PricingMatrix setPage={setCurrentPage} />}
+      {currentPage === 'home' && (
+        <Page1_Home setPage={setCurrentPage} />
+      )}
+
+      {currentPage === 'login' && (
+        <Page2_LoginPortal setPage={setCurrentPage} />
+      )}
+
+      {currentPage === 'support' && (
+        <Page3_SupportQueue setPage={setCurrentPage} />
+      )}
+
+      {currentPage === 'bank' && (
+        <Page4_BankLedger setPage={setCurrentPage} />
+      )}
+
+      {currentPage === 'project' && (
+        <Page5_ProjectBoard setPage={setCurrentPage} />
+      )}
+
+      {currentPage === 'warehouse' && (
+        <Page6_WarehouseStock setPage={setCurrentPage} />
+      )}
+
+      {currentPage === 'invoice' && (
+        <Page7_InvoiceBilling setPage={setCurrentPage} />
+      )}
+
+      {currentPage === 'terminal' && (
+        <Page8_SystemTerminal setPage={setCurrentPage} />
+      )}
+
+      {currentPage === 'product' && (
+        <Page9_ProductGrid setPage={setCurrentPage} />
+      )}
+
+      {currentPage === 'staff' && (
+        <Page10_StaffDirectory setPage={setCurrentPage} />
+      )}
+
+      {currentPage === 'pricing' && (
+        <Page11_PricingMatrix setPage={setCurrentPage} />
+      )}
+
+      {currentPage === 'checkout' && (
+        <Page12_Checkout setPage={setCurrentPage} />
+      )}
     </div>
   );
 }
