@@ -529,7 +529,7 @@ export default function Page1_Home({ setPage }) {
           </p>
 
           <h1 className="home-title">
-            Prince Osinachi
+            Prince Christian
             <br />
             <span>Developer &amp; Builder</span>
           </h1>
