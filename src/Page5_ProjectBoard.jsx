@@ -1914,12 +1914,32 @@ const resetFilters = () => {
           </div>
         )}
       </section>
+     {isCreating && (
+      <div
+      className="task-modal-overlay"
+      onClick={() => setIsCreating(false)}
+      >
+      <div
+      className="glassmorphism-card task-glass-card"
+      onClick={(e) => e.stopPropagation()}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="create-task-heading"
+      >
+      <div className="task-modal-header">
+      <h3 id="create-task-heading">Create New Sprint Ticket</h3>
+      <button
+      type="button"
+      className="task-modal-close"
+      onClick={() => setIsCreating(false)}
+      aria-label="Close task form"
+      >
+      ✕
+      </button>
+      </div>
 
-      {isCreating && (
-        <form
-          onSubmit={handleCreateTask}
-          className="create-task-form"
-        >
+      <form onSubmit={handleCreateTask} className="create-task-form">
+     
           <div className="task-form-heading">
             <div>
               <p className="board-eyebrow">ISSUE MANAGEMENT</p>
@@ -2091,9 +2111,11 @@ const resetFilters = () => {
             >
               Cancel
             </button>
-          </div>
-        </form>
-      )}
+         </div>
+       </form>
+      </div>
+     </div>
+     )}
 
       <main className="kanban-board-grid">
         {STAGES.map((stage) => renderColumn(stage.id, stage.label))}
@@ -2344,7 +2366,7 @@ const resetFilters = () => {
       <section className="board-activity-section glass-card">
         <div className="board-activity-heading">
           <div>
-            <p className="board-eyebrow">WORKSPACE HISTORY</p>
+            <p className="board-eyebrow"> HISTORY</p>
             <h2>Recent Activity</h2>
             <small>{activityLog.length} recorded events</small>
           </div>
@@ -2385,14 +2407,12 @@ const resetFilters = () => {
 
       <footer className="board-footer">
         <div>
-          <strong>Engineering Command Center</strong>
-          <span>Local project management demonstration</span>
+          <strong>Command Center</strong>
+          <span>project management</span>
         </div>
 
         <small>
           Tasks, sprint data, and activity are stored in this browser.
-          Multi-user collaboration, authentication, and server-side
-          persistence require a backend.
         </small>
       </footer>
     </div>
