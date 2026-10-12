@@ -174,6 +174,7 @@ export default function Page6_WarehouseStock({ setPage }) {
   const [selectedSku, setSelectedSku] = useState(null);
   const [selectedItems, setSelectedItems] = useState([]);
   const [toast, setToast] = useState(null);
+  const [confirmAction, setConfirmAction] = useState(null);
 
   const [adjustmentItem, setAdjustmentItem] = useState(null);
   const [adjustmentType, setAdjustmentType] = useState('in');
@@ -505,23 +506,32 @@ export default function Page6_WarehouseStock({ setPage }) {
     setAdjustmentItem(null);
   };
 
-  const handleDeleteItem = (sku) => {
-    const item = items.find((entry) => entry.sku === sku);
+const handleDeleteItem = (sku) => {
+  const item = items.find((entry) => entry.sku === sku);
 
-    if (!item) return;
+  if (!item) return;
 
-    const confirmed = window.confirm(
-      `Permanently delete ${sku} (${item.label})? This cannot be undone.`
-    );
+  setConfirmAction({
+  title: 'Delete Inventory Item?',
+  message: `You're about to permanently delete ${item.sku} (${item.label}). This action cannot be undone.`,
+  confirmLabel: 'Delete Permanently',
+  variant: 'danger',
+  onConfirm: () => {
+  setItems((previous) =>
+  previous.filter((entry) => entry.sku !== sku)
+  );
 
-    if (!confirmed) return;
+  setSelectedItems((previous) =>
+  previous.filter((entry) => entry !== sku)
+  );
 
-    setItems((previous) => previous.filter((entry) => entry.sku !== sku));
-    setSelectedItems((previous) => previous.filter((entry) => entry !== sku));
-    setSelectedSku(null);
+  setSelectedSku(null);
 
-    recordActivity(`Permanently deleted inventory item ${sku}.`, { sku });
-    showToast(`${sku} deleted.`);
+  recordActivity(`Permanently deleted inventory item ${sku}.`, { sku });
+
+  showToast(`${sku} deleted.`);
+  }
+  });
   };
 
   const toggleArchive = (sku) => {
@@ -1006,19 +1016,23 @@ export default function Page6_WarehouseStock({ setPage }) {
     showToast('Inventory backup imported successfully.');
   };
 
-  const handleResetDemoData = () => {
-    const confirmed = window.confirm(
-      'Replace your current inventory with the original demonstration data? Export a backup first if needed.'
-    );
+const handleResetDemoData = () => {
+  setConfirmAction({
+  title: 'Reset Demo Inventory?',
+  message:
+  'This will replace your current inventory with the original data. Your existing inventory records will be lost unless you export a backup first.',
+  confirmLabel: 'Reset Inventory',
+  variant: 'warning',
+  onConfirm: () => {
+  setItems(INITIAL_ITEMS);
+  setSelectedItems([]);
+  setSelectedSku(null);
 
-    if (!confirmed) return;
+  recordActivity('Restored inventory.');
 
-    setItems(INITIAL_ITEMS);
-    setSelectedItems([]);
-    setSelectedSku(null);
-
-    recordActivity('Restored the original demonstration inventory.');
-    showToast('Demonstration inventory restored.');
+  showToast('Inventory restored.');
+  }
+  });
   };
 
   const renderStatusBadge = (item) => {
@@ -1247,11 +1261,9 @@ export default function Page6_WarehouseStock({ setPage }) {
         </button>
 
         <div className="stock-header-identity">
-          <span className="terminal-badge">INVENTORY OPERATIONS</span>
+          <span className="terminal-badge">DEMO</span>
           <span className="stock-live-indicator">
-            <span className="stock-live-dot" />
-            Local workspace active
-          </span>
+            </span>
         </div>
 
         <button
@@ -1685,8 +1697,8 @@ export default function Page6_WarehouseStock({ setPage }) {
         <section className="stock-activity-panel glass-card">
           <div className="stock-panel-heading">
             <div>
-              <h2>Inventory Activity Log</h2>
-              <p>Recent inventory changes recorded in this browser.</p>
+              <h2> Activity Log</h2>
+              <p>Recent inventory changes.</p>
             </div>
 
             <button
@@ -2186,7 +2198,63 @@ onClick={() => setSelectedSku(null)}
           </section>
         </div>
       )}
+{confirmAction && (
+  <div
+  className="task-modal-overlay stock-modal-overlay"
+  onClick={() => setConfirmAction(null)}
+  >
+  <section
+  className={`glassmorphism-card task-glass-card stock-confirm-modal stock-confirm-${confirmAction.variant}`}
+  onClick={(event) => event.stopPropagation()}
+  role="alertdialog"
+  aria-modal="true"
+  aria-labelledby="stock-confirm-heading"
+  aria-describedby="stock-confirm-description"
+  >
+  <div className="stock-confirm-icon">
+  {confirmAction.variant === 'danger' ? '!' : '⚠'}
+  </div>
 
+  <div className="stock-confirm-content">
+  <span className="stock-eyebrow">CONFIRM ACTION</span>
+
+  <h2 id="stock-confirm-heading">
+  {confirmAction.title}
+  </h2>
+
+  <p id="stock-confirm-description">
+  {confirmAction.message}
+  </p>
+  </div>
+
+  <div className="task-form-actions stock-confirm-actions">
+  <button
+  type="button"
+  className={
+  confirmAction.variant === 'danger'
+  ? 'stock-danger-action'
+  : 'submit-task-btn'
+  }
+  onClick={() => {
+  const action = confirmAction.onConfirm;
+  setConfirmAction(null);
+  action();
+  }}
+  >
+  {confirmAction.confirmLabel}
+  </button>
+
+  <button
+  type="button"
+  className="filter-tab"
+  onClick={() => setConfirmAction(null)}
+  >
+  Cancel
+  </button>
+  </div>
+  </section>
+  </div>
+  )}
       {toast && (
         <div
           className={`stock-toast stock-toast-${toast.type}`}
