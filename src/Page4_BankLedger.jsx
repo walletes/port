@@ -163,7 +163,7 @@ export default function Page4_BankLedger({ setPage }) {
   const [pageSize, setPageSize] = useState(10);
 
   const [notification, setNotification] = useState(null);
-  const [syncStatus, setSyncStatus] = useState('SECURE & SYNCED');
+  const [syncStatus, setSyncStatus] = useState('DEMO');
 
   const [newDesc, setNewDesc] = useState('');
   const [newAmount, setNewAmount] = useState('');
@@ -197,7 +197,7 @@ export default function Page4_BankLedger({ setPage }) {
     } catch {
       setNotification({
         type: 'error',
-        message: 'Unable to persist the audit history.',
+        message: 'Unable to audit history.',
       });
     }
   }, [auditLog]);
@@ -806,7 +806,7 @@ const resetForm = () => {
         </div>
 
         <div className="ledger-intro-meta">
-          <span>LOCAL LEDGER</span>
+          <span>LEDGER</span>
           <strong>{transactions.length} total records</strong>
           <small>Updated {new Date().toLocaleString()}</small>
         </div>
@@ -875,7 +875,7 @@ const resetForm = () => {
       <section className="ledger-analytics-section">
         <div className="analytics-section-heading">
           <div>
-            <p className="ledger-eyebrow">PERFORMANCE METRICS</p>
+            <p className="ledger-eyebrow">PERFORMANCE </p>
             <h2>Ledger Analytics</h2>
           </div>
 
@@ -893,7 +893,7 @@ const resetForm = () => {
           <div className="analytics-grid">
             <article className="analytics-card glass-card">
               <span className="analytics-card-label">
-                Average Settled Transaction
+                Settled Transaction
               </span>
               <strong>{formatMoney(averageTransaction)}</strong>
               <small>Average value per settled record</small>
@@ -901,7 +901,7 @@ const resetForm = () => {
 
             <article className="analytics-card glass-card">
               <span className="analytics-card-label">
-                Largest Settled Inflow
+                Settled Inflow
               </span>
               <strong>
                 {largestCredit ? formatMoney(largestCredit.amount) : formatMoney(0)}
@@ -913,7 +913,7 @@ const resetForm = () => {
 
             <article className="analytics-card glass-card">
               <span className="analytics-card-label">
-                Largest Settled Outflow
+                Settled Outflow
               </span>
               <strong>
                 {largestDebit ? formatMoney(largestDebit.amount) : formatMoney(0)}
@@ -936,7 +936,7 @@ const resetForm = () => {
 
       <section className="ledger-insights-panel glass-card">
         <div>
-          <p className="ledger-eyebrow">AUTOMATED OBSERVATIONS</p>
+          <p className="ledger-eyebrow">OBSERVATIONS</p>
           <h2>Financial Insights</h2>
         </div>
 
@@ -978,7 +978,7 @@ const resetForm = () => {
         </div>
 
         <small className="analytics-disclaimer">
-          Insights are calculated from the current browser ledger. They are
+          Insights are calculated from the current ledger. They are
           informational and are not a substitute for reconciled bank statements.
         </small>
       </section>
