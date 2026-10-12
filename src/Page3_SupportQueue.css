@@ -1742,3 +1742,757 @@
     transition-duration: 0.01ms !important;
   }
 }
+/* 1. Header & Notice Banner */
+.header-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.support-subtitle {
+  margin: 0;
+  color: #64748B;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.support-environment-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  padding: 5px 10px;
+  background-color: #FFFFFF;
+  border: 1px solid #0F172A;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.support-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #EA580C;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.support-notice {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  background-color: #FFFFFF;
+  border: 2px solid #0F172A;
+  border-left: 6px solid #EA580C;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.support-notice.error {
+  border-left-color: #EF4444;
+}
+
+.support-notice button {
+  background: transparent;
+  border: none;
+  color: #64748B;
+  font-size: 1.25rem;
+  font-weight: 700;
+  cursor: pointer;
+  line-height: 1;
+  padding: 2px 6px;
+}
+
+.support-notice button:hover {
+  color: #0F172A;
+}
+
+/* 2. Section Headings & Workspace Containers */
+.support-section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.support-section-heading h2,
+.support-section-heading h3 {
+  margin: 2px 0 0;
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+}
+
+.support-section-heading p {
+  margin: 4px 0 0;
+  color: #64748B;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.support-eyebrow {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #EA580C;
+}
+
+.support-total-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #64748B;
+  background-color: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.support-workspace {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.support-header-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* 3. Saved Views Bar */
+.support-saved-views {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px 14px;
+  background-color: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  border-radius: 8px;
+}
+
+.support-control-label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #64748B;
+  margin-right: 6px;
+}
+
+.support-view-btn {
+  padding: 6px 12px;
+  border: 1px solid #CBD5E1;
+  border-radius: 6px;
+  background-color: #F8FAFC;
+  color: #0F172A;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.support-view-btn:hover {
+  border-color: #EA580C;
+}
+
+.support-view-btn.active {
+  background-color: #EA580C;
+  border-color: #EA580C;
+  color: #FFFFFF;
+}
+
+/* 4. Create & Edit Forms */
+.support-form-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.support-form-note,
+.support-character-count {
+  font-size: 0.75rem;
+  color: #64748B;
+  font-weight: 600;
+}
+
+.support-character-count {
+  align-self: flex-end;
+}
+
+/* 5. Advanced Controls Override (Fixes Horizontal Squishing Bug) */
+.support-controls.support-advanced-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 16px;
+  padding: 18px;
+  background-color: #FFFFFF;
+  border: 2px solid #0F172A;
+  border-radius: 8px;
+  margin-bottom: 0;
+}
+
+.support-search-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.support-search-wrap label {
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.support-search-icon {
+  position: absolute;
+  left: 12px;
+  bottom: 9px;
+  color: #64748B;
+  font-size: 1rem;
+  pointer-events: none;
+}
+
+.support-search-wrap .search-input {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding-left: 34px;
+}
+
+.support-filter-selects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 12px;
+}
+
+.support-filter-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding-top: 12px;
+  border-top: 1px solid #E2E8F0;
+}
+
+.support-clear-filters {
+  background: transparent;
+  border: 1px solid #EA580C;
+  color: #EA580C;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.support-clear-filters:hover {
+  background-color: #EA580C;
+  color: #FFFFFF;
+}
+
+/* 6. Results Bar & Bulk Actions */
+.support-results-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: #475569;
+}
+
+.support-export-inline,
+.support-clear-selection {
+  background: transparent;
+  border: none;
+  color: #EA580C;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+}
+
+.support-export-inline:hover,
+.support-clear-selection:hover {
+  text-decoration: underline;
+}
+
+.support-bulk-toolbar > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.support-bulk-actions button {
+  padding: 7px 12px;
+  border: 1px solid #0F172A;
+  border-radius: 6px;
+  background-color: #FFFFFF;
+  color: #0F172A;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.support-bulk-actions button:hover {
+  background-color: #EA580C;
+  border-color: #EA580C;
+  color: #FFFFFF;
+}
+
+/* 7. Ticket Card Internals */
+.ticket-card.overdue {
+  border-color: #EA580C;
+}
+
+.ticket-card.resolved {
+  opacity: 0.78;
+  background-color: #F8FAFC;
+}
+
+.support-ticket-select {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: monospace;
+  font-size: 1.05rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.support-ticket-select input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #EA580C;
+  cursor: pointer;
+}
+
+.support-ticket-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.support-category-label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 3px 8px;
+  background-color: #F1F5F9;
+  border: 1px solid #CBD5E1;
+  border-radius: 4px;
+  color: #0F172A;
+}
+
+.support-ticket-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 4px;
+  border: 1px solid #CBD5E1;
+  background-color: #FFFFFF;
+}
+
+.support-ticket-status.resolved,
+.support-ticket-status.closed {
+  color: #16A34A;
+  border-color: #16A34A;
+}
+
+.support-ticket-status.resolved .support-status-dot,
+.support-ticket-status.closed .support-status-dot {
+  background-color: #16A34A;
+}
+
+.support-ticket-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.support-tag {
+  background-color: #F8FAFC;
+  border: 1px solid #CBD5E1;
+  border-radius: 4px;
+  color: #475569;
+  padding: 3px 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.support-tag:hover {
+  border-color: #EA580C;
+  color: #EA580C;
+}
+
+.support-ticket-owner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background-color: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 6px;
+}
+
+.support-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #0F172A;
+  color: #FFFFFF;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.support-owner-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.support-owner-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #64748B;
+}
+
+.support-owner-copy select {
+  padding: 5px 8px;
+  border: 1px solid #CBD5E1;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #0F172A;
+}
+
+.support-sla {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background-color: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  font-size: 0.82rem;
+}
+
+.support-sla.overdue {
+  border-color: #EA580C;
+  background-color: #FFF7ED;
+  color: #EA580C;
+}
+
+.support-ticket-quick-controls {
+  display: grid;
+  grid-template-columns: auto 1fr auto 1fr;
+  align-items: center;
+  gap: 8px 10px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.support-ticket-quick-controls select {
+  padding: 6px 8px;
+  border: 1px solid #CBD5E1;
+  border-radius: 6px;
+  background-color: #FFFFFF;
+  color: #0F172A;
+  font-size: 0.82rem;
+}
+
+.support-details-btn {
+  background-color: #F8FAFC;
+  border: 1px solid #CBD5E1;
+  border-radius: 6px;
+  color: #0F172A;
+  padding: 6px 12px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.support-details-btn:hover {
+  border-color: #EA580C;
+  color: #EA580C;
+}
+
+.support-ticket-updated {
+  font-size: 0.75rem;
+  color: #64748B;
+  text-align: right;
+}
+
+/* 8. Pagination Buttons */
+.support-pagination button {
+  padding: 8px 14px;
+  border: 1px solid #0F172A;
+  border-radius: 6px;
+  background-color: #FFFFFF;
+  color: #0F172A;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.support-pagination button:hover:not(:disabled) {
+  background-color: #EA580C;
+  border-color: #EA580C;
+  color: #FFFFFF;
+}
+
+.support-pagination button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* 9. Modals (Detail Modal & Confirm Delete Dialog) */
+.support-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: rgba(15, 23, 42, 0.6);
+  animation: support-backdrop-enter 0.18s ease-out;
+}
+
+.support-detail-modal,
+.support-confirm-dialog {
+  width: min(680px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  background-color: #FFFFFF;
+  border: 2px solid #0F172A;
+  border-radius: 10px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  box-shadow: 0 20px 48px rgba(15, 23, 42, 0.25);
+}
+
+.support-confirm-dialog {
+  width: min(440px, 100%);
+}
+
+.support-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #0F172A;
+}
+
+.support-modal-header h2 {
+  margin: 4px 0 0;
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.support-modal-close {
+  width: 34px;
+  height: 34px;
+  border: 1px solid #CBD5E1;
+  border-radius: 6px;
+  background-color: #FFFFFF;
+  color: #0F172A;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.support-modal-close:hover {
+  border-color: #EA580C;
+  color: #EA580C;
+}
+
+.support-detail-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.support-detail-description {
+  margin: 0;
+  padding: 14px;
+  background-color: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.support-detail-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 14px;
+  background-color: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+}
+
+.support-detail-list dt {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #64748B;
+}
+
+.support-detail-list dd {
+  margin: 2px 0 0;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+/* 10. Notes & Activity History inside Modal */
+.support-notes-section,
+.support-activity-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1px solid #E2E8F0;
+}
+
+.support-muted-copy {
+  margin: 0;
+  color: #64748B;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.support-notes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.support-note {
+  padding: 12px;
+  background-color: #F8FAFC;
+  border: 1px solid #CBD5E1;
+  border-radius: 6px;
+}
+
+.support-note p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.support-activity-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 18px;
+  border-left: 2px solid #CBD5E1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.support-activity-item {
+  position: relative;
+  font-size: 0.85rem;
+}
+
+.support-activity-marker {
+  position: absolute;
+  left: -24px;
+  top: 4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  border: 2px solid #EA580C;
+}
+
+.support-activity-item p {
+  margin: 2px 0;
+  color: #475569;
+}
+
+.support-activity-item span {
+  font-size: 0.75rem;
+  color: #64748B;
+}
+
+.support-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 14px;
+  border-top: 1px solid #E2E8F0;
+}
+
+/* 11. Undo Bar & Footer */
+.support-undo-bar button {
+  padding: 6px 12px;
+  border: 1px solid #EA580C;
+  border-radius: 6px;
+  background-color: #EA580C;
+  color: #FFFFFF;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.support-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 40px;
+  padding-top: 16px;
+  border-top: 2px solid #0F172A;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #64748B;
+}
+
+@media (max-width: 520px) {
+  .support-ticket-quick-controls {
+    grid-template-columns: 1fr;
+  }
+}
