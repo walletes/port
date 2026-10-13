@@ -459,3 +459,705 @@
     opacity: 1;
   }
 }
+/* 1. Header Toolbar Actions & Eyebrows */
+.staff-header-actions,
+.toolbar-btn-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.staff-toolbar-btn {
+  background: none;
+  border: 1px solid #FFFFFF;
+  color: #FFFFFF;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.staff-toolbar-btn:hover,
+.staff-toolbar-btn[aria-pressed="true"],
+.staff-toolbar-btn[aria-expanded="true"] {
+  background-color: #2DD4BF;
+  border-color: #2DD4BF;
+  color: #334155;
+  font-weight: 700;
+}
+
+.staff-eyebrow {
+  margin: 0 0 4px;
+  font-family: monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #2DD4BF;
+}
+
+/* 2. Analytics Toolbar, Metrics Cards & Distribution Meters */
+.staff-analytics-toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.staff-shortcut-hint {
+  font-size: 0.75rem;
+  opacity: 0.7;
+  font-family: monospace;
+  margin-left: auto;
+}
+
+.staff-analytics-panel {
+  background-color: #1E293B;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.staff-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px;
+}
+
+.staff-metric-card {
+  background-color: #334155;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.staff-metric-card span {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #2DD4BF;
+  letter-spacing: 0.8px;
+}
+
+.staff-metric-card strong {
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.staff-metric-card small {
+  font-size: 0.72rem;
+  opacity: 0.7;
+}
+
+.staff-analytics-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.15);
+  padding-top: 16px;
+}
+
+.staff-breakdown-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.staff-breakdown-panel h3 {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #2DD4BF;
+  font-weight: 700;
+}
+
+.staff-breakdown-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.staff-breakdown-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+}
+
+.staff-meter-track {
+  width: 100%;
+  height: 6px;
+  background-color: #334155;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.staff-meter-fill {
+  display: block;
+  height: 100%;
+  background-color: #2DD4BF;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+/* 3. Status Filter & Advanced Filtering Controls */
+.staff-status-select {
+  padding: 10px 14px;
+  background-color: #1E293B;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #FFFFFF;
+  font-size: 0.85rem;
+  outline: none;
+  cursor: pointer;
+}
+
+.staff-status-select:focus {
+  border-color: #2DD4BF;
+}
+
+.staff-advanced-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding: 12px 14px;
+  background-color: #1E293B;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.staff-filter-field {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.staff-filter-field input,
+.staff-filter-field select {
+  padding: 6px 10px;
+  background-color: #334155;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  font-size: 0.82rem;
+  outline: none;
+}
+
+.staff-filter-field input:focus,
+.staff-filter-field select:focus {
+  border-color: #2DD4BF;
+}
+
+.staff-view-switch {
+  display: flex;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.staff-view-switch button {
+  background: none;
+  border: none;
+  color: #FFFFFF;
+  padding: 5px 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.staff-view-switch button.active-filter {
+  background-color: #2DD4BF;
+  color: #334155;
+  font-weight: 700;
+}
+
+/* 4. Results Toolbar & Bulk Actions */
+.staff-results-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+  margin-bottom: 12px;
+  font-size: 0.82rem;
+  opacity: 0.85;
+}
+
+.staff-select-visible {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.staff-select-visible input[type="checkbox"],
+.staff-card-checkbox input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  accent-color: #2DD4BF;
+  cursor: pointer;
+}
+
+.staff-bulk-toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px 14px;
+  background-color: #1E293B;
+  border: 1px solid #2DD4BF;
+  margin-bottom: 20px;
+  font-size: 0.82rem;
+}
+
+.staff-bulk-toolbar button {
+  background: none;
+  border: 1px solid #2DD4BF;
+  color: #2DD4BF;
+  padding: 5px 10px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.staff-bulk-toolbar button:hover {
+  background-color: #2DD4BF;
+  color: #334155;
+}
+
+/* 5. Recruit Personnel Form Additions */
+.staff-form-heading-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding-bottom: 10px;
+}
+
+.staff-form-heading-row h3 {
+  margin: 0;
+}
+
+.staff-form-heading-row p {
+  margin: 2px 0 0;
+  font-size: 0.8rem;
+  opacity: 0.75;
+}
+
+.staff-form-full-width {
+  grid-column: 1 / -1;
+}
+
+.staff-form-full-width textarea {
+  width: 100%;
+  padding: 8px 10px;
+  background-color: #334155;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  font-family: inherit;
+  font-size: 0.85rem;
+  box-sizing: border-box;
+  resize: vertical;
+  outline: none;
+}
+
+.staff-form-full-width textarea:focus {
+  border-color: #2DD4BF;
+}
+
+.staff-form-error {
+  color: #F87171;
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.staff-form-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* 6. List View & Card Enhancements */
+.staff-list-layout.staff-list-view {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.staff-list-view .staff-card {
+  padding: 14px 18px;
+}
+
+.staff-card.staff-card-selected {
+  border-color: #2DD4BF;
+  background-color: rgba(45, 212, 191, 0.05);
+}
+
+.staff-card-selection-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.staff-card-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.staff-status-badge {
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+
+.staff-status-badge.status-active {
+  background-color: rgba(45, 212, 191, 0.2);
+  color: #2DD4BF;
+  border: 1px solid #2DD4BF;
+}
+
+.staff-status-badge.status-inactive,
+.staff-status-badge.status-archived {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.staff-card-location {
+  font-size: 0.8rem;
+  margin: 0;
+  opacity: 0.85;
+}
+
+.staff-review-warning {
+  margin: 4px 0 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #F87171;
+  background-color: rgba(248, 113, 113, 0.1);
+  border: 1px solid #F87171;
+  padding: 2px 6px;
+  width: fit-content;
+}
+
+.staff-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.15);
+}
+
+.staff-inline-action {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+  padding: 3px 8px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.staff-inline-action:hover {
+  border-color: #2DD4BF;
+  color: #2DD4BF;
+}
+
+.staff-inline-action.staff-danger-action {
+  border-color: rgba(248, 113, 113, 0.5);
+  color: #F87171;
+}
+
+.staff-inline-action.staff-danger-action:hover {
+  background-color: #F87171;
+  color: #1E293B;
+}
+
+/* 7. Personnel Profile Sheet Modal */
+.staff-profile-modal {
+  max-width: 580px !important;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.staff-profile-heading-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding-bottom: 10px;
+}
+
+.staff-profile-subtitle {
+  margin: 2px 0 0;
+  font-size: 0.75rem;
+  opacity: 0.65;
+}
+
+.staff-profile-modal .modal-close-btn {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 1px solid #2DD4BF;
+  color: #2DD4BF;
+}
+
+.staff-profile-modal .modal-close-btn:hover {
+  background-color: #2DD4BF;
+  color: #1E293B;
+}
+
+.staff-profile-clearance,
+.staff-access-review-panel,
+.staff-profile-notes,
+.staff-clearance-history {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 12px;
+  background-color: #334155;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.staff-profile-clearance select {
+  padding: 6px 10px;
+  background-color: #1E293B;
+  border: 1px solid #2DD4BF;
+  color: #2DD4BF;
+  font-weight: 700;
+  outline: none;
+}
+
+.staff-profile-clearance small {
+  font-size: 0.7rem;
+  opacity: 0.7;
+}
+
+.staff-access-review-panel button {
+  align-self: flex-start;
+  margin-top: 4px;
+}
+
+.staff-clearance-history h4 {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #2DD4BF;
+}
+
+.staff-history-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.78rem;
+  padding-bottom: 6px;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
+}
+
+.staff-history-entry span {
+  opacity: 0.65;
+  font-size: 0.7rem;
+}
+
+.staff-profile-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 14px;
+}
+
+.staff-profile-actions .modal-close-btn {
+  width: auto;
+  padding: 6px 14px;
+}
+
+/* 8. Administrative Audit Log Panel */
+.staff-audit-panel {
+  background-color: #1E293B;
+  border: 2px solid #2DD4BF;
+  padding: 20px;
+  margin-bottom: 30px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.staff-audit-heading-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.staff-audit-heading-row h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #2DD4BF;
+}
+
+.staff-audit-heading-row p {
+  margin: 2px 0 0;
+  font-size: 0.8rem;
+  opacity: 0.75;
+}
+
+.staff-audit-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.staff-audit-filters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.staff-audit-filters input,
+.staff-audit-filters select {
+  padding: 8px 12px;
+  background-color: #334155;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+  font-size: 0.85rem;
+  outline: none;
+}
+
+.staff-audit-filters input {
+  flex: 1;
+  min-width: 200px;
+}
+
+.staff-audit-filters input:focus,
+.staff-audit-filters select:focus {
+  border-color: #2DD4BF;
+}
+
+.staff-audit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.staff-audit-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 10px 12px;
+  background-color: #334155;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 0.82rem;
+}
+
+.staff-audit-entry strong {
+  display: block;
+  color: #2DD4BF;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+}
+
+.staff-audit-entry span {
+  font-weight: 700;
+}
+
+.staff-audit-entry p {
+  margin: 3px 0 0;
+  opacity: 0.8;
+}
+
+.staff-audit-entry time {
+  font-family: monospace;
+  font-size: 0.72rem;
+  opacity: 0.65;
+  white-space: nowrap;
+}
+
+/* 9. Action Confirmation Dialog */
+.staff-confirm-modal {
+  max-width: 420px !important;
+}
+
+.staff-confirm-modal h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  color: #2DD4BF;
+}
+
+.staff-confirm-modal p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+.staff-confirm-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.staff-danger-confirm-btn {
+  background-color: #F87171;
+  border: 1px solid #F87171;
+  color: #1E293B;
+  padding: 6px 14px;
+  font-weight: 800;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.staff-danger-confirm-btn:hover {
+  background-color: #EF4444;
+  border-color: #EF4444;
+  color: #FFFFFF;
+}
+
+/* 10. Notification Toast Dismissal Button */
+.custom-notification-toast {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.custom-notification-toast button {
+  background: none;
+  border: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 0 4px;
+  line-height: 1;
+}
+
+.custom-notification-toast button:hover {
+  color: #2DD4BF;
+}

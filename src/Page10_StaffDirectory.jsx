@@ -11,7 +11,7 @@ const INITIAL_TEAM = [
     email: 'prince@company.com',
     phone: '+234 808 354 3955',
     clearance: 'L4 - Omega',
-    location: 'Lagos, Nigeria',
+    location: 'China',
     skills: ['Rust', 'C Native', 'React', 'Smart Contracts', 'FFmpeg'],
     status: 'Active',
     joinedAt: '2024-02-12',
@@ -23,13 +23,13 @@ const INITIAL_TEAM = [
   },
   {
     id: 'EMP-02',
-    name: 'Amarachi Kalu',
+    name: 'Kalu',
     title: 'Product Operations Lead',
     dept: 'PRODUCT',
     email: 'ama@company.com',
     phone: '+234 701 442 1199',
     clearance: 'L3 - Executive',
-    location: 'Abuja, Nigeria',
+    location: 'Spain',
     skills: ['Agile Management', 'Roadmap', 'Sprint Telemetry'],
     status: 'Active',
     joinedAt: '2024-04-08',
@@ -41,13 +41,13 @@ const INITIAL_TEAM = [
   },
   {
     id: 'EMP-03',
-    name: 'Tunde Bakare',
+    name: ' Bakare',
     title: 'Lead Security Auditor',
     dept: 'SECURITY',
     email: 'tunde@company.com',
     phone: '+234 812 009 8833',
     clearance: 'L4 - Omega',
-    location: 'Port Harcourt, Nigeria',
+    location: 'England',
     skills: ['Zero-Knowledge', 'C Auditing', 'Penetration Testing'],
     status: 'Active',
     joinedAt: '2023-11-20',
@@ -59,13 +59,13 @@ const INITIAL_TEAM = [
   },
   {
     id: 'EMP-04',
-    name: 'Ebere Nwosu',
+    name: 'Ebere',
     title: 'Logistics & Chain Supervisor',
     dept: 'OPERATIONS',
     email: 'ebere@company.com',
     phone: '+234 903 112 4455',
     clearance: 'L2 - Elevated',
-    location: 'Enugu, Nigeria',
+    location: 'Nigeria',
     skills: ['Supply Manifests', 'Inventory Systems', 'ERP Sync'],
     status: 'Active',
     joinedAt: '2024-06-17',
@@ -77,13 +77,13 @@ const INITIAL_TEAM = [
   },
   {
     id: 'EMP-05',
-    name: 'Chinedu Okafor',
+    name: ' Okafor',
     title: 'Legacy Component Manager',
     dept: 'DEPRECATED',
     email: 'chinedu@company.com',
     phone: 'Discontinued',
     clearance: 'L1 - Revoked',
-    location: 'Decommissioned Node',
+    location: 'USA',
     skills: ['COBOL', 'Legacy DB'],
     status: 'Inactive',
     joinedAt: '2022-01-10',
@@ -933,7 +933,7 @@ export default function Page10_StaffDirectory({ setPage }) {
           className="staff-exit-btn"
           onClick={() => setPage('home')}
         >
-          ← Corporate Dashboard
+          ← Dashboard
         </button>
 
         <div className="staff-header-actions">
@@ -958,10 +958,10 @@ export default function Page10_StaffDirectory({ setPage }) {
       <section className="staff-controls">
         <div className="title-action-row">
           <div>
-            <p className="staff-eyebrow">PEOPLE OPERATIONS / ACCESS GOVERNANCE</p>
+            <p className="staff-eyebrow"> ACCESS </p>
             <h1 className="staff-title">Internal Staff Registry</h1>
             <p className="staff-subtext">
-              Personnel records, clearance reviews, workforce analytics, and administrative audit events.
+              Personnel records, clearance reviews, workforce analytics, and administrative events.
             </p>
           </div>
 
@@ -1315,7 +1315,7 @@ export default function Page10_StaffDirectory({ setPage }) {
                 id="staff-name"
                 type="text"
                 autoComplete="name"
-                placeholder="e.g. Olayinka Bello"
+                placeholder="e.g. Olayinka"
                 value={formData.name}
                 onChange={(event) => updateFormField('name', event.target.value)}
                 required
@@ -1392,7 +1392,7 @@ export default function Page10_StaffDirectory({ setPage }) {
               <input
                 id="staff-location"
                 type="text"
-                placeholder="Lagos, Nigeria"
+                placeholder=" Nigeria"
                 value={formData.location}
                 onChange={(event) => updateFormField('location', event.target.value)}
               />
@@ -1403,7 +1403,7 @@ export default function Page10_StaffDirectory({ setPage }) {
               <input
                 id="staff-skills"
                 type="text"
-                placeholder="React, Python, FFmpeg"
+                placeholder="React, Python, Others"
                 value={formData.skills}
                 onChange={(event) => updateFormField('skills', event.target.value)}
               />
