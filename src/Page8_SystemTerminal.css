@@ -115,9 +115,14 @@
 
 .terminal-screen-output {
   flex-grow: 1;
+  height: 420px;
+  max-height: 60vh;
+  min-height: 0;
   overflow-y: auto;
+  overflow-x: auto;
+  box-sizing: border-box;
   margin-bottom: 15px;
-}
+  }
 
 .system-boot-banner {
   font-weight: 700;
