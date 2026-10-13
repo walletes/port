@@ -224,7 +224,7 @@ export default function Page8_SystemTerminal({ setPage }) {
   const [visibleCount, setVisibleCount] = useState(100);
   const [activeTab, setActiveTab] = useState('LOGS');
   const [commandOutput, setCommandOutput] = useState(
-    'System console initialized. Type "help" to inspect available commands.'
+    'System initialized. Type "help" to inspect available commands.'
   );
   const [commandStatus, setCommandStatus] = useState('INFO');
   const [notifications, setNotifications] = useState([]);
@@ -673,7 +673,7 @@ export default function Page8_SystemTerminal({ setPage }) {
       'F1          Toggle command reference',
       'Escape      Close log inspector or command reference',
       '',
-      'Note: All telemetry and operational commands are simulated locally.'
+      'Note: All operational commands are simulated locally.'
     ].join('\n');
   }, []);
 
@@ -1003,12 +1003,12 @@ let status = 'INFO';
         break;
 
       case 'version':
-        output = 'System Terminal v3.0.0 | React observability demo';
+        output = 'System Terminal v3.0.0 | demo';
         break;
 
       case 'exit':
         setPage('home');
-        output = 'Returning to portfolio home.';
+        output = 'Returning home.';
         break;
 
       default:
@@ -1125,13 +1125,12 @@ let status = 'INFO';
               aria-hidden="true"
             />
             <span>{isStreaming ? 'STREAMING' : 'PAUSED'}</span>
-            <span>PID: 4092</span>
           </div>
         </div>
 
         <div className="terminal-top-toolbar">
           <label className="terminal-search-label">
-            <span>Search telemetry</span>
+            <span>Search </span>
             <input
               type="search"
               className="terminal-search-input"

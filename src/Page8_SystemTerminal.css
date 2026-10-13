@@ -211,3 +211,826 @@
   background-color: #00FF00;
   color: #000000;
 }
+/* 1. Terminal Header Layout, Runtime Indicators & Compact Mode */
+.terminal-header-main {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.terminal-heading h1 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.terminal-heading p {
+  margin: 2px 0 0;
+  font-size: 0.72rem;
+  color: #FFB703;
+  letter-spacing: 1px;
+}
+
+.terminal-runtime-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border: 1px solid #00FF00;
+  background-color: #050505;
+}
+
+.runtime-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.runtime-status-dot.runtime-online {
+  background-color: #00FF00;
+  box-shadow: 0 0 6px #00FF00;
+}
+
+.runtime-status-dot.runtime-paused {
+  background-color: #FFB703;
+  box-shadow: 0 0 6px #FFB703;
+}
+
+.terminal-search-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+}
+
+.terminal-search-label span {
+  color: #FFB703;
+}
+
+/* Tab Navigation */
+.terminal-navigation {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.terminal-navigation button {
+  background: none;
+  border: 1px solid #00FF00;
+  color: #00FF00;
+  padding: 6px 14px;
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.terminal-navigation button:hover,
+.terminal-navigation button.active {
+  background-color: #00FF00;
+  color: #000000;
+}
+
+/* Compact layout mode override */
+.terminal-wrapper.terminal-compact .log-row-item {
+  margin-bottom: 2px;
+  font-size: 0.78rem;
+  line-height: 1.25;
+}
+
+.terminal-wrapper.terminal-compact .terminal-metric-card {
+  padding: 8px 12px;
+}
+
+/* 2. System Metrics Cards */
+.terminal-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.terminal-metric-card {
+  background-color: #050505;
+  border: 1px solid #00FF00;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.terminal-metric-card span {
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  color: #FFB703;
+}
+
+.terminal-metric-card strong {
+  font-size: 1.4rem;
+  color: #00FF00;
+}
+
+.terminal-metric-card small {
+  font-size: 0.7rem;
+  opacity: 0.65;
+}
+
+/* 3. Overview Panel & Severity Breakdown */
+.terminal-overview-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.terminal-overview-panel header h2,
+.terminal-services-panel header h2,
+.terminal-incidents-panel header h2,
+.terminal-activity-panel header h2,
+.terminal-command-console header h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  letter-spacing: 0.5px;
+}
+
+.terminal-overview-panel header p,
+.terminal-services-panel header p,
+.terminal-incidents-panel header p,
+.terminal-activity-panel header p,
+.terminal-command-console header p {
+  margin: 4px 0 0;
+  font-size: 0.75rem;
+  color: #FFB703;
+}
+
+.terminal-severity-breakdown {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.terminal-severity-card {
+  background-color: #050505;
+  border: 1px solid #00FF00;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.terminal-severity-card.severity-crit,
+.terminal-severity-card.severity-warn {
+  border-color: #FFB703;
+}
+
+.terminal-severity-card span {
+  font-size: 0.72rem;
+  letter-spacing: 1px;
+  color: #FFB703;
+}
+
+.terminal-severity-card strong {
+  font-size: 1.35rem;
+}
+
+.terminal-severity-card progress {
+  width: 100%;
+  height: 6px;
+  appearance: none;
+  border: 1px solid #00FF00;
+  background: #000000;
+}
+
+.terminal-severity-card progress::-webkit-progress-bar {
+  background-color: #000000;
+}
+
+.terminal-severity-card progress::-webkit-progress-value {
+  background-color: #00FF00;
+}
+
+.terminal-severity-card.severity-crit progress::-webkit-progress-value,
+.terminal-severity-card.severity-warn progress::-webkit-progress-value {
+  background-color: #FFB703;
+}
+
+.terminal-severity-card small {
+  font-size: 0.7rem;
+  opacity: 0.7;
+}
+
+.terminal-service-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.terminal-service-summary h3,
+.terminal-recent-activity h3 {
+  margin: 0 0 6px;
+  font-size: 0.95rem;
+  color: #FFB703;
+}
+
+.terminal-service-summary-row {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1fr 1fr;
+  padding: 6px 10px;
+  background-color: #050505;
+  border: 1px solid #333333;
+  font-size: 0.8rem;
+}
+
+.service-status.service-healthy,
+.service-status.service-online {
+  color: #00FF00;
+}
+
+.service-status.service-degraded,
+.service-status.service-warning,
+.service-status.service-offline {
+  color: #FFB703;
+}
+
+.terminal-recent-activity {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.terminal-activity-row {
+  background: none;
+  border: 1px solid #333333;
+  color: inherit;
+  font-family: inherit;
+  padding: 6px 10px;
+  text-align: left;
+  display: grid;
+  grid-template-columns: 90px 70px 140px 1fr;
+  gap: 10px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.terminal-activity-row:hover {
+  background-color: #050505;
+  border-color: #00FF00;
+}
+
+.terminal-activity-row.warn {
+  color: #FFB703;
+}
+
+.terminal-activity-row.crit {
+  border-left: 3px solid #FFB703;
+}
+
+/* 4. Logs Workspace, Filter Panel & Event Inspector */
+.terminal-log-workspace {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.terminal-filter-panel {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+  background-color: #050505;
+  border: 1px solid #00FF00;
+  font-size: 0.78rem;
+}
+
+.terminal-filter-panel label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.terminal-filter-panel select {
+  background-color: #000000;
+  border: 1px solid #00FF00;
+  color: #00FF00;
+  padding: 4px 6px;
+  font-family: inherit;
+  font-size: 0.78rem;
+}
+
+.terminal-filter-panel input[type="checkbox"] {
+  accent-color: #00FF00;
+}
+
+.terminal-filter-panel button {
+  background: none;
+  border: 1px solid #00FF00;
+  color: #00FF00;
+  padding: 4px 8px;
+  font-family: inherit;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.terminal-filter-panel button:hover {
+  background-color: #00FF00;
+  color: #000000;
+}
+
+.terminal-log-layout {
+  display: flex;
+  gap: 14px;
+}
+
+.terminal-log-list-panel {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.terminal-log-summary {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: #FFB703;
+  margin-bottom: 6px;
+}
+
+.terminal-empty-state {
+  text-align: center;
+  padding: 30px;
+  border: 1px dashed #333333;
+  margin: 15px 0;
+  font-size: 0.85rem;
+}
+
+.terminal-empty-state p {
+  margin: 4px 0 0;
+  color: #FFB703;
+}
+
+button.log-row-item {
+  width: 100%;
+  background: transparent;
+  border: none;
+  text-align: left;
+  font-family: inherit;
+  cursor: pointer;
+  padding: 2px 4px;
+}
+
+button.log-row-item:hover {
+  background-color: #050505;
+}
+
+button.log-row-item.selected {
+  background-color: #050505;
+  border-left: 3px solid #00FF00;
+}
+
+button.log-row-item.acknowledged {
+  opacity: 0.55;
+}
+
+.log-service-name {
+  color: #FFB703;
+  flex-shrink: 0;
+}
+
+.log-trace-reference {
+  margin-left: auto;
+  opacity: 0.4;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+.terminal-load-more {
+  background: none;
+  border: 1px solid #00FF00;
+  color: #00FF00;
+  padding: 6px;
+  font-family: inherit;
+  font-size: 0.78rem;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.terminal-load-more:hover {
+  background-color: #00FF00;
+  color: #000000;
+}
+
+/* Event Inspector Drawer */
+.terminal-log-inspector {
+  width: min(380px, 100%);
+  border: 1px solid #00FF00;
+  background-color: #050505;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 0.78rem;
+  overflow-y: auto;
+  max-height: 520px;
+}
+
+.terminal-log-inspector header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #00FF00;
+  padding-bottom: 6px;
+}
+
+.terminal-log-inspector header h3 {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #FFB703;
+}
+
+.terminal-log-inspector header button {
+  background: none;
+  border: 1px solid #FFB703;
+  color: #FFB703;
+  padding: 2px 6px;
+  font-family: inherit;
+  font-size: 0.72rem;
+  cursor: pointer;
+}
+
+.terminal-log-inspector header button:hover {
+  background-color: #FFB703;
+  color: #000000;
+}
+
+.terminal-log-inspector dl {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 6px;
+  margin: 0;
+}
+
+.terminal-log-inspector dt {
+  color: #FFB703;
+}
+
+.terminal-log-inspector dd {
+  margin: 0;
+  word-break: break-all;
+}
+
+.terminal-log-inspector dd button {
+  background: none;
+  border: none;
+  color: #00FF00;
+  text-decoration: underline;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+.terminal-log-inspector pre {
+  margin: 4px 0 0;
+  padding: 8px;
+  background-color: #000000;
+  border: 1px solid #333333;
+  color: #00FF00;
+  font-size: 0.72rem;
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+
+.terminal-log-inspector button[type="button"]:last-child {
+  background: none;
+  border: 1px solid #00FF00;
+  color: #00FF00;
+  padding: 6px;
+  font-family: inherit;
+  cursor: pointer;
+  margin-top: 6px;
+}
+
+.terminal-log-inspector button[type="button"]:last-child:hover {
+  background-color: #00FF00;
+  color: #000000;
+}
+
+/* 5. Services Registry Panel */
+.terminal-services-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.terminal-service-table {
+  border: 1px solid #00FF00;
+  background-color: #050505;
+}
+
+.terminal-service-table-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr 2.5fr;
+  padding: 8px 10px;
+  border-bottom: 1px solid #00FF00;
+  font-size: 0.72rem;
+  color: #FFB703;
+  font-weight: 700;
+}
+
+.terminal-service-table-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr 2.5fr;
+  padding: 8px 10px;
+  border-bottom: 1px solid #333333;
+  font-size: 0.78rem;
+  align-items: center;
+}
+
+.terminal-service-actions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.terminal-service-actions button {
+  background: none;
+  border: 1px solid #00FF00;
+  color: #00FF00;
+  padding: 2px 6px;
+  font-family: inherit;
+  font-size: 0.7rem;
+  cursor: pointer;
+}
+
+.terminal-service-actions button:hover {
+  background-color: #00FF00;
+  color: #000000;
+}
+
+/* 6. Incidents Panel */
+.terminal-incidents-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.terminal-incident-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.terminal-incident-summary article {
+  background-color: #050505;
+  border: 1px solid #FFB703;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.terminal-incident-summary span {
+  font-size: 0.72rem;
+  color: #FFB703;
+}
+
+.terminal-incident-summary strong {
+  font-size: 1.3rem;
+}
+
+.terminal-incident-card {
+  background-color: #050505;
+  border: 1px solid #00FF00;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.terminal-incident-card.incident-open {
+  border-color: #FFB703;
+  border-left: 4px solid #FFB703;
+}
+
+.terminal-incident-card header {
+  display: flex;
+  gap: 12px;
+  font-size: 0.75rem;
+  color: #FFB703;
+  font-weight: 700;
+}
+
+.terminal-incident-card h3 {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.terminal-incident-card dl {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 4px;
+  margin: 0;
+  font-size: 0.78rem;
+}
+
+.terminal-incident-card dt {
+  color: #FFB703;
+}
+
+.terminal-incident-card dd {
+  margin: 0;
+}
+
+.terminal-incident-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.terminal-incident-actions button {
+  background: none;
+  border: 1px solid #00FF00;
+  color: #00FF00;
+  padding: 4px 10px;
+  font-family: inherit;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.terminal-incident-actions button:hover {
+  background-color: #00FF00;
+  color: #000000;
+}
+
+/* 7. Runtime Activity Stream */
+.terminal-activity-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.terminal-notification {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background-color: #050505;
+  border: 1px solid #333333;
+  font-size: 0.8rem;
+}
+
+.terminal-notification.notification-warn,
+.terminal-notification.notification-crit {
+  border-left: 4px solid #FFB703;
+}
+
+.terminal-notification time {
+  opacity: 0.6;
+  font-size: 0.72rem;
+  flex-shrink: 0;
+}
+
+.terminal-notification span {
+  color: #FFB703;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.terminal-notification p {
+  margin: 0;
+}
+
+/* 8. Command Interface & Console Execution */
+.terminal-command-console {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #00FF00;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.terminal-command-console header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.terminal-command-console header button {
+  background: none;
+  border: 1px solid #FFB703;
+  color: #FFB703;
+  padding: 4px 10px;
+  font-family: inherit;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.terminal-command-console header button:hover {
+  background-color: #FFB703;
+  color: #000000;
+}
+
+.terminal-command-help {
+  background-color: #050505;
+  border: 1px dashed #FFB703;
+  color: #00FF00;
+  padding: 12px;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  margin: 0;
+}
+
+.terminal-command-output {
+  background-color: #050505;
+  border: 1px solid #333333;
+  padding: 10px 12px;
+  font-size: 0.8rem;
+}
+
+.terminal-command-output header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dashed #333333;
+  padding-bottom: 6px;
+  margin-bottom: 8px;
+  font-size: 0.72rem;
+  color: #FFB703;
+}
+
+.terminal-command-output header button {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.terminal-command-output pre {
+  margin: 0;
+  white-space: pre-wrap;
+  color: #00FF00;
+  font-size: 0.8rem;
+}
+
+.terminal-command-output.output-error pre {
+  color: #FFB703;
+}
+
+.terminal-command-footer {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 0.72rem;
+  opacity: 0.7;
+}
+
+.terminal-command-footer button {
+  background: none;
+  border: none;
+  color: #FFB703;
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+  margin-left: auto;
+}
+
+/* 9. Terminal System Footer */
+.terminal-system-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 14px;
+  margin-top: 15px;
+  border-top: 1px solid #333333;
+  font-size: 0.72rem;
+  color: #FFB703;
+}
+
+@media (max-width: 768px) {
+  .terminal-service-table-header,
+  .terminal-service-table-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .terminal-log-layout {
+    flex-direction: column;
+  }
+
+  .terminal-log-inspector {
+    width: 100%;
+  }
+}
