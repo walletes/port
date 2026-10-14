@@ -486,3 +486,822 @@
     opacity: 1;
   }
 }
+
+.pricing-header-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.pricing-demo-indicator {
+  font-family: monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #06B6D4;
+  letter-spacing: 1px;
+}
+
+.pricing-export-btn,
+.pricing-secondary-btn {
+  background: none;
+  border: 1px solid #374151;
+  color: #F9FAFB;
+  padding: 6px 14px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.pricing-export-btn:hover,
+.pricing-secondary-btn:hover {
+  border-color: #06B6D4;
+  color: #06B6D4;
+}
+
+.pricing-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+  text-align: left;
+  margin-bottom: 25px;
+}
+
+.pricing-eyebrow {
+  margin: 0 0 4px;
+  font-family: monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #06B6D4;
+}
+
+.pricing-session-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border: 1px solid #374151;
+  background-color: #1F2937;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #F9FAFB;
+}
+
+.pricing-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #06B6D4;
+  box-shadow: 0 0 6px #06B6D4;
+}
+
+.pricing-control-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #06B6D4;
+  letter-spacing: 0.6px;
+  margin-right: 4px;
+  align-self: center;
+}
+
+.pricing-disclaimer {
+  font-size: 0.75rem;
+  opacity: 0.65;
+  margin-bottom: 20px;
+}
+
+.pricing-disclaimer span {
+  color: #06B6D4;
+  margin-right: 4px;
+}
+
+/* 2. Estimator Slider Labels & Promotional Coupon Panel */
+.estimator-recommendation {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.estimator-recommendation span {
+  font-size: 0.7rem;
+  opacity: 0.7;
+  text-transform: uppercase;
+}
+
+.estimator-recommendation strong {
+  color: #06B6D4;
+  font-size: 0.95rem;
+}
+
+.pricing-slider-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  opacity: 0.65;
+  font-family: monospace;
+}
+
+.pricing-estimator-summary {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 10px;
+  border-top: 1px dashed #374151;
+  font-size: 0.78rem;
+}
+
+.pricing-estimator-summary strong {
+  color: #06B6D4;
+}
+
+.pricing-coupon-panel {
+  background-color: #1F2937;
+  border: 1px solid #374151;
+  padding: 18px;
+  max-width: 600px;
+  margin: 20px auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+}
+
+.pricing-coupon-panel h3 {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #F9FAFB;
+}
+
+.pricing-coupon-panel p {
+  margin: 2px 0 0;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.pricing-coupon-controls {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.pricing-coupon-controls input {
+  flex: 1;
+  padding: 8px 12px;
+  background-color: #111827;
+  border: 1px solid #374151;
+  color: #F9FAFB;
+  font-family: monospace;
+  font-size: 0.85rem;
+  outline: none;
+}
+
+.pricing-coupon-controls input:focus {
+  border-color: #06B6D4;
+}
+
+.pricing-coupon-success {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #06B6D4;
+  font-weight: 700;
+}
+
+.pricing-coupon-error {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #EF4444;
+}
+
+.pricing-coupon-hint {
+  margin: 0;
+  font-size: 0.72rem;
+  opacity: 0.6;
+  font-family: monospace;
+}
+
+/* 3. Analytics Strip */
+.pricing-analytics-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto 35px auto;
+}
+
+.pricing-analytics-card {
+  background-color: #1F2937;
+  border: 1px solid #374151;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pricing-analytics-card span {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #06B6D4;
+  letter-spacing: 0.8px;
+}
+
+.pricing-analytics-card strong {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #F9FAFB;
+}
+
+.pricing-analytics-card small {
+  font-size: 0.72rem;
+  opacity: 0.65;
+}
+
+/* 4. Catalog Controls, Plan Search & Filter Actions */
+.pricing-catalog-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto 20px auto;
+}
+
+.pricing-catalog-controls h2 {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.pricing-catalog-controls p {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.pricing-catalog-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pricing-plan-search,
+.pricing-catalog-actions select {
+  padding: 8px 12px;
+  background-color: #1F2937;
+  border: 1px solid #374151;
+  color: #F9FAFB;
+  font-size: 0.85rem;
+  outline: none;
+}
+
+.pricing-plan-search:focus,
+.pricing-catalog-actions select:focus {
+  border-color: #06B6D4;
+}
+
+/* Compact Table Layout */
+.pricing-compact-table-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow-x: auto;
+  border: 1px solid #374151;
+  background-color: #1F2937;
+}
+
+.pricing-compact-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  text-align: left;
+}
+
+.pricing-compact-table th,
+.pricing-compact-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #374151;
+}
+
+.pricing-compact-table th {
+  background-color: #111827;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  color: #06B6D4;
+  letter-spacing: 0.6px;
+}
+
+.pricing-inline-match {
+  margin-left: 8px;
+  font-family: monospace;
+  font-size: 0.65rem;
+  padding: 2px 6px;
+  background-color: #06B6D4;
+  color: #111827;
+  font-weight: 800;
+}
+
+/* 5. Pricing Plan Card Internals */
+.pricing-plan-description {
+  margin: 0;
+  font-size: 0.82rem;
+  opacity: 0.8;
+  line-height: 1.45;
+}
+
+.pricing-annual-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.75rem;
+  color: #06B6D4;
+  padding: 6px 10px;
+  background: rgba(6, 182, 212, 0.08);
+  border: 1px solid rgba(6, 182, 212, 0.2);
+}
+
+.pricing-discount-line {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #06B6D4;
+  font-weight: 700;
+}
+
+.pricing-discount-line span {
+  display: block;
+  font-weight: 400;
+  opacity: 0.7;
+}
+
+.pricing-plan-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 10px 0;
+  border-top: 1px dashed #374151;
+  border-bottom: 1px dashed #374151;
+}
+
+.pricing-plan-metrics > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pricing-plan-metrics span {
+  font-size: 0.68rem;
+  opacity: 0.65;
+  text-transform: uppercase;
+}
+
+.pricing-plan-metrics strong {
+  font-size: 0.82rem;
+  color: #06B6D4;
+}
+
+.pricing-plan-footer-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.74rem;
+  opacity: 0.65;
+}
+
+.empty-pricing-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px;
+  background-color: #1F2937;
+  border: 1px dashed #374151;
+}
+
+/* 6. Feature Capability Matrix & Workload Capacity Analysis */
+.pricing-feature-comparison,
+.pricing-usage-estimator,
+.pricing-subscription-register {
+  max-width: 1200px;
+  margin: 30px auto 0 auto;
+}
+
+.pricing-section-toggle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1F2937;
+  border: 1px solid #374151;
+  color: #F9FAFB;
+  padding: 16px 20px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1.1rem;
+}
+
+.pricing-section-toggle span:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pricing-section-toggle small {
+  font-size: 0.78rem;
+  opacity: 0.65;
+}
+
+.pricing-comparison-table-wrap {
+  overflow-x: auto;
+  border: 1px solid #374151;
+  border-top: none;
+  background-color: #1F2937;
+}
+
+.pricing-comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.pricing-comparison-table th,
+.pricing-comparison-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #374151;
+}
+
+.pricing-comparison-table th {
+  background-color: #111827;
+  color: #06B6D4;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+}
+
+.pricing-feature-enabled {
+  color: #06B6D4;
+  font-weight: 700;
+}
+
+.pricing-feature-disabled {
+  opacity: 0.35;
+}
+
+/* Usage Estimator Grid */
+.pricing-usage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  padding: 20px;
+  background-color: #1F2937;
+  border: 1px solid #374151;
+  border-top: none;
+}
+
+.pricing-usage-control {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pricing-usage-control label {
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.pricing-usage-control input {
+  padding: 8px 12px;
+  background-color: #111827;
+  border: 1px solid #374151;
+  color: #F9FAFB;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.pricing-usage-control input:focus {
+  border-color: #06B6D4;
+}
+
+.pricing-usage-control span {
+  font-size: 0.75rem;
+  color: #06B6D4;
+  font-family: monospace;
+}
+
+.pricing-usage-result {
+  background-color: #111827;
+  border: 1px solid #374151;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pricing-usage-result span {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: #06B6D4;
+}
+
+.pricing-usage-result h3 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.pricing-capacity-pass {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #06B6D4;
+  font-weight: 600;
+}
+
+.pricing-capacity-warning {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #EF4444;
+  font-weight: 600;
+}
+
+.pricing-usage-result small {
+  font-size: 0.7rem;
+  opacity: 0.6;
+  margin-top: 4px;
+}
+
+/* 7. Local Subscription Register Table */
+.pricing-register-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.pricing-register-header h2 {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.pricing-register-header p {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.pricing-register-empty {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #1F2937;
+  border: 1px dashed #374151;
+}
+
+.pricing-register-empty span {
+  font-size: 2rem;
+  color: #06B6D4;
+}
+
+.pricing-register-empty h3 {
+  margin: 6px 0 2px 0;
+  font-size: 1.1rem;
+}
+
+.pricing-register-empty p {
+  margin: 0;
+  font-size: 0.82rem;
+  opacity: 0.7;
+}
+
+.pricing-register-table-wrap {
+  overflow-x: auto;
+  border: 1px solid #374151;
+  background-color: #1F2937;
+}
+
+.pricing-register-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  text-align: left;
+}
+
+.pricing-register-table th,
+.pricing-register-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #374151;
+}
+
+.pricing-register-table th {
+  background-color: #111827;
+  color: #06B6D4;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+}
+
+.pricing-subscription-status {
+  padding: 2px 6px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  font-family: monospace;
+}
+
+.pricing-subscription-status.status-active {
+  background-color: rgba(6, 182, 212, 0.15);
+  color: #06B6D4;
+  border: 1px solid #06B6D4;
+}
+
+.pricing-subscription-status.status-cancelled {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: #EF4444;
+  border: 1px solid #EF4444;
+}
+
+.pricing-cancel-subscription-btn {
+  background: none;
+  border: 1px solid #374151;
+  color: #F9FAFB;
+  padding: 3px 8px;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.pricing-cancel-subscription-btn:hover {
+  border-color: #06B6D4;
+  color: #06B6D4;
+}
+
+.pricing-register-disclaimer {
+  font-size: 0.72rem;
+  opacity: 0.6;
+  margin-top: 8px;
+}
+
+/* 8. Modals: Specifications, Checkout & Quote Request */
+.pricing-modal-eyebrow {
+  font-family: monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #06B6D4;
+  letter-spacing: 1px;
+}
+
+.pricing-spec-modal,
+.pricing-checkout-modal,
+.pricing-quote-modal {
+  max-width: 560px !important;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.pricing-modal-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 12px 14px;
+  background-color: #111827;
+  border: 1px solid #374151;
+}
+
+.pricing-modal-total strong {
+  font-size: 1.35rem;
+  color: #06B6D4;
+}
+
+.pricing-excluded-features ul {
+  opacity: 0.6;
+}
+
+.pricing-checkout-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+  padding: 12px;
+  background-color: #111827;
+  border: 1px solid #374151;
+}
+
+.pricing-checkout-summary > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pricing-checkout-summary span {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+
+.pricing-checkout-summary strong {
+  font-size: 0.85rem;
+  color: #06B6D4;
+}
+
+.pricing-checkout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pricing-checkout-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.pricing-checkout-form input,
+.pricing-checkout-form select,
+.pricing-checkout-form textarea {
+  padding: 8px 12px;
+  background-color: #111827;
+  border: 1px solid #374151;
+  color: #F9FAFB;
+  font-family: inherit;
+  font-size: 0.85rem;
+  outline: none;
+}
+
+.pricing-checkout-form input:focus,
+.pricing-checkout-form select:focus,
+.pricing-checkout-form textarea:focus {
+  border-color: #06B6D4;
+}
+
+.pricing-terms-checkbox {
+  flex-direction: row !important;
+  align-items: center;
+  gap: 8px !important;
+  cursor: pointer;
+  font-size: 0.78rem !important;
+}
+
+.pricing-terms-checkbox input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  accent-color: #06B6D4;
+  cursor: pointer;
+}
+
+.pricing-form-error {
+  color: #EF4444;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.pricing-checkout-disclaimer {
+  font-size: 0.72rem;
+  opacity: 0.6;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.pricing-quote-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px;
+  background-color: #111827;
+  border: 1px solid #374151;
+}
+
+.pricing-quote-summary h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #06B6D4;
+}
+
+.pricing-quote-summary p {
+  margin: 0;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+/* 9. Page Footer */
+.pricing-page-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #1F2937;
+  font-size: 0.78rem;
+  opacity: 0.65;
+}
+
+.pricing-page-footer button {
+  background: none;
+  border: none;
+  color: #06B6D4;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  font-size: inherit;
+}
