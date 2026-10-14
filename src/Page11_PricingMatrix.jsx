@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
-import './Page11_Pricing.css';
+import './Page11_PricingMatrix.css';
 
 const CURRENCY_MAP = {
   USD: { symbol: '$', rate: 1 },
@@ -237,7 +237,7 @@ export default function Page11_Pricing({ setPage }) {
   const [checkoutSeats, setCheckoutSeats] = useState(1);
   const [checkoutAccepted, setCheckoutAccepted] = useState(false);
   const [checkoutError, setCheckoutError] = useState('');
-  const [billingCountry, setBillingCountry] = useState('NG');
+  const [billingCountry, setBillingCountry] = useState('US');
   const [paymentMethod, setPaymentMethod] = useState('CARD');
 
   const [quoteEmail, setQuoteEmail] = useState('');
@@ -566,7 +566,7 @@ export default function Page11_Pricing({ setPage }) {
     }
 
     if (checkoutSeats < 1 || checkoutSeats > 1000) {
-      setCheckoutError('Seat allocation must be between 1 and 1,000.');
+      setCheckoutError(' must be between 1 and 1,000.');
       return;
     }
 
@@ -651,7 +651,7 @@ export default function Page11_Pricing({ setPage }) {
 
         <div className="pricing-header-actions">
           <span className="pricing-demo-indicator">
-            DEMO BILLING ENVIRONMENT
+            DEMO ENVIRONMENT
           </span>
 
           <button
@@ -659,7 +659,7 @@ export default function Page11_Pricing({ setPage }) {
             onClick={exportPricingMatrix}
             title="Export pricing matrix (Ctrl/Cmd + E)"
           >
-            Export Matrix
+            Export
           </button>
         </div>
       </header>
@@ -667,9 +667,9 @@ export default function Page11_Pricing({ setPage }) {
       <section className="pricing-control-center">
         <div className="pricing-title-row">
           <div>
-            <p className="pricing-eyebrow">COMMERCIAL OPERATIONS / BILLING</p>
+            <p className="pricing-eyebrow">COMMERCIAL OPERATIONS </p>
             <h1 className="pricing-main-title">
-              Flexible Platform Billing Plans
+              Flexible Platform Plans
             </h1>
             <p className="pricing-intro-note">
               Configure infrastructure capacity, compare subscription tiers,
@@ -679,7 +679,7 @@ export default function Page11_Pricing({ setPage }) {
 
           <div className="pricing-session-status">
             <span className="pricing-status-dot" />
-            Pricing engine operational
+            Pricing operational
           </div>
         </div>
 
@@ -752,7 +752,7 @@ export default function Page11_Pricing({ setPage }) {
           />
 
           <div className="pricing-slider-labels">
-            <span>1 node</span>
+            <span>50 node</span>
             <span>125 nodes</span>
             <span>250 nodes</span>
             <span>500 nodes</span>
@@ -825,7 +825,7 @@ export default function Page11_Pricing({ setPage }) {
 
       <section className="pricing-analytics-strip">
         <div className="pricing-analytics-card">
-          <span>Total demo subscriptions</span>
+          <span>Total subscriptions</span>
           <strong>{totalSubscriptions}</strong>
           <small>Stored in this browser</small>
         </div>
@@ -833,17 +833,17 @@ export default function Page11_Pricing({ setPage }) {
         <div className="pricing-analytics-card">
           <span>Active subscriptions</span>
           <strong>{activeSubscriptions}</strong>
-          <small>Demo records marked active</small>
+          <small>records marked active</small>
         </div>
 
         <div className="pricing-analytics-card">
-          <span>Illustrative monthly revenue</span>
+          <span> monthly revenue</span>
           <strong>{formatMoney(monthlyRecurringRevenue, currency)}</strong>
-          <small>Based on active demo records</small>
+          <small>Based on active records</small>
         </div>
 
         <div className="pricing-analytics-card">
-          <span>Annual billing advantage</span>
+          <span>Annual billing </span>
           <strong>{formatMoney(projectedAnnualSavings, currency)}</strong>
           <small>Maximum modeled savings per year before coupons</small>
         </div>
@@ -872,7 +872,7 @@ export default function Page11_Pricing({ setPage }) {
             <option value="recommended">Recommended first</option>
             <option value="price-low">Price: low to high</option>
             <option value="price-high">Price: high to low</option>
-            <option value="capacity">Node capacity</option>
+            <option value="capacity"> capacity</option>
           </select>
 
           <button
@@ -1103,7 +1103,7 @@ export default function Page11_Pricing({ setPage }) {
           aria-expanded={showFeatureComparison}
         >
           <span>
-            <strong>Feature capability matrix</strong>
+            <strong>Feature capability </strong>
             <small>Compare access levels across every plan</small>
           </span>
           <span>{showFeatureComparison ? '−' : '+'}</span>
@@ -1174,7 +1174,7 @@ export default function Page11_Pricing({ setPage }) {
           aria-expanded={showUsageEstimator}
         >
           <span>
-            <strong>Workload capacity analysis</strong>
+            <strong>Workload analysis</strong>
             <small>Check the selected recommendation against estimated usage</small>
           </span>
           <span>{showUsageEstimator ? '−' : '+'}</span>
@@ -1205,7 +1205,7 @@ export default function Page11_Pricing({ setPage }) {
 
             <div className="pricing-usage-control">
               <label htmlFor="storage-volume">
-                Estimated telemetry storage (GB)
+                Estimated storage (GB)
               </label>
 
               <input
@@ -1247,7 +1247,7 @@ export default function Page11_Pricing({ setPage }) {
               </p>
 
               <small>
-                Capacity thresholds are illustrative product-demo assumptions,
+                Capacity thresholds are illustrative assumptions,
                 not guaranteed performance specifications.
               </small>
             </div>
@@ -1259,7 +1259,7 @@ export default function Page11_Pricing({ setPage }) {
         <div className="pricing-register-header">
           <div>
             <h2>Subscription register</h2>
-            <p>Demo subscriptions created from this browser session.</p>
+            <p> subscriptions created from this browser session.</p>
           </div>
 
           <button
@@ -1274,7 +1274,7 @@ export default function Page11_Pricing({ setPage }) {
           <div className="pricing-register-empty">
             <span>▤</span>
             <h3>No subscriptions created</h3>
-            <p>Select a plan to create a local demo subscription record.</p>
+            <p>Select a plan to create a subscription record.</p>
           </div>
         ) : (
           <div className="pricing-register-table-wrap">
@@ -1341,7 +1341,7 @@ export default function Page11_Pricing({ setPage }) {
         )}
 
         <p className="pricing-register-disclaimer">
-          This register is stored locally in your browser. It is not connected
+          This register is stored in your browser. It is not connected
           to a payment gateway, server-side billing system or real customer account.
         </p>
       </section>
@@ -1476,7 +1476,7 @@ export default function Page11_Pricing({ setPage }) {
             <div className="modal-header-row">
               <div>
                 <span className="pricing-modal-eyebrow">SUBSCRIPTION REVIEW</span>
-                <h2 id="pricing-checkout-title">Confirm your allocation</h2>
+                <h2 id="pricing-checkout-title">Confirm </h2>
               </div>
 
               <button
@@ -1602,7 +1602,7 @@ export default function Page11_Pricing({ setPage }) {
                 className="plan-action-trigger-btn modal-submit-btn"
                 type="submit"
               >
-                Confirm Demo Subscription
+                Confirm Subscription
               </button>
             </form>
           </section>
@@ -1701,9 +1701,9 @@ export default function Page11_Pricing({ setPage }) {
       )}
 
       <footer className="pricing-page-footer">
-        <span>Platform Commercial Console</span>
-        <span>Demo environment · Local browser storage</span>
-        <button onClick={exportPricingMatrix}>Export current pricing</button>
+        <span>Platform Commercial </span>
+        <span>Demo environment · Local storage</span>
+        <button onClick={exportPricingMatrix}>Download current pricing</button>
       </footer>
     </div>
   );

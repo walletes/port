@@ -741,7 +741,6 @@ export default function Page12_Checkout({ setPage }) {
         <div className="gateway-top-status">
           <span className="gateway-secure-tag">DEMO PAYMENT ENVIRONMENT</span>
           <span className="gateway-session-id">
-            SESSION {ORDER.id}
           </span>
         </div>
       </header>
@@ -1566,7 +1565,7 @@ export default function Page12_Checkout({ setPage }) {
                   className="gateway-secondary-btn"
                   onClick={clearHistory}
                 >
-                  Clear local history
+                  Clear history
                 </button>
               </div>
 
@@ -1755,7 +1754,7 @@ export default function Page12_Checkout({ setPage }) {
                     triggerToast('Demo receipt exported.');
                   }}
                 >
-                  Export Receipt
+                  Download Receipt
                 </button>
 
                 {activeTransaction.status !== 'SUCCESS' && (

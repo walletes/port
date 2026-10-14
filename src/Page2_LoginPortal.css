@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   box-sizing: border-box;
 }
 
@@ -450,11 +450,16 @@ border: 1px dashed #8C3A23;
   --auth-border: rgba(245, 245, 245, 0.13);
   --auth-surface: #191919;
 
+background-color: var(--auth-charcoal);
+  width: 100%;
   width: min(1180px, calc(100% - 48px));
-  max-width: 1180px;
+  max-width: 100%;
+  min-height: 100vh;
   margin: 0 auto;
+  justify-content: flex-start;
   padding: 24px 0 20px;
   color: var(--auth-white);
+  box-sizing: border-box;
 }
 
 .auth-page *,
