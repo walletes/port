@@ -571,3 +571,753 @@
     transition: none;
   }
 }
+.gateway-top-status {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.gateway-session-id {
+  font-family: monospace;
+  font-size: 0.72rem;
+  padding: 3px 8px;
+  background-color: #1E293B;
+  border: 1px solid #334155;
+  color: #94A3B8;
+}
+
+.gateway-page-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 25px;
+}
+
+.gateway-page-heading h1 {
+  margin: 4px 0 6px 0;
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.gateway-page-heading p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.75;
+  max-width: 580px;
+}
+
+.gateway-eyebrow {
+  display: block;
+  font-family: monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #A855F7;
+}
+
+.gateway-environment-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background-color: #1E293B;
+  border: 1px solid #334155;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.gateway-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #A855F7;
+  box-shadow: 0 0 6px #A855F7;
+}
+
+/* 2. Operations Metrics Grid */
+.gateway-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 14px;
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 25px;
+}
+
+.gateway-metric-card {
+  background-color: #1E293B;
+  border: 1px solid #334155;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.gateway-metric-card span {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #A855F7;
+  letter-spacing: 0.5px;
+}
+
+.gateway-metric-card strong {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.gateway-metric-card small {
+  font-size: 0.72rem;
+  opacity: 0.65;
+}
+
+/* 3. Success State Actions & Secondary Buttons */
+.gateway-success-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.gateway-secondary-btn {
+  background: none;
+  border: 1px solid #334155;
+  color: #FFFFFF;
+  padding: 8px 14px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.gateway-secondary-btn:hover {
+  border-color: #A855F7;
+  color: #A855F7;
+}
+
+.gateway-order-reference {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: #94A3B8;
+  margin: 2px 0 0;
+}
+
+.gateway-discount-line {
+  color: #A855F7;
+  font-weight: 600;
+}
+
+/* 4. Quantity, Coupon & Simulation Notices */
+.gateway-order-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 14px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px dashed #334155;
+}
+
+.gateway-order-controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.gateway-order-controls input {
+  padding: 8px 10px;
+  background-color: #0F172A;
+  border: 1px solid #334155;
+  color: #FFFFFF;
+  font-family: monospace;
+  font-size: 0.85rem;
+  outline: none;
+}
+
+.gateway-order-controls input:focus {
+  border-color: #A855F7;
+}
+
+.gateway-coupon-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 180px;
+}
+
+.gateway-coupon-controls > div {
+  display: flex;
+  gap: 6px;
+}
+
+.gateway-coupon-controls input {
+  flex: 1;
+}
+
+.gateway-simulation-notice {
+  margin-top: 14px;
+  padding: 10px 12px;
+  background-color: rgba(168, 85, 247, 0.08);
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  font-size: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.gateway-simulation-notice strong {
+  color: #A855F7;
+}
+
+/* 5. Section Headings & Customer Summary Cards */
+.gateway-section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #334155;
+}
+
+.gateway-section-heading h2 {
+  margin: 2px 0 0;
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.gateway-test-badge {
+  font-family: monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  background-color: rgba(168, 85, 247, 0.15);
+  color: #A855F7;
+  border: 1px solid rgba(168, 85, 247, 0.4);
+}
+
+.gateway-customer-panel,
+.gateway-payment-panel {
+  margin-bottom: 25px;
+}
+
+.gateway-customer-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+  padding: 12px;
+  background-color: #0F172A;
+  border: 1px solid #334155;
+  font-size: 0.8rem;
+}
+
+.gateway-customer-summary > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.gateway-customer-summary span {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  color: #94A3B8;
+}
+
+.gateway-customer-summary strong {
+  overflow-wrap: anywhere;
+}
+
+.gateway-billing-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.gateway-billing-form select {
+  padding: 12px;
+  background-color: #0F172A;
+  border: 1px solid #334155;
+  color: #FFFFFF;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+/* 6. Card Hints & Live Format Validators */
+.gateway-test-card-hint {
+  font-size: 0.74rem;
+  opacity: 0.65;
+  line-height: 1.4;
+}
+
+.gateway-validation-status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 0.74rem;
+  color: #94A3B8;
+}
+
+.gateway-validation-pass {
+  color: #A855F7;
+  font-weight: 700;
+}
+
+/* 7. Web3 Crypto & Wire Additions */
+.gateway-method-warning {
+  padding: 10px 12px;
+  background-color: rgba(168, 85, 247, 0.08);
+  border-left: 3px solid #A855F7;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.78rem;
+}
+
+.gateway-method-warning strong {
+  color: #A855F7;
+}
+
+.crypto-payment-box select {
+  padding: 10px;
+  background-color: #0F172A;
+  border: 1px solid #334155;
+  color: #FFFFFF;
+  font-size: 0.88rem;
+  outline: none;
+}
+
+.gateway-crypto-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 8px;
+  padding: 10px;
+  background-color: #0F172A;
+  border: 1px solid #334155;
+  font-size: 0.8rem;
+}
+
+.gateway-crypto-summary > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.gateway-crypto-summary span {
+  font-size: 0.68rem;
+  opacity: 0.7;
+}
+
+.gateway-crypto-summary strong {
+  color: #A855F7;
+}
+
+.gateway-acknowledgment {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.gateway-acknowledgment input[type="checkbox"],
+.gateway-toggle-control input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  accent-color: #A855F7;
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+.gateway-checkout-footer {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px dashed #334155;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* 8. Processing & Error Notification Panels */
+.gateway-processing-panel {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  margin-top: 16px;
+  background-color: #0F172A;
+  border: 1px solid #A855F7;
+}
+
+.gateway-processing-indicator {
+  width: 22px;
+  height: 22px;
+  border: 3px solid #334155;
+  border-top-color: #A855F7;
+  border-radius: 50%;
+  animation: gateway-spin 0.8s linear infinite;
+  flex-shrink: 0;
+}
+
+.gateway-processing-panel h3 {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #A855F7;
+}
+
+.gateway-processing-panel p {
+  margin: 2px 0 0;
+  font-size: 0.78rem;
+  opacity: 0.75;
+}
+
+.gateway-error-panel {
+  padding: 12px 14px;
+  margin-top: 16px;
+  background-color: rgba(239, 68, 68, 0.1);
+  border: 1px solid #EF4444;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.82rem;
+}
+
+.gateway-error-panel strong {
+  color: #F87171;
+}
+
+.gateway-error-panel p {
+  margin: 0;
+  opacity: 0.85;
+}
+
+.gateway-error-panel button {
+  align-self: flex-start;
+  margin-top: 4px;
+}
+
+@keyframes gateway-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 9. Transaction Register Table & Controls */
+.gateway-transaction-history,
+.gateway-audit-timeline,
+.gateway-advanced-controls {
+  width: 100%;
+  max-width: 800px;
+  margin-top: 30px;
+  background-color: #1E293B;
+  border: 1px solid #334155;
+  padding: 20px;
+}
+
+.gateway-history-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.gateway-history-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.gateway-history-controls input,
+.gateway-history-controls select {
+  padding: 8px 10px;
+  background-color: #0F172A;
+  border: 1px solid #334155;
+  color: #FFFFFF;
+  font-size: 0.82rem;
+  outline: none;
+}
+
+.gateway-history-controls input {
+  flex: 1;
+  min-width: 180px;
+}
+
+.gateway-history-empty {
+  text-align: center;
+  padding: 30px 14px;
+  border: 1px dashed #334155;
+}
+
+.gateway-history-empty span {
+  font-size: 1.8rem;
+  color: #A855F7;
+}
+
+.gateway-history-empty h3 {
+  margin: 6px 0 2px 0;
+  font-size: 1rem;
+}
+
+.gateway-history-empty p {
+  margin: 0;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.gateway-history-table-wrap {
+  overflow-x: auto;
+  border: 1px solid #334155;
+}
+
+.gateway-history-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  text-align: left;
+}
+
+.gateway-history-table th,
+.gateway-history-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #334155;
+}
+
+.gateway-history-table th {
+  background-color: #0F172A;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: #A855F7;
+}
+
+.gateway-history-table td strong {
+  display: block;
+}
+
+.gateway-history-table td small {
+  font-family: monospace;
+  opacity: 0.65;
+}
+
+.gateway-transaction-status {
+  padding: 2px 6px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  font-family: monospace;
+  border: 1px solid #334155;
+}
+
+.gateway-transaction-status.status-success {
+  color: #A855F7;
+  border-color: #A855F7;
+  background-color: rgba(168, 85, 247, 0.15);
+}
+
+.gateway-transaction-status.status-processing {
+  color: #FBBF24;
+  border-color: #FBBF24;
+}
+
+.gateway-transaction-status.status-error {
+  color: #F87171;
+  border-color: #EF4444;
+}
+
+.gateway-row-actions {
+  display: flex;
+  gap: 6px;
+}
+
+/* 10. Audit Timeline Events */
+.gateway-timeline-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.gateway-timeline-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  background-color: #0F172A;
+  border: 1px solid #334155;
+  font-size: 0.82rem;
+}
+
+.gateway-timeline-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #A855F7;
+  flex-shrink: 0;
+}
+
+.gateway-timeline-dot.timeline-error {
+  background-color: #EF4444;
+}
+
+.gateway-timeline-item > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.gateway-timeline-item span {
+  font-size: 0.72rem;
+  opacity: 0.65;
+}
+
+/* 11. Transaction Details Modal */
+.gateway-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: rgba(15, 23, 42, 0.85);
+}
+
+.gateway-modal-card {
+  width: min(600px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  background-color: #1E293B;
+  border: 2px solid #A855F7;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.gateway-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  padding: 14px;
+  background-color: #0F172A;
+  border: 1px solid #334155;
+  font-size: 0.82rem;
+}
+
+.gateway-detail-field {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.gateway-detail-field span {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  color: #94A3B8;
+}
+
+.gateway-detail-field strong {
+  overflow-wrap: anywhere;
+}
+
+.gateway-modal-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.gateway-modal-disclaimer {
+  font-size: 0.72rem;
+  opacity: 0.6;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* 12. Advanced Controls & Safeguards */
+.gateway-section-toggle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  border: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1.05rem;
+}
+
+.gateway-section-toggle span:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.gateway-section-toggle small {
+  font-size: 0.78rem;
+  opacity: 0.65;
+}
+
+.gateway-advanced-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid #334155;
+}
+
+.gateway-advanced-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.82rem;
+}
+
+.gateway-advanced-row p {
+  margin: 2px 0 0;
+  font-size: 0.75rem;
+  opacity: 0.65;
+}
+
+.gateway-toggle-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* 13. Page Footer */
+.gateway-page-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  max-width: 800px;
+  margin: 40px auto 0 auto;
+  padding-top: 20px;
+  border-top: 1px solid #1E293B;
+  font-size: 0.78rem;
+  opacity: 0.7;
+}
+
+.gateway-page-footer button {
+  background: none;
+  border: none;
+  color: #A855F7;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+  font: inherit;
+}
