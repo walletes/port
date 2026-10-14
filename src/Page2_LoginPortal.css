@@ -450,12 +450,11 @@ border: 1px dashed #8C3A23;
   --auth-border: rgba(245, 245, 245, 0.13);
   --auth-surface: #191919;
 
-background-color: var(--auth-charcoal);
-  width: 100%;
-  width: min(1180px, calc(100% - 48px));
-  max-width: 100%;
+  background-color: var(--auth-charcoal) !important;
+  width: 100% !important;
+  max-width: 100% !important;
   min-height: 100vh;
-  margin: 0 auto;
+  margin: 0 !important;
   justify-content: flex-start;
   padding: 24px 0 20px;
   color: var(--auth-white);
@@ -492,7 +491,9 @@ background-color: var(--auth-charcoal);
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  margin-bottom: 30px;
+  margin: 0 auto 30px auto;
+  width: 100%;
+  max-width: 960px;
 }
 
 .auth-header-label,
@@ -533,19 +534,21 @@ background-color: var(--auth-charcoal);
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  min-height: 42px;
-  padding: 9px 14px;
-  border: 1px solid var(--auth-border);
+  min-height: 40px;
+  padding: 8px 16px;
+  border: 1px solid #FFFFFF !important;
   border-radius: 6px;
-  background: transparent;
-  color: var(--auth-white);
+  background-color: #FFFFFF !important;
+  color: #121212 !important;
+  font-weight: 750 !important;
   cursor: pointer;
-  transition: border-color 180ms ease, background 180ms ease;
+  transition: all 180ms ease;
 }
 
 .auth-page .back-btn:hover {
-  border-color: var(--auth-blue);
-  background: rgba(0, 102, 255, 0.08);
+  background-color: #E5E5E5 !important;
+  border-color: #E5E5E5 !important;
+  color: #121212 !important;
 }
 
 .auth-layout {
@@ -1372,7 +1375,7 @@ background-color: var(--auth-charcoal);
 
 @media (max-width: 900px) {
   .login-wrapper.auth-page {
-    width: min(100% - 32px, 680px);
+  width: 100% !important;
   }
 
   .auth-layout {
@@ -1402,8 +1405,8 @@ background-color: var(--auth-charcoal);
 
 @media (max-width: 560px) {
   .login-wrapper.auth-page {
-    width: calc(100% - 24px);
-    padding-top: 12px;
+  width: 100% !important;
+  padding: 16px 12px 30px;
   }
 
   .auth-header {

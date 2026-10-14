@@ -1899,3 +1899,29 @@
     transform: none;
   }
 }
+html {
+  scroll-behavior: smooth;
+  }
+
+  .button-loading-content {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  }
+
+  .spinner-arrow-circle {
+  width: 15px;
+  height: 15px;
+  animation: spin-arrow 0.8s linear infinite;
+  flex-shrink: 0;
+  }
+
+  @keyframes spin-arrow {
+  from {
+  transform: rotate(0deg);
+  }
+  to {
+  transform: rotate(360deg);
+  }
+  }

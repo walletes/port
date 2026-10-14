@@ -367,6 +367,23 @@ export default function Page1_Home({ setPage }) {
   const [showAllCapabilities, setShowAllCapabilities] = useState(false);
   const [copiedProjectId, setCopiedProjectId] = useState('');
   const [showKeyboardHelp, setShowKeyboardHelp] = useState(false);
+  const [pendingPage, setPendingPage] = useState(null);
+
+  const LoadingSpinner = () => (
+    <svg
+    className="spinner-arrow-circle"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+    >
+    <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+    <polyline points="21 3 21 9 15 9" />
+    </svg>
+    );
 
   const selectedProject = useMemo(
     () =>
@@ -432,12 +449,16 @@ export default function Page1_Home({ setPage }) {
 
   const openProject = useCallback(
     (page) => {
-      if (typeof setPage === 'function') {
-        setPage(page);
-      }
+      if (pendingPage) return;
+        setPendingPage(page);
+    window.setTimeout(() => {
+     if (typeof setPage === 'function') {
+     setPage(page);
+     }
+    }, 2000); 
     },
-    [setPage]
-  );
+    [setPage, pendingPage]
+   );
 
   const toggleCompare = useCallback((projectId) => {
     setCompareIds((current) => {
@@ -525,7 +546,7 @@ export default function Page1_Home({ setPage }) {
 
         <div id="home" className="home-hero-content">
           <p className="home-eyebrow">
-            DEVELOPER PORTFOLIO <span> / </span> 2026
+            MY PORTFOLIO <span> / </span> 2026
           </p>
 
           <h1 className="home-title">
@@ -535,7 +556,7 @@ export default function Page1_Home({ setPage }) {
           </h1>
 
           <p className="home-subtitle">
-            FULL-STACK DEVELOPMENT · APPLICATION ENGINEERING
+            FULL-STACK DEVELOPMENT & APPLICATION
           </p>
 
           <div className="home-intro-box">
@@ -553,7 +574,15 @@ export default function Page1_Home({ setPage }) {
           </div>
 
           <div className="home-hero-actions">
-            <a className="home-primary-action" href="#project-directory">
+            <a className="home-primary-action" href="#project-directory"
+           onClick={(event) => {
+        event.preventDefault();
+        document.getElementById('project-directory')?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+        });
+        }}
+            >
               Explore the projects <span aria-hidden="true">↘</span>
             </a>
 
@@ -627,8 +656,15 @@ export default function Page1_Home({ setPage }) {
                   type="button"
                   onClick={() => openProject(project.page)}
                   aria-label={`Open ${project.title}`}
+                  disabled={Boolean(pendingPage)}
                 >
-                  Open application
+            {pendingPage === project.page ? (
+           <span className="button-loading-content">
+          <LoadingSpinner /> Opening...
+         </span>
+        ) : (
+       'Open application'
+       )}
                 </button>
               </div>
             </article>
@@ -805,8 +841,15 @@ export default function Page1_Home({ setPage }) {
                       type="button"
                       className="home-project-open"
                       onClick={() => openProject(project.page)}
+                      disabled={Boolean(pendingPage)}
                     >
-                      Open application
+                  {pendingPage === project.page ? (
+                   <span className="button-loading-content">
+                   <LoadingSpinner /> Opening...
+                   </span>
+                  ) : (
+                 'Open application'
+                 )}
                     </button>
                   </div>
                 </article>
@@ -914,8 +957,8 @@ export default function Page1_Home({ setPage }) {
           </p>
 
           <div className="home-contact-actions">
-            <a href="mailto:">
-              Email me about an opportunity
+        <a href="mailto: princesinachi10@gmail.com?subject= Your%20Work%20Idea">
+              Email me about your work Idea
             </a>
 
             <button
@@ -929,8 +972,7 @@ export default function Page1_Home({ setPage }) {
           </div>
 
           <p className="home-contact-note">
-            Add your preferred professional email and CV link before
-            publishing this portfolio.
+       LET'S TURN YOUR IDEA INTO REALITY
           </p>
         </div>
       </section>
@@ -1022,8 +1064,15 @@ export default function Page1_Home({ setPage }) {
               <button
                 type="button"
                 onClick={() => openProject(selectedProject.page)}
+                disabled={Boolean(pendingPage)}
               >
-                Open application ↗
+          {pendingPage === selectedProject.page ? (
+          <span className="button-loading-content">
+           <LoadingSpinner /> Opening...
+           </span>
+           ) : (
+           'Open application ↗'
+           )}
               </button>
 
               <button
@@ -1069,7 +1118,7 @@ export default function Page1_Home({ setPage }) {
             aria-labelledby="home-comparison-heading"
           >
             <div className="home-modal-topline">
-              <span>PROJECT COMPARISON</span>
+              <span>PROJECT COMPARE</span>
 
               <button
                 type="button"
