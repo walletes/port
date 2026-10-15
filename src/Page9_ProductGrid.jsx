@@ -7,6 +7,7 @@ const INITIAL_INVENTORY = [
     id: 1,
     sku: 'CAT-JKT-01',
     title: 'Structured Canvas Utility Jacket',
+    image: '/Jacket.jpg',
     price: 145,
     originalPrice: 195,
     category: 'APPAREL',
@@ -21,6 +22,7 @@ const INITIAL_INVENTORY = [
     id: 2,
     sku: 'CAT-LHR-02',
     title: 'Ergonomic Vegetable-Tanned Leather Satchel',
+    image: '/Bag.jpg',
     price: 280,
     originalPrice: null,
     category: 'ACCESSORIES',
@@ -35,6 +37,7 @@ const INITIAL_INVENTORY = [
     id: 3,
     sku: 'CAT-CLK-03',
     title: 'Minimalist Brushed Steel Desk Chronograph',
+    image: '/Watch.jpg',
     price: 110,
     originalPrice: 150,
     category: 'ACCESSORIES',
@@ -49,6 +52,7 @@ const INITIAL_INVENTORY = [
     id: 4,
     sku: 'CAT-HDY-04',
     title: 'Relaxed Fit Heavyweight Cotton Hooded Sweater',
+    image: '/Hoodie.jpg',
     price: 85,
     originalPrice: null,
     category: 'APPAREL',
@@ -63,6 +67,7 @@ const INITIAL_INVENTORY = [
     id: 5,
     sku: 'CAT-BOT-05',
     title: 'Tactical Cordura All-Terrain Combat Boots',
+    image: '/Boot.jpg',
     price: 220,
     originalPrice: 260,
     category: 'FOOTWEAR',
@@ -78,6 +83,7 @@ const INITIAL_INVENTORY = [
     id: 6,
     sku: 'CAT-WLT-06',
     title: 'RFID-Blocking Carbon Fiber Card Vault',
+    image: '/Wallet.jpg',
     price: 65,
     originalPrice: null,
     category: 'ACCESSORIES',
@@ -92,6 +98,7 @@ const INITIAL_INVENTORY = [
     id: 7,
     sku: 'CAT-TRS-07',
     title: 'Pleated Technical Cargo Trousers',
+    image: '/Cargo%20Pant.jpg',
     price: 130,
     originalPrice: 165,
     category: 'APPAREL',
@@ -856,6 +863,14 @@ export default function Page9_ProductGrid({ setPage }) {
                 }`}
               >
                 <div className="card-image-placeholder">
+               {product.image && (
+                <img
+                src={product.image}
+                alt={product.title}
+                className="product-card-img"
+                loading="lazy"
+                />
+                )}
                   <span className="category-meta-tag">
                     {product.category}
                   </span>
