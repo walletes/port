@@ -6,7 +6,7 @@ const INITIAL_INVENTORY = [
   {
     id: 1,
     sku: 'CAT-JKT-01',
-    title: 'Structured Canvas Utility Jacket',
+    title: ' Canvas Jacket',
     image: '/Jacket.jpg',
     price: 145,
     originalPrice: 195,
@@ -21,7 +21,7 @@ const INITIAL_INVENTORY = [
   {
     id: 2,
     sku: 'CAT-LHR-02',
-    title: 'Ergonomic Vegetable-Tanned Leather Satchel',
+    title: ' Vegetable-Tanned Leather Satchel',
     image: '/Bag.jpg',
     price: 280,
     originalPrice: null,
@@ -36,7 +36,7 @@ const INITIAL_INVENTORY = [
   {
     id: 3,
     sku: 'CAT-CLK-03',
-    title: 'Minimalist Brushed Steel Desk Chronograph',
+    title: ' Brushed Steel Watch',
     image: '/Watch.jpg',
     price: 110,
     originalPrice: 150,
@@ -51,7 +51,7 @@ const INITIAL_INVENTORY = [
   {
     id: 4,
     sku: 'CAT-HDY-04',
-    title: 'Relaxed Fit Heavyweight Cotton Hooded Sweater',
+    title: 'Relaxed Cotton Hooded Sweater',
     image: '/Hoodie.jpg',
     price: 85,
     originalPrice: null,
@@ -66,7 +66,7 @@ const INITIAL_INVENTORY = [
   {
     id: 5,
     sku: 'CAT-BOT-05',
-    title: 'Tactical Cordura All-Terrain Combat Boots',
+    title: 'All-Terrain Combat Boots',
     image: '/Boot.jpg',
     price: 220,
     originalPrice: 260,
@@ -77,12 +77,12 @@ const INITIAL_INVENTORY = [
     wide: true,
     badge: 'LOW STOCK',
     material: '1000D Cordura Nylon & Vibram Rubber',
-    description: 'High-spec tactical footwear built for demanding environments, incorporating waterproof lining and high-traction rubber lug soles.'
+    description: 'High-spec footwear built for demanding environments, incorporating waterproof lining and high-traction rubber lug soles.'
   },
   {
     id: 6,
     sku: 'CAT-WLT-06',
-    title: 'RFID-Blocking Carbon Fiber Card Vault',
+    title: ' Card Wallet',
     image: '/Wallet.jpg',
     price: 65,
     originalPrice: null,
@@ -92,12 +92,12 @@ const INITIAL_INVENTORY = [
     featured: false,
     badge: 'ESSENTIAL',
     material: '3K Aerospace-Grade Carbon Fiber',
-    description: 'Ultralight minimalist card carrier with spring-loaded quick-draw mechanism and integrated bill clip.'
+    description: 'Ultralight card carrier with spring-loaded quick-draw mechanism and integrated bill clip.'
   },
   {
     id: 7,
     sku: 'CAT-TRS-07',
-    title: 'Pleated Technical Cargo Trousers',
+    title: ' Cargo Trousers',
     image: '/Cargo%20Pant.jpg',
     price: 130,
     originalPrice: 165,
@@ -107,7 +107,7 @@ const INITIAL_INVENTORY = [
     featured: false,
     badge: 'POPULAR',
     material: 'Water-Repellent Stretch Twill',
-    description: 'Ergonomic cargo pants featuring integrated magnetic pockets, articulated knee gussets, and cinchable cuffs.'
+    description: ' cargo pants featuring integrated magnetic pockets, articulated knee gussets, and cinchable cuffs.'
   }
 ];
 
@@ -159,6 +159,8 @@ export default function Page9_ProductGrid({ setPage }) {
   const [toastMessage, setToastMessage] = useState('');
   const [checkoutOrder, setCheckoutOrder] = useState(null);
   const [checkoutError, setCheckoutError] = useState('');
+  const [previewProduct, setPreviewProduct] = useState(null);
+
   const [checkoutDetails, setCheckoutDetails] = useState({
     customerName: '',
     email: '',
@@ -219,6 +221,7 @@ export default function Page9_ProductGrid({ setPage }) {
           ['INPUT', 'TEXTAREA', 'SELECT'].includes(target.tagName));
 
       if (event.key === 'Escape') {
+        setPreviewProduct(null);
         setQuickViewProduct(null);
         setIsCartOpen(false);
         setIsCompareOpen(false);
@@ -637,9 +640,9 @@ export default function Page9_ProductGrid({ setPage }) {
       <section className="catalog-controls">
         <div className="headline-row">
           <div>
-            <p className="catalog-eyebrow">COMMERCE / INVENTORY SYSTEM</p>
+            <p className="catalog-eyebrow">COMMERCE / INVENTORY</p>
             <h1 className="catalog-headline">
-              Curated Stock Collection
+             Stock Collection
             </h1>
             <p className="catalog-subhead">
               High-fidelity archival apparel, technical equipment, and precision accessories.
@@ -697,7 +700,7 @@ export default function Page9_ProductGrid({ setPage }) {
 
         {inventoryMetrics.outOfStock > 0 && (
           <p className="catalog-inventory-alert" role="status">
-            Inventory warning: {inventoryMetrics.outOfStock} product(s)
+             warning: {inventoryMetrics.outOfStock} product(s)
             are currently out of stock.
           </p>
         )}
@@ -862,7 +865,11 @@ export default function Page9_ProductGrid({ setPage }) {
                   product.stock === 0 ? 'out-of-stock-card' : ''
                 }`}
               >
-                <div className="card-image-placeholder">
+                <div className="card-image-placeholder"
+                onClick={() => setPreviewProduct(product)}
+                style={{ cursor: 'zoom-in' }}
+                title="Click to view full image"
+                >
                {product.image && (
                 <img
                 src={product.image}
@@ -887,8 +894,11 @@ export default function Page9_ProductGrid({ setPage }) {
                     type="button"
                     className={`catalog-favorite-btn ${
                       isFavorite ? 'is-favorite' : ''
-                    }`}
-                    onClick={() => toggleFavorite(product.id)}
+                   }`}
+                  onClick={(e) => {
+                  e.stopPropagation();
+                  toggleFavorite(product.id);
+                   }}
                     aria-label={
                       isFavorite
                         ? `Remove ${product.title} from saved items`
@@ -1011,7 +1021,7 @@ export default function Page9_ProductGrid({ setPage }) {
           >
             <div className="spec-modal-header">
               <h3 id="spec-modal-title">
-                Technical Product Specification
+                 Product Specification
               </h3>
 
               <button
@@ -1125,7 +1135,7 @@ export default function Page9_ProductGrid({ setPage }) {
             <div className="cart-items-list">
               {cart.length === 0 ? (
                 <div className="empty-cart-msg">
-                  <p>Your shopping bag is empty.</p>
+                  <p>Your shopping cart is empty.</p>
                   <button
                     type="button"
                     className="quick-spec-btn"
@@ -1517,7 +1527,7 @@ export default function Page9_ProductGrid({ setPage }) {
               )}
 
               <button type="submit" className="checkout-btn">
-                Create Demo Order
+                Create Order
               </button>
             </form>
           </section>
@@ -1537,7 +1547,7 @@ export default function Page9_ProductGrid({ setPage }) {
             onClick={(event) => event.stopPropagation()}
           >
             <div className="spec-modal-header">
-              <h3 id="order-success-title">Demo Order Created</h3>
+              <h3 id="order-success-title"> Order Created</h3>
 
               <button
                 type="button"
@@ -1551,7 +1561,7 @@ export default function Page9_ProductGrid({ setPage }) {
 
             <div className="spec-modal-body">
               <p>
-                The portfolio checkout simulation completed successfully.
+                The portfolio checkout completed successfully.
               </p>
 
               <div className="spec-detail-grid">
@@ -1625,6 +1635,60 @@ export default function Page9_ProductGrid({ setPage }) {
           </button>
         </div>
       )}
+
+  {previewProduct && (
+  <div
+  className="image-lightbox-overlay"
+  onClick={() => setPreviewProduct(null)}
+  role="dialog"
+  aria-modal="true"
+  aria-label="Image preview"
+  >
+  <div
+  className="image-lightbox-card"
+  onClick={(e) => e.stopPropagation()}
+  >
+  <header className="image-lightbox-header">
+  <div>
+  <span className="image-lightbox-sku">{previewProduct.sku}</span>
+  <h3 className="image-lightbox-title">{previewProduct.title}</h3>
+  </div>
+
+  <button
+  type="button"
+  className="image-lightbox-close"
+  onClick={() => setPreviewProduct(null)}
+  aria-label="Close image preview"
+  >
+  ✕
+  </button>
+  </header>
+
+  <div className="image-lightbox-body">
+  <img
+  src={previewProduct.image}
+  alt={previewProduct.title}
+  className="image-lightbox-full"
+  />
+  </div>
+
+  <footer className="image-lightbox-footer">
+  <span>{previewProduct.category} · {formatMoney(previewProduct.price)}</span>
+  <button
+  type="button"
+  className="add-to-bag-btn"
+  disabled={getAvailableStock(previewProduct) <= 0}
+  onClick={() => {
+  addToCart(previewProduct);
+  setPreviewProduct(null);
+  }}
+  >
+  Acquire Item
+  </button>
+  </footer>
+  </div>
+  </div>
+  )}
     </div>
   );
 }

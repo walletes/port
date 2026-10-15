@@ -1044,3 +1044,175 @@ opacity: 1;
   height: 100%;
   object-fit: cover;
 }
+.card-image-placeholder {
+  position: relative !important;
+  overflow: hidden !important;
+  height: 200px !important;
+  padding: 14px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+}
+
+/* 2. Image stays behind everything */
+.product-card-img {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+}
+
+/* 3. Top-Left Category Tag */
+.category-meta-tag {
+  position: relative !important;
+  z-index: 5 !important;
+  background-color: #FDFBF7 !important;
+  border: 1px solid #2B1E17 !important;
+  color: #2B1E17 !important;
+}
+
+/* 4. Top-Right Badge Tag (BESTSELLER, LIMITED EDITION, etc.) */
+.product-badge-tag {
+  position: relative !important;
+  z-index: 5 !important;
+  margin-left: auto !important;
+  margin-right: 44px !important; /* Leaves room for the heart button */
+}
+
+/* 5. Top-Right Heart Favorite Button (docked absolute to top-right) */
+.catalog-favorite-btn {
+  position: absolute !important;
+  top: 12px !important;
+  right: 12px !important;
+  z-index: 10 !important;
+}
+
+/* 6. Bottom-Left Discount Tag */
+.catalog-discount-tag {
+  position: absolute !important;
+  bottom: 10px !important;
+  left: 14px !important;
+  z-index: 5 !important;
+}
+
+/* 7. Bottom-Right SKU Tag */
+.sku-code-tag {
+  position: absolute !important;
+  bottom: 10px !important;
+  right: 14px !important;
+  z-index: 5 !important;
+  background-color: rgba(253, 251, 247, 0.9) !important;
+  border: 1px solid rgba(43, 30, 23, 0.4) !important;
+  padding: 1px 5px !important;
+  opacity: 1 !important;
+}
+.image-lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background-color: rgba(43, 30, 23, 0.75);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.18s ease-out;
+}
+
+.image-lightbox-card {
+  background-color: #FDFBF7;
+  border: 2px solid #2B1E17;
+  border-radius: 4px;
+  width: min(800px, 94vw);
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+}
+
+.image-lightbox-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  border-bottom: 1px solid #2B1E17;
+  background-color: #FDFBF7;
+}
+
+.image-lightbox-sku {
+  font-family: monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #F26457;
+}
+
+.image-lightbox-title {
+  margin: 2px 0 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #2B1E17;
+}
+
+.image-lightbox-close {
+  background: none;
+  border: 1px solid #2B1E17;
+  color: #2B1E17;
+  width: 32px;
+  height: 32px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.image-lightbox-close:hover {
+  background-color: #F26457;
+  border-color: #F26457;
+  color: #FDFBF7;
+}
+
+.image-lightbox-body {
+  flex: 1;
+  min-height: 250px;
+  max-height: calc(90vh - 140px);
+  background-color: #1a1411;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.image-lightbox-full {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+}
+
+.image-lightbox-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  border-top: 1px solid #2B1E17;
+  background-color: #FDFBF7;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
