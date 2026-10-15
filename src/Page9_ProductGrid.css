@@ -1126,7 +1126,7 @@ opacity: 1;
 .image-lightbox-card {
   background-color: #FDFBF7;
   border: 2px solid #2B1E17;
-  border-radius: 4px;
+  border-radius: 16px;
   width: min(800px, 94vw);
   max-height: 90vh;
   display: flex;
